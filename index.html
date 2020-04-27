@@ -6,6 +6,27 @@
     html, body {
       margin: 0;
       padding: 0;
+      font-size: 14px;
+    }
+
+    .features {
+      padding: 10px 0;
+    }
+
+    .footer a {
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 40px 0;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+
+    li {
+      margin: 10px 0;
     }
 
     @font-face {
@@ -84,7 +105,7 @@
     }
 
     .content {
-      padding-top: 20vh;
+      padding-top: 10vh;
     }
 
     .content {
@@ -209,21 +230,23 @@
       <p>
           If you're on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer -- moving files in and out of Hyperdrive is a breeze.
       </p>
-      <p>
-        It has all the features of Hypercore, plus a few extras:
-        <ul>
-            <li><b>Version Controlled: </b>Files are versioned by default, making it easy to see historical changes and prevent data loss.</li>
-            <li><b>Composable: </b>Using our mount system, Hyperdrives can be nested within other Hyperdrives, enabling powerful multi-user collaboration tools.</li>
-            <li><b>On-Demand Downloading: </b>By default, readers only download the portions of files they need, on demand. You can stream media from friends without jumping through hoops! Seeking is snappy and there's no buffering.</li>
-            <li><b>Fast Lookups: </b>File metadata is stored in a distributed trie structure, meaning files can be located with minimal network lookups.</li>
-        </ul>
-      </p>
-      <h3>Come chat with us on
-          <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperdrive">Slack</a>, and check out the source/docs on GitHub:
+      <div class="features">
+        <p>
+          It has all the features of Hypercore, plus a few extras:
           <ul>
-              <li><b><a target="_blank" href="https://github.com/mafintosh/hyperdrive">Hyperdrive</a></b></li>
-              <li><b><a target="_blank" href="https://github.com/andrewosh/hyperdrive-daemon">The Hyperdrive daemon</a></b></li>
+              <li><b>Version Controlled: </b>Files are versioned by default, making it easy to see historical changes and prevent data loss.</li>
+              <li><b>Composable: </b>Using our mount system, Hyperdrives can be nested within other Hyperdrives, enabling powerful multi-user collaboration tools.</li>
+              <li><b>On-Demand Downloading: </b>By default, readers only download the portions of files they need, on demand. You can stream media from friends without jumping through hoops! Seeking is snappy and there's no buffering.</li>
+              <li><b>Fast Lookups: </b>File metadata is stored in a distributed trie structure, meaning files can be located with minimal network lookups.</li>
           </ul>
+        </p>
+      </div>
+      <h3 class="footer">Come chat with us on
+        <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperdrive">Slack</a>, and check out the source/docs on GitHub:
+        <ul>
+            <li><b><a target="_blank" href="https://github.com/mafintosh/hyperdrive">Hyperdrive</a></b></li>
+            <li><b><a target="_blank" href="https://github.com/andrewosh/hyperdrive-daemon">The Hyperdrive daemon</a></b></li>
+        </ul>
       </h3>
     </div>
 
@@ -325,17 +348,19 @@
       <p>
           And the whole thing's UDP-based, so it makes thrifty use of your system's resources.
       </p>
-      <p>
-        A few highlights:
-        <ul>
-            <li><b>Distributed Holepunching: </b>If Peer A can be holepunched by any Peer B, then Peer C can bootstrap a connection to Peer A through Peer B. Holepunching is transitive, and can navigate through most home routers.</li>
-            <li><b>Adaptive Announcing: </b>Peers will only announce when they're considered stable, leading to a healthier DHT with fewer unconnectable nodes.</li>
-            <li><b>Fast Lookups: </b>Looking up a key only takes a few hundred milliseconds on average.</li>
-        </ul>
-      </p>
-      <h3>Come chat with us on
-          <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperswarm">Slack</a>, and check out the source/docs on
-          <a target="_blank" href="https://github.com/hyperswarm/hyperswarm">GitHub</a>.
+      <div class="features">
+        <p>
+          A few highlights:
+          <ul>
+              <li><b>Distributed Holepunching: </b>If Peer A can be holepunched by any Peer B, then Peer C can bootstrap a connection to Peer A through Peer B. Holepunching is transitive, and can navigate through most home routers.</li>
+              <li><b>Adaptive Announcing: </b>Peers will only announce when they're considered stable, leading to a healthier DHT with fewer unconnectable nodes.</li>
+              <li><b>Fast Lookups: </b>Looking up a key only takes a few hundred milliseconds on average.</li>
+          </ul>
+        </p>
+      </div>
+      <h3 class="footer">Come chat with us on
+        <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperswarm">Slack</a>, and check out the source/docs on
+        <a target="_blank" href="https://github.com/hyperswarm/hyperswarm">GitHub</a>.
       </h3>
     </div>
 
@@ -439,19 +464,21 @@
           <a target="_blank" href="https://beakerbrowser.com">browser</a>.
           And the whole thing's MIT-licensed, so you can use it as you like!
       </p>
-      <p>
-        It's full of useful features:
-        <ul>
-            <li><b>Simple Sharing: </b>You can discover and sync Hypercores using our Hyperswarm DHT using a single 32-byte key.</li>
-            <li><b>Secure: </b>Hypercore replication streams are encrypted using the NOISE Protocol, and blocks are exchanged using signed Merkle trees. It is end-to-end secure and tamper-proof.</li>
-            <li><b>Fast and Lightweight: </b>Hypercores can replicate at gigabit speeds, and each core has a tiny memory footprint.</li>
-            <li><b>Sparse: </b>You don't need to sync the entire log in order to read a few blocks. The protocol supports downloading only the blocks you need on demand.</li>
-            <li><b>Modular and Standardized: </b>Both the replication protocol and the storage format are standardized, meaning you can hook it up to a vast assortment of storage and networking tools.</li>
-        </ul>
-      </p>
-      <h3>Come chat with us on
-          <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hypercore">Slack</a>, and check out the source/docs on
-          <a target="_blank" href="https://github.com/mafintosh/hypercore">GitHub</a>.
+      <div class="features">
+        <p>
+          It's full of useful features:
+          <ul>
+              <li><b>Simple Sharing: </b>You can discover and sync Hypercores using our Hyperswarm DHT using a single 32-byte key.</li>
+              <li><b>Secure: </b>Hypercore replication streams are encrypted using the NOISE Protocol, and blocks are exchanged using signed Merkle trees. It is end-to-end secure and tamper-proof.</li>
+              <li><b>Fast and Lightweight: </b>Hypercores can replicate at gigabit speeds, and each core has a tiny memory footprint.</li>
+              <li><b>Sparse: </b>You don't need to sync the entire log in order to read a few blocks. The protocol supports downloading only the blocks you need on demand.</li>
+              <li><b>Modular and Standardized: </b>Both the replication protocol and the storage format are standardized, meaning you can hook it up to a vast assortment of storage and networking tools.</li>
+          </ul>
+        </p>
+      </div>
+      <h3 class="footer">Come chat with us on
+        <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hypercore">Slack</a>, and check out the source/docs on
+        <a target="_blank" href="https://github.com/mafintosh/hypercore">GitHub</a>.
       </h3>
     </div>
   </div>
