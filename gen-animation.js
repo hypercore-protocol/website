@@ -5,8 +5,8 @@ const hei = 30
 const n = widBar / wid * heiBar / hei
 
 // random()
-// bisect()
-stream()
+bisect()
+// stream()
 
 function stream () {
   for (let i = 0; i < n; i++) {
@@ -20,12 +20,12 @@ function stream () {
 function bisect () {
   for (let i = 0; i < n; i++) {
     if (i === n - 1) div(0)
-    else if (i === n - 5) div(150)
-    else if (i === n - 13) div(300)
-    else if (i === n - 25) div(450)
-    else if (i === n - 49) div(600)
-    else if (i === n - 55) div(750)
-    else div(Math.random() * 1000 + 750)
+    else if (i === n - 3) div(150)
+    else if (i === n - 9) div(300)
+    else if (i === n - 17) div(450)
+    else if (i === n - 33) div(600)
+    else if (i === n - 65) div(750)
+    else div(Math.random() * 1000 + 1000)
   }
 }
 
