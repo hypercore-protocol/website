@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hypercore Protocol</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    @font-face {
+      font-family: 'ibm_plex_monoregular';
+      src: url('fonts/ibmplexmono-regular-webfont.woff2') format('woff2'),
+           url('fonts/ibmplexmono-regular-webfont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'ibm_plex_monoregular';
+      line-height: 23px;
+    }
+
+    #hypercore .bar > div, #hypercore a.core {
+      background-color: #228DFF;
+      color: white;
+    }
+
+    #hyperdrive .bar > div, #hyperdrive a.drive {
+      background-color: #BA01FF;
+      color: white;
+    }
+
+    #hyperswarm .bar > div, #hyperswarm a.swarm {
+      background-color: #FFCA1B;
+      color: white;
+    }
+
+    .main {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .nav a {
+      position: absolute;
+      left: -200px;
+    }
+
+    .nav a.drive {
+      top: 30px;
+    }
+
+    .nav a.swarm {
+      top: 60px;
+    }
+
+    .nav a {
+      outline: none;
+      display: block;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 20px;
+      width: 140px;
+      line-height: 30px;
+      padding-left: 10px;
+    }
+
+    .bar {
+      height: 30px;
+    }
+
+    .bar > div {
+      transform: scale(0);
+      float: left;
+      animation: expand .25s;
+      width: 10px;
+      height: 30px;
+      animation-fill-mode: forwards;
+    }
+
+    .nav {
+      position: absolute;
+    }
+
+    .content {
+      padding-top: 20vh;
+      display: none;
+    }
+
+    .content:target {
+      display: block !important;
+    }
+
+    @keyframes expand {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main" style="position: relative;">
+    <div id="hypercore" class="content">
+      <div class="nav">
+        <a class="core" href="#hypercore">
+          Hypercore
+        </a>
+        <a class="drive" href="#hyperdrive">
+          Hyperdrive
+        </a>
+        <a class="swarm" href="#hyperswarm">
+          Hyperswarm
+        </a>
+      </div>
+
+      <div class="bar" class="random">
+        <div style="animation-delay: 0.800s;"></div>
+        <div style="animation-delay: 0.372s;"></div>
+        <div style="animation-delay: 0.805s;"></div>
+        <div style="animation-delay: 0.465s;"></div>
+        <div style="animation-delay: 0.39s;"></div>
+        <div style="animation-delay: 0.518s;"></div>
+        <div style="animation-delay: 0.36s;"></div>
+        <div style="animation-delay: 0.139s;"></div>
+        <div style="animation-delay: 0.603s;"></div>
+        <div style="animation-delay: 0.82s;"></div>
+        <div style="animation-delay: 0.205s;"></div>
+        <div style="animation-delay: 0.575s;"></div>
+        <div style="animation-delay: 0.786s;"></div>
+        <div style="animation-delay: 0.501s;"></div>
+        <div style="animation-delay: 0.123s;"></div>
+        <div style="animation-delay: 0.205s;"></div>
+        <div style="animation-delay: 0.742s;"></div>
+        <div style="animation-delay: 0.576s;"></div>
+        <div style="animation-delay: 0.650s;"></div>
+        <div style="animation-delay: 0.20s;"></div>
+        <div style="animation-delay: 0.898s;"></div>
+        <div style="animation-delay: 0.277s;"></div>
+        <div style="animation-delay: 0.198s;"></div>
+        <div style="animation-delay: 0.232s;"></div>
+        <div style="animation-delay: 0.87s;"></div>
+        <div style="animation-delay: 0.510s;"></div>
+        <div style="animation-delay: 0.937s;"></div>
+        <div style="animation-delay: 0.654s;"></div>
+        <div style="animation-delay: 0.228s;"></div>
+        <div style="animation-delay: 0.341s;"></div>
+        <div style="animation-delay: 0.140s;"></div>
+        <div style="animation-delay: 0.62s;"></div>
+        <div style="animation-delay: 0.883s;"></div>
+        <div style="animation-delay: 0.343s;"></div>
+        <div style="animation-delay: 0.286s;"></div>
+        <div style="animation-delay: 0.130s;"></div>
+        <div style="animation-delay: 0.373s;"></div>
+        <div style="animation-delay: 0.885s;"></div>
+        <div style="animation-delay: 0.990s;"></div>
+        <div style="animation-delay: 0.625s;"></div>
+        <div style="animation-delay: 0.794s;"></div>
+        <div style="animation-delay: 0.819s;"></div>
+        <div style="animation-delay: 0.404s;"></div>
+        <div style="animation-delay: 0.389s;"></div>
+        <div style="animation-delay: 0.259s;"></div>
+        <div style="animation-delay: 0.436s;"></div>
+        <div style="animation-delay: 0.693s;"></div>
+        <div style="animation-delay: 0.120s;"></div>
+        <div style="animation-delay: 0.108s;"></div>
+        <div style="animation-delay: 0.706s;"></div>
+        <div style="animation-delay: 0.844s;"></div>
+        <div style="animation-delay: 0.241s;"></div>
+        <div style="animation-delay: 0.911s;"></div>
+        <div style="animation-delay: 0.689s;"></div>
+        <div style="animation-delay: 0.819s;"></div>
+        <div style="animation-delay: 0.674s;"></div>
+        <div style="animation-delay: 0.230s;"></div>
+        <div style="animation-delay: 0.711s;"></div>
+        <div style="animation-delay: 0.221s;"></div>
+        <div style="animation-delay: 0.788s;"></div>
+        <div style="animation-delay: 0.795s;"></div>
+        <div style="animation-delay: 0.894s;"></div>
+        <div style="animation-delay: 0.295s;"></div>
+        <div style="animation-delay: 0.585s;"></div>
+        <div style="animation-delay: 0.669s;"></div>
+        <div style="animation-delay: 0.128s;"></div>
+        <div style="animation-delay: 0.479s;"></div>
+        <div style="animation-delay: 0.608s;"></div>
+        <div style="animation-delay: 0.391s;"></div>
+        <div style="animation-delay: 0.587s;"></div>
+      </div>
+
+      <h1>
+        Hypercore is an append only log
+      </h1>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type this is important specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+
+    <div id="hyperdrive" class="content">
+      <div class="nav">
+        <a class="core" href="#hypercore">
+          Hypercore
+        </a>
+        <a class="drive" href="#hyperdrive">
+          Hyperdrive
+        </a>
+        <a class="swarm" href="#hyperswarm">
+          Hyperswarm
+        </a>
+      </div>
+
+      <div class="bar" class="random">
+        <div style="animation-delay: 0.987s;"></div>
+        <div style="animation-delay: 1.314s;"></div>
+        <div style="animation-delay: 1.25s;"></div>
+        <div style="animation-delay: 1.719s;"></div>
+        <div style="animation-delay: 1.562s;"></div>
+        <div style="animation-delay: 1.501s;"></div>
+        <div style="animation-delay: 1.597s;"></div>
+        <div style="animation-delay: 1.680s;"></div>
+        <div style="animation-delay: 0.969s;"></div>
+        <div style="animation-delay: 0.780s;"></div>
+        <div style="animation-delay: 0.996s;"></div>
+        <div style="animation-delay: 1.719s;"></div>
+        <div style="animation-delay: 0.758s;"></div>
+        <div style="animation-delay: 1.579s;"></div>
+        <div style="animation-delay: 1.372s;"></div>
+        <div style="animation-delay: 0.750s;"></div>
+        <div style="animation-delay: 1.359s;"></div>
+        <div style="animation-delay: 1.324s;"></div>
+        <div style="animation-delay: 1.144s;"></div>
+        <div style="animation-delay: 1.326s;"></div>
+        <div style="animation-delay: 1.278s;"></div>
+        <div style="animation-delay: 0.600s;"></div>
+        <div style="animation-delay: 1.95s;"></div>
+        <div style="animation-delay: 1.69s;"></div>
+        <div style="animation-delay: 1.564s;"></div>
+        <div style="animation-delay: 0.815s;"></div>
+        <div style="animation-delay: 1.264s;"></div>
+        <div style="animation-delay: 1.440s;"></div>
+        <div style="animation-delay: 1.27s;"></div>
+        <div style="animation-delay: 1.583s;"></div>
+        <div style="animation-delay: 0.766s;"></div>
+        <div style="animation-delay: 1.192s;"></div>
+        <div style="animation-delay: 1.654s;"></div>
+        <div style="animation-delay: 0.765s;"></div>
+        <div style="animation-delay: 0.913s;"></div>
+        <div style="animation-delay: 0.816s;"></div>
+        <div style="animation-delay: 1.719s;"></div>
+        <div style="animation-delay: 1.100s;"></div>
+        <div style="animation-delay: 1.311s;"></div>
+        <div style="animation-delay: 0.901s;"></div>
+        <div style="animation-delay: 1.87s;"></div>
+        <div style="animation-delay: 1.630s;"></div>
+        <div style="animation-delay: 1.478s;"></div>
+        <div style="animation-delay: 1.81s;"></div>
+        <div style="animation-delay: 0.816s;"></div>
+        <div style="animation-delay: 0.450s;"></div>
+        <div style="animation-delay: 1.463s;"></div>
+        <div style="animation-delay: 1.390s;"></div>
+        <div style="animation-delay: 1.727s;"></div>
+        <div style="animation-delay: 1.685s;"></div>
+        <div style="animation-delay: 0.763s;"></div>
+        <div style="animation-delay: 1.736s;"></div>
+        <div style="animation-delay: 1.95s;"></div>
+        <div style="animation-delay: 1.423s;"></div>
+        <div style="animation-delay: 1.196s;"></div>
+        <div style="animation-delay: 1.126s;"></div>
+        <div style="animation-delay: 1.475s;"></div>
+        <div style="animation-delay: 0.300s;"></div>
+        <div style="animation-delay: 1.374s;"></div>
+        <div style="animation-delay: 1.576s;"></div>
+        <div style="animation-delay: 1.151s;"></div>
+        <div style="animation-delay: 1.44s;"></div>
+        <div style="animation-delay: 0.795s;"></div>
+        <div style="animation-delay: 1.134s;"></div>
+        <div style="animation-delay: 1.635s;"></div>
+        <div style="animation-delay: 0.150s;"></div>
+        <div style="animation-delay: 1.246s;"></div>
+        <div style="animation-delay: 1.161s;"></div>
+        <div style="animation-delay: 1.139s;"></div>
+        <div style="animation-delay: 0.0s;"></div>
+      </div>
+
+      <h1>
+        Hyperdrive is an append only log
+      </h1>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type this is important specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+
+    <div id="hyperswarm" class="content">
+      <div class="nav">
+        <a class="core" href="#hypercore">
+          Hypercore
+        </a>
+        <a class="drive" href="#hyperdrive">
+          Hyperdrive
+        </a>
+        <a class="swarm" href="#hyperswarm">
+          Hyperswarm
+        </a>
+      </div>
+
+      <div class="bar">
+        <div style="animation-delay: 0.0s;"></div>
+        <div style="animation-delay: 2.409s;"></div>
+        <div style="animation-delay: 2.55s;"></div>
+        <div style="animation-delay: 2.32s;"></div>
+        <div style="animation-delay: 2.119s;"></div>
+        <div style="animation-delay: 1.565s;"></div>
+        <div style="animation-delay: 2.169s;"></div>
+        <div style="animation-delay: 2.10s;"></div>
+        <div style="animation-delay: 1.633s;"></div>
+        <div style="animation-delay: 1.865s;"></div>
+        <div style="animation-delay: 0.650s;"></div>
+        <div style="animation-delay: 1.501s;"></div>
+        <div style="animation-delay: 1.883s;"></div>
+        <div style="animation-delay: 2.186s;"></div>
+        <div style="animation-delay: 1.786s;"></div>
+        <div style="animation-delay: 1.558s;"></div>
+        <div style="animation-delay: 2.431s;"></div>
+        <div style="animation-delay: 1.829s;"></div>
+        <div style="animation-delay: 1.926s;"></div>
+        <div style="animation-delay: 1.978s;"></div>
+        <div style="animation-delay: 0.800s;"></div>
+        <div style="animation-delay: 2.18s;"></div>
+        <div style="animation-delay: 2.66s;"></div>
+        <div style="animation-delay: 2.146s;"></div>
+        <div style="animation-delay: 1.678s;"></div>
+        <div style="animation-delay: 1.778s;"></div>
+        <div style="animation-delay: 1.538s;"></div>
+        <div style="animation-delay: 2.121s;"></div>
+        <div style="animation-delay: 1.648s;"></div>
+        <div style="animation-delay: 1.682s;"></div>
+        <div style="animation-delay: 0.950s;"></div>
+        <div style="animation-delay: 1.845s;"></div>
+        <div style="animation-delay: 2.31s;"></div>
+        <div style="animation-delay: 2.394s;"></div>
+        <div style="animation-delay: 2.425s;"></div>
+        <div style="animation-delay: 1.610s;"></div>
+        <div style="animation-delay: 1.544s;"></div>
+        <div style="animation-delay: 2.391s;"></div>
+        <div style="animation-delay: 1.695s;"></div>
+        <div style="animation-delay: 2.101s;"></div>
+        <div style="animation-delay: 1.100s;"></div>
+        <div style="animation-delay: 1.866s;"></div>
+        <div style="animation-delay: 1.669s;"></div>
+        <div style="animation-delay: 2.333s;"></div>
+        <div style="animation-delay: 2.337s;"></div>
+        <div style="animation-delay: 1.554s;"></div>
+        <div style="animation-delay: 1.744s;"></div>
+        <div style="animation-delay: 1.698s;"></div>
+        <div style="animation-delay: 2.77s;"></div>
+        <div style="animation-delay: 1.629s;"></div>
+        <div style="animation-delay: 1.250s;"></div>
+        <div style="animation-delay: 2.66s;"></div>
+        <div style="animation-delay: 2.162s;"></div>
+        <div style="animation-delay: 1.789s;"></div>
+        <div style="animation-delay: 1.883s;"></div>
+        <div style="animation-delay: 1.523s;"></div>
+        <div style="animation-delay: 1.643s;"></div>
+        <div style="animation-delay: 2.441s;"></div>
+        <div style="animation-delay: 1.790s;"></div>
+        <div style="animation-delay: 1.722s;"></div>
+        <div style="animation-delay: 1.400s;"></div>
+        <div style="animation-delay: 2.294s;"></div>
+        <div style="animation-delay: 1.520s;"></div>
+        <div style="animation-delay: 1.895s;"></div>
+        <div style="animation-delay: 1.919s;"></div>
+        <div style="animation-delay: 1.796s;"></div>
+        <div style="animation-delay: 1.647s;"></div>
+        <div style="animation-delay: 1.666s;"></div>
+        <div style="animation-delay: 1.677s;"></div>
+        <div style="animation-delay: 0.150s;"></div>
+      </div>
+
+      <h1>
+        Hyperswarm is an append only log
+      </h1>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type this is important specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
