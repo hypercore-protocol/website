@@ -198,11 +198,33 @@
       </div>
 
       <h1>
-        Hyperdrive is an append only log
+        Hyperdrive is a P2P filesystem.
       </h1>
+      <h3>
+          It's designed to help you share files quickly and safely, directly from your computer.
+      </h3>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type this is important specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          The cross-platform Hyperdrive daemon deals with all the storage and networking details for you. The daemon's CLI lets you create, share, and inspect Hyperdrives in your library, and its gRPC API provides full programmatic control over daemon-managed drives.
       </p>
+      <p>
+          If you're on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer -- moving files in and out of Hyperdrive is a breeze.
+      </p>
+      <p>
+        It has all the features of Hypercore, plus a few extras:
+        <ul>
+            <li><b>Version Controlled: </b>Files are versioned by default, making it easy to see historical changes and prevent data loss.</li>
+            <li><b>Composable: </b>Using our mount system, Hyperdrives can be nested within other Hyperdrives, enabling powerful multi-user collaboration tools.</li>
+            <li><b>On-Demand Downloading: </b>By default, readers only download the portions of files they need, on demand. You can stream media from friends without jumping through hoops! Seeking is snappy and there's no buffering.</li>
+            <li><b>Fast Lookups: </b>Both the replication protocol and the storage format are standardized, meaning you can hook it up to a vast assortment of storage and networking tools.</li>
+        </ul>
+      </p>
+      <h3>Come chat with us on
+          <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperdrive">Slack</a>, and check out the source/docs on GitHub:
+          <ul>
+              <li><b><a target="_blank" href="https://github.com/mafintosh/hyperdrive">Hyperdrive</a></b></li>
+              <li><b><a target="_blank" href="https://github.com/andrewosh/hyperdrive-daemon">The Hyperdrive daemon</a></b></li>
+          </ul>
+      </h3>
     </div>
 
     <div id="hyperswarm" class="content">
@@ -292,11 +314,29 @@
       </div>
 
       <h1>
-        Hyperswarm is an append only log
+        Hyperswarm is a DHT for the home.
       </h1>
+      <h3>
+          Its Kademlia-backed discovery system comes packed with tricks for staying fast and reliable in diverse network environments.
+      </h3>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type this is important specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          Peers within home networks come and go, and home router NATs often make it challenging to connect to them. Hyperswarm contains a novel distributed holepunching algorithm, which can traverse the vast majority of home NATs. When peers disappear, Hyperswarm deploys many heuristics to keep the DHT healthy in the presence of these unreliable nodes.
       </p>
+      <p>
+          And the whole thing's UDP-based, so it makes thrifty use of your system's resources.
+      </p>
+      <p>
+        A few highlights:
+        <ul>
+            <li><b>Distributed Holepunching: </b>If Peer A can be holepunched by any Peer B, then Peer C can bootstrap a connection to Peer A through Peer B. Holepunching is transitive, and can navigate through most home routers.</li>
+            <li><b>Adaptive Announcing: </b>Peers will only announce when they're considered stable, leading to a healthier DHT with fewer unconnectable nodes.</li>
+            <li><b>Fast Lookups: </b>Looking up a key only takes a few hundred milliseconds on average.</li>
+        </ul>
+      </p>
+      <h3>Come chat with us on
+          <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hyperswarm">Slack</a>, and check out the source/docs on
+          <a target="_blank" href="https://github.com/hyperswarm/hyperswarm">GitHub</a>.
+      </h3>
     </div>
 
     <div id="hypercore" class="content">
@@ -411,7 +451,8 @@
       </p>
       <h3>Come chat with us on
           <a target="_blank" href="https://hypercore-protocol.slack.com/app_redirect?channel=hypercore">Slack</a>, and check out the source/docs on
-          <a target="_blank" href="https://github.com/mafintosh/hypercore">GitHub</a>.</h3>
+          <a target="_blank" href="https://github.com/mafintosh/hypercore">GitHub</a>.
+      </h3>
     </div>
   </div>
 </body>
