@@ -265,7 +265,7 @@
         If you are not familiar with append-only logs, they are basically just lists you only can append. If you think about it in terms of normal array operations, it is a log where you can only call get(index), push(data) and retrieve the log length, but where you can never overwrite old entries.
       </p>
       <div class="videogif">
-        <video src="videos/aol.mp4" autoplay loop muted></video>
+        <video src="videos/aol.mp4" autoplay loop muted playsinline></video>
       </div>
       <p>
         Hypercore allows you to quickly distribute these kind of logs in a peer to peer fashion. Each peer can choose to download only the section of the log they are interested in in a random-access fashion, without having to download everything from the beginning.
@@ -279,16 +279,16 @@
         Hypercore allows you to quickly distribute logs in a peer to peer fashion. It builds on a model where the log contents is verified by a merkle tree. Through this merkle tree, peers can choose to only download the parts of the log they are interested in, and redistribute these parts to others.
       </p>
       <div class="videogif" style="height: 300px;">
-        <video src="videos/merkle-trees.mp4" autoplay loop muted  style="margin-top: -150px;"></video>
+        <video src="videos/merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -150px;"></video>
       </div>
       <p>
         Merkle trees are widely used by many distributed systems in various forms. Since Merkle trees are normally only used to verify static content, i.e. if the content changes the root of the Merkle tree changes, Hypercore utilises asymmetric cryptography to sign the root of the Merkle tree as data is appended to it.
       </p>
       <div class="videogif" style="height: 380px;">
-        <video src="videos/growing-merkle-trees.mp4" autoplay loop muted  style="margin-top: -100px;"></video>
+        <video src="videos/growing-merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
       </div>
       <p>
-        As data is appended to the log, the Merkle tree grows. As it grows the root of the tree is signed using a ED25519 keypair. Only the owner of the private key can grow the log. Using multiple Hypercores multi user
+        As data is appended to the log, the Merkle tree grows. As it grows the root of the tree is signed with EdDSA. Only the owner of the private key can grow the log. Using multiple Hypercores multi user
         data structures can be constructed. Hypercore's main purpose is to be the building block of other things.
       </p>
       <h2>Community</h2>
