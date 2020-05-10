@@ -114,6 +114,14 @@
       padding-top: 50px;
     }
 
+    code {
+      font-family: 'ibm_plex_monoregular';
+      display: block;
+      border: 2px solid black;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
     video {
       width: 100%;
       margin-top: -100px;
@@ -163,6 +171,7 @@
       <a id="core-link" href="#hypercore">Hypercore</a>
       <a id="drive-link" href="#hyperdrive">Hyperdrive</a>
       <a id="swarm-link" href="#hyperswarm">Hyperswarm</a>
+      <a id="blog-link" href="https://hyper-blog.andrewosh.now.sh/posts/announcing-hyperdrive-10/">Blog</a>
     </nav>
 
     <section id="core">
@@ -469,23 +478,7 @@
       </p>
 
       <p>
-        The cross-platform Hyperdrive daemon deals with all the storage and networking details for you. The daemon's CLI lets you create, share, and inspect Hyperdrives in your library, and its gRPC API provides full programmatic control over daemon-managed drives.
-      </p>
-
-      <p>
-        If you're on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer -- moving files in and out of Hyperdrive is a breeze.
-      </p>
-
-      <p>
-        It has all the features of Hypercore, plus a few extras:
-      </p>
-
-      <p>
-        Files are versioned by default, making it easy to see historical changes and prevent data loss.
-      </p>
-
-      <p>
-        Using our mount system, Hyperdrives can be nested within other Hyperdrives, enabling powerful multi-user collaboration tools.
+        Hyperdrive is built using Hypercores. Using an append-only index you can find only the files you are interested from a large drive in milliseconds - all P2P.
       </p>
 
       <p>
@@ -493,8 +486,79 @@
       </p>
 
       <p>
-        File metadata is stored in a distributed trie structure, meaning files can be located with minimal network lookups.
+        If you want to learn more about the code you can see the Node.js implementation in the <a href="https://github.com/mafintosh/hyperdrive">Github repository</a>
       </p>
+
+      <p>
+        If you want to download (this site is even available, using the link at the bottom!) or share filesystems, we suggest you read on and try out the daemon.
+      </p>
+
+      <h2>The Hyperdrive Daemon</h2>
+
+      <p>
+        The cross-platform Hyperdrive daemon deals with all the storage and networking details for you. The daemon's CLI lets you create, share, and inspect Hyperdrives in your library, and its gRPC API provides full programmatic control over daemon-managed drives.
+      </p>
+
+      <p>
+        You can install the daemon today using the NPM package manager.
+      </p>
+
+      <p>
+        <code>npm install -g hyperdrive-daemon</code>
+      </p>
+
+      <p>
+        If you're on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer -- moving files in and out of Hyperdrive is a breeze.
+      </p>
+
+      <p>
+        As with our other modules and data structures, you can read more about the daemon in <a href="https://github.com/andrewosh/hyperdrive-daemon">Hyperdrive Daemon Github repository</a>.
+      </p>
+
+      <h2>How does Hyperdrive work?</h2>
+
+      <p>
+        Hyperdrive indexes filenames into a Hypercore. To avoid having to scan through this entire Hypercore when you want to find a specific file or folder, filenames are indexed using an append-only hash trie, we call Hypertrie. The hash trie basically functions as a fast append-only key value store with listable folders.
+      </p>
+
+      <div class="videogif">
+        <video src="videos/trie.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
+      </div>
+
+      <p>
+        If you are looking for a simple database abstraction on top of Hypercore you can also use Hypertries standalone, outside of Hyperdrive. In you want to learn more about how to use it, we suggest you look at the <a href="https://github.com/mafintosh/hypertrie">Hypertrie repository</a>
+      </p>
+
+      <p>
+        Since it builds on top of the append-only log, it inherits the same guarantees of every change being versioned by default, making it easy to see historical changes and prevent accidental data loss.
+      </p>
+
+      <p>
+        In addition to the Hypertrie, which we refer to as the metadata log, Hyperdrive uses another Hypercore to store the binary file content of each file you insert. Using this dual log design, it makes it easy to replicate or watch only the metadata if that is what you are interested in.
+      </p>
+
+      <p>
+        Each entry in the Hypertrie links out to this content log to signal where the binary data starts and ends for this specific. Additionally the entry contains all the normal POSIX data you'd be interested in, such as modification time, created time, file modes, etc.
+      </p>
+
+      <h2>Mounts</h2>
+
+      <p>
+        For better composability and collaboration, an entry can also link to a completely different Hyperdrive or Hypercore. We call this feature mounts, and even though it's perceivably simple, it is one of the more powerful features of Hyperdrive for collaboration.
+      </p>
+
+      <div class="videogif">
+        <video src="videos/metadata-and-content-and-mounts.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
+      </div>
+
+      <p>
+        Internally we have been using Hyperdrive mounts for a concept we call "groupware", where each user mounts their own drive inside a single shared one. This allows you to construct a Dropbox like experience without having to worry about conflicts and likewise collaboration problems.
+      </p>
+
+      <p>
+        We are actively exploring even more interesting ways of indexing files and collaborating with them. If you are interested in collobarating with us always feel free to reach out at <a href="mailto:hello@hypercore-protocol.org">hello@hypercore-protocol.org</a> or join our <a href="#">Discord</a>.
+      </p>
+
     </section>
 
     <section id="swarm">
