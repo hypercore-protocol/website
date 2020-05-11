@@ -273,7 +273,7 @@
         Hypercore allows you to quickly distribute these kind of logs in a peer to peer fashion. Each peer can choose to download only the section of the log they are interested in in a random-access fashion, without having to download everything from the beginning.
       </p>
       <p>
-        Using append only logs Hypercore can easily digest and share between peers which part of a log a peer has through the use of compressed bitfields. This, among other things, helps make the replication protocol light and efficient.
+        Using append only logs, Hypercore can easily digest and share between peers which part of a log a peer has through the use of compressed bitfields. This, among other things, helps make the replication protocol light and efficient.
       </p>
 
       <h2>Secured by Merkle trees and cryptography</h2>
@@ -290,7 +290,7 @@
         <video src="videos/growing-merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
       </div>
       <p>
-        As data is appended to the log, the Merkle tree grows. As it grows the root of the tree is signed with EdDSA. Only the owner of the private key can grow the log. Using multiple Hypercores multi user
+        As data is appended to the log, the Merkle tree grows. As it grows the root of the tree is signed with EdDSA. Only the owner of the private key can grow the log. Using multiple Hypercores, multi user
         data structures can be constructed. Hypercore's main purpose is to be the building block of other things.
       </p>
       <h2>Community</h2>
@@ -652,11 +652,11 @@
       <h2>A Kademlia DHT</h2>
 
       <p>
-        Like most other P2P project, Hyperswarm uses a DHT to discover peers on the internet. In the Hypercore protocol a hash of the Hypercore's public key is used as the topic under which peers share their IP and port to discover each other.
+        Like most other P2P projects, Hyperswarm uses a DHT to discover peers on the internet. In the Hypercore protocol, a hash of the Hypercore's public key is used as the topic under which peers share their IP and port to discover each other.
       </p>
 
       <p>
-        Hypercore comes with a capability system where each peer has to verify they know the public key before they start sharing data, so only if you knew about the public keys from outside the DHT will you be able to actually download data from peers.
+        Hypercore comes with a capability system where each peer has to verify they know the public key before they start sharing data, so you have to know the public key in order to download data from peers (even if you’re watching the DHT).
       </p>
 
       <div class="videogif">
@@ -664,11 +664,11 @@
       </div>
 
       <p>
-        The DHT used in Hyperswarm is based on Kademlia. It is a flexible DHT where each request/response sent is a simple extensible <a href="https://github.com/mafintosh/dht-rpc/blob/master/schema.proto">Protocol Buffers message</a>. You can read much more about Kademlia in <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">the Kademlia paper</a> but it is a UDP based DHT which XOR routing algorithm is used by many projects, including BitTorrent.
+        The DHT used in Hyperswarm is based on Kademlia. It is a flexible DHT where each request/response sent is a simple extensible <a href="https://github.com/mafintosh/dht-rpc/blob/master/schema.proto">Protocol Buffers message</a>. You can read much more about Kademlia in <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">the Kademlia paper</a>, but it is a UDP-based DHT which is used by many projects, including BitTorrent.
       </p>
 
       <p>
-        Distributed Hash Tables, in general scale well, but can also be notoriously hard to to work with. Hyperswarm employs a series of heuristics to answers queries and to be able to garbage collect stale queries as fast as possible.
+        Distributed Hash Tables scale well in general, but can also be notoriously hard to work with. Hyperswarm employs a series of heuristics in order to answer queries and garbage collected stale data as fast as possible.
       </p>
 
       <p>
@@ -678,7 +678,7 @@
       <h2>Distributed Holepunching</h2>
 
       <p>
-        P2P networks in general means connecting to peoples computers where ever they are. This is often a challenge due to firewalls, not accepting incoming connections and NATs masking your IP. To help "break through" firewalls a technique called UDP holepunching has been around for a while.
+        P2P networks mean connecting to peoples computers where-ever they are. This is often a challenge due to firewalls which reject incoming connections and due to NATs which mask your IP. To help “break through” firewalls, a technique called UDP holepunching is used.
       </p>
 
       <p>
@@ -693,7 +693,7 @@
       </div>
 
       <p>
-        After finding the relevant peers, Hyperswarm utilies the UTP transport protocol, to make reliable connection streams between peers. Additionally for none holepunching-cases TCP is used as well.
+        After finding the relevant peers, Hyperswarm utilises the UTP transport protocol, to make reliable connection streams between peers. For non-holepunching cases, TCP is used as well.
       </p>
 
       <p>
