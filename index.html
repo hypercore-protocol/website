@@ -671,7 +671,15 @@
         Distributed Hash Tables, in general scale well, but can also be notoriously hard to to work with. Hyperswarm employs a series of heuristics to answers queries and to be able to garbage collect stale queries as fast as possible.
       </p>
 
+      <p>
+        You should note that DHTs in general expose routing information such as your IP and port to help route other peers to you. Better privacy preserving DHTs are an active research area by many participants in the P2P ecosystem.
+      </p>
+
       <h2>Distributed Holepunching</h2>
+
+      <p>
+        P2P networks in general means connecting to peoples computers where ever they are. This is often a challenge due to firewalls, not accepting incoming connections and NATs masking your IP. To help "break through" firewalls a technique called UDP holepunching has been around for a while.
+      </p>
 
       <p>
         Traditionally UDP holepunching requires the use of centralised servers that are preknown by each peer in a network.
