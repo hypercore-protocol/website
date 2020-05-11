@@ -556,7 +556,7 @@
       </p>
 
       <p>
-        We are actively exploring even more interesting ways of indexing files and collaborating with them. If you are interested in collobarating with us always feel free to reach out at <a href="mailto:hello@hypercore-protocol.org">hello@hypercore-protocol.org</a> or join our <a href="#">Discord</a>.
+        We are actively exploring even more interesting ways of indexing files and collaborating with them. If you are interested in collobarating with us always feel free to to open an issue on <a href="https://github.com/mafintosh/hyperdrive">Github</a>, reach out at <a href="mailto:hello@hypercore-protocol.org">hello@hypercore-protocol.org</a> or join our <a href="#">Discord</a>.
       </p>
 
     </section>
@@ -635,16 +635,63 @@
         <div style="animation-delay: 0.150s;"></div>
       </div>
 
-      <h1>Hyperswarm is a DHT for the home</h1>
+      <h1>Hyperswarm is a P2P network stack for the home</h1>
+
       <p>
-        It's Kademlia-backed discovery system comes packed with tricks for staying fast and reliable in diverse network environments.
+        It's combines a <a href="https://github.com/hyperswarm/dht">Kademlia-based distributed hash table (DHT)</a> for global discovery with MDNS to discover peers on local networks.
+      </p>
+
+      <p>
+        Each component of Hyperswarm is built with home networks in mind, meaning that any DHT peer can you help you establish a connection to another peer they know about. This technique is called "UDP holepunching", and is what allows Hyperswarm to make P2P connections without having to worry too much about firewalls.
+      </p>
+
+      <p>
+        Hyperswarm is part of the Hypercore protocol but can be used standalone as well. You can learn more on the <a href="https://github.com/hyperswarm">Hyperswarm Github organisation</a> and in the main <a href="https://github.com/hyperswarm/hyperswarm">Node.js implementation repository</a>
+      </p>
+
+      <h2>A Kademlia DHT</h2>
+
+      <p>
+        Like most other P2P project, Hyperswarm uses a DHT to discover peers on the internet. In the Hypercore protocol a hash of the Hypercore's public key is used as the topic under which peers share their IP and port to discover each other.
+      </p>
+
+      <p>
+        Hypercore comes with a capability system where each peer has to verify they know the public key before they start sharing data, so only if you knew about the public keys from outside the DHT will you be able to actually download data from peers.
+      </p>
+
+      <div class="videogif">
+        <video src="videos/dht.mp4" autoplay loop muted playsinline style="margin-top: -90px;">
+      </div>
+
+      <p>
+        The DHT used in Hyperswarm is based on Kademlia. It is a flexible DHT where each request/response sent is a simple extensible <a href="https://github.com/mafintosh/dht-rpc/blob/master/schema.proto">Protocol Buffers message</a>. You can read much more about Kademlia in <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">the Kademlia paper</a> but it is a UDP based DHT which XOR routing algorithm is used by many projects, including BitTorrent.
+      </p>
+
+      <p>
+        Distributed Hash Tables, in general scale well, but can also be notoriously hard to to work with. Hyperswarm employs a series of heuristics to answers queries and to be able to garbage collect stale queries as fast as possible.
+      </p>
+
+      <h2>Distributed Holepunching</h2>
+
+      <p>
+        Traditionally UDP holepunching requires the use of centralised servers that are preknown by each peer in a network.
       </p>
       <p>
-        Peers within home networks come and go, and home router NATs often make it challenging to connect to them. Hyperswarm contains a novel distributed holepunching algorithm, which can traverse the vast majority of home NATs. When peers disappear, Hyperswarm deploys many heuristics to keep the DHT healthy in the presence of these unreliable nodes.
+        Hyperswarm expands on holepunching by making it a first class feature of its DHT. This means that any peer in the DHT can help you holepunch to any peer that the DHT node knows about.
       </p>
+
+      <div class="videogif" style="height: 390px;">
+        <video src="videos/dht-holepunching.mp4" autoplay loop muted playsinline style="margin-top: -60px;">
+      </div>
+
       <p>
-        And the whole thing's UDP-based, so it makes thrifty use of your system's resources.
+        After finding the relevant peers, Hyperswarm utilies the UTP transport protocol, to make reliable connection streams between peers. Additionally for none holepunching-cases TCP is used as well.
       </p>
+
+      <p>
+        Hypercore utilises the <a href="https://noiseprotocol.org/">Noise protocol framework</a> to build end-to-end encrypted connections on top of the UTP/TCP streams to other peers provided by Hyperswarm.
+      </p>
+
     </section>
 
     <div class="end">
