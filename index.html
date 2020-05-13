@@ -34,7 +34,6 @@
 
     #core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link {
       border-bottom: 5px solid black;
-      padding: 5px;
     }
 
     #logo {
@@ -46,7 +45,6 @@
     }
 
     nav {
-      white-space: nowrap;
       padding-top: 30px;
       text-align: center;
     }
@@ -75,6 +73,7 @@
     }
 
     nav a {
+      display: inline-block;
       text-decoration: none;
       margin: 0 20px;
       font-size: 20px;
@@ -86,20 +85,21 @@
 
     body > div {
       padding: 0 30px;
-      width: 700px;
+      max-width: 700px;
       margin: auto;
     }
 
     .bar {
+      display: flex;
+      flex-direction: row;
       height: 20px;
     }
 
     .bar > div {
+      flex: 1 1 10px;
       background-color: black;
       transform: scale(0);
-      float: left;
       animation: expand 0s;
-      width: 10px;
       height: 20px;
       animation-fill-mode: forwards;
     }
@@ -107,7 +107,7 @@
     .videogif {
       overflow: hidden;
       height: 340px;
-      max-width: 700px;
+      max-width: 100%;
     }
 
     .end {
@@ -118,8 +118,10 @@
     }
 
     .end a {
-      max-width: 600px;
+      display: block;
       text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap
     }
 
     code {
@@ -133,7 +135,7 @@
     video {
       width: 100%;
       margin-top: -100px;
-
+      height: 525px;
     }
 
     a {
@@ -144,17 +146,22 @@
       outline: none;
     }
 
+    .community-small {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 40px 0 10px 0;
+    }
+
     .community-small > div:nth-child(odd) {
       margin-right: 96px;
     }
 
     .community-small > div {
-      display: inline-block;
-      width: 300px;
-      margin-bottom: 10px;
-      margin-top: 40px;
+      margin-bottom: 50px;
       text-align: left;
       vertical-align: top;
+      flex: 1 1 calc(50% - 48px);
     }
 
     .community-small a, .community-big a {
@@ -174,6 +181,16 @@
     @media only screen and (max-width: 800px) {
       nav a {
         margin: 0 9px;
+      }
+
+      .community-small > div {
+        margin-bottom: 30px;
+        margin-right: 0 !important;
+        flex: 1 1 100%;
+      }
+
+      nav a {
+        margin-bottom: 5px;
       }
     }
   </style>
