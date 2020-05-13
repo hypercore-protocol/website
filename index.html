@@ -295,34 +295,33 @@
 
       <h2>Append-only logs?</h2>
       <p>
-        If you are not familiar with append-only logs, they are basically just lists you only can append. If you think about it in terms of normal array operations, it is a log where you can only call get(index), push(data) and retrieve the log length, but where you can never overwrite old entries.
+        If you are not familiar with append-only logs, they are basically just lists you can only append to. If you think about it in terms of normal array operations, it is a log where you can only call get(index), push(data) and retrieve the log length, but where you can never overwrite old entries.
       </p>
       <div class="videogif">
         <video src="videos/aol.mp4" autoplay loop muted playsinline></video>
       </div>
       <p>
-        Hypercore allows you to quickly distribute these kind of logs in a peer to peer fashion. Each peer can choose to download only the section of the log they are interested in in a random-access fashion, without having to download everything from the beginning.
+        Hypercore allows you to quickly distribute these kind of logs in a peer-to-peer fashion. Each peer can choose to download only the section of the log they are interested in, without having to download everything from the beginning.
       </p>
       <p>
-        Using append only logs, Hypercore can easily digest and share between peers which part of a log a peer has through the use of compressed bitfields. This, among other things, helps make the replication protocol light and efficient.
+        Using append-only logs, Hypercore can easily generate compressed bitfields describing which portions of a log a peer has. This, among other things, helps make the replication protocol light and efficient.
       </p>
 
       <h2>Secured by Merkle trees and cryptography</h2>
       <p>
-        Hypercore allows you to quickly distribute logs in a peer to peer fashion. It builds on a model where the log contents is verified by a merkle tree using the BLAKE2b-256 hash function. Through this merkle tree, peers can choose to only download the parts of the log they are interested in, and redistribute these parts to others.
+        Hypercore verifies log contents by building a Merkle tree using the BLAKE2b-256 hash function. Peers can also use this Merkle tree to only download the parts of the log they are interested in, and redistribute these parts to others.
       </p>
       <div class="videogif" style="height: 300px;">
         <video src="videos/merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -150px;"></video>
       </div>
       <p>
-        Merkle trees are widely used by many distributed systems in various forms. Since Merkle trees are normally only used to verify static content, i.e. if the content changes the root of the Merkle tree changes, Hypercore utilises asymmetric cryptography to sign the root of the Merkle tree as data is appended to it.
+        Merkle trees are widely used in many distributed systems. They are normally only used to verify static content, because when content changes the root of the tree changes as well. To support mutable datasets, Hypercore uses asymmetric cryptography to sign the root of the Merkle tree as data is appended to it.
       </p>
       <div class="videogif" style="height: 380px;">
         <video src="videos/growing-merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
       </div>
       <p>
-        As data is appended to the log, the Merkle tree grows. As it grows the root of the tree is signed with EdDSA. Only the owner of the private key can grow the log. Using multiple Hypercores, multi user
-        data structures can be constructed. Hypercore's main purpose is to be the building block of other things.
+        Only the owner of the private key can append to the log. But one Hypercore is rarely used on its own -- more powerful, multi-user data structures can be created by combining multiple cores. Hypercore's main purpose is to be a building block in other things.
       </p>
       <h2>Community</h2>
       <p>
@@ -509,7 +508,7 @@
       </p>
 
       <p>
-        Hyperdrive is built using Hypercores. Using an append-only index you can find only the files you are interested from a large drive in milliseconds - all P2P.
+        Hyperdrive is built using Hypercores. Using an append-only index you can find only the files you are interested from a large drive in milliseconds -- all P2P.
       </p>
 
       <p>
@@ -517,11 +516,11 @@
       </p>
 
       <p>
-        If you want to learn more about the code you can see the Node.js implementation in the <a href="https://github.com/mafintosh/hyperdrive">Github repository</a>
+        If you want to learn more about the code you can see the Node.js implementation in the <a href="https://github.com/mafintosh/hyperdrive">GitHub repository</a>
       </p>
 
       <p>
-        If you want to download (this site is even available, using the link at the bottom!) or share filesystems, we suggest you read on and try out the daemon.
+        If you want to download or share filesystems, we suggest you read on and try out the daemon. This website is even available as a drive, using the link at the bottom of the page!
       </p>
 
       <h2>The Hyperdrive Daemon</h2>
@@ -549,7 +548,7 @@
       <h2>How does Hyperdrive work?</h2>
 
       <p>
-        Hyperdrive indexes filenames into a Hypercore. To avoid having to scan through this entire Hypercore when you want to find a specific file or folder, filenames are indexed using an append-only hash trie, we call Hypertrie. The hash trie basically functions as a fast append-only key value store with listable folders.
+        Hyperdrive indexes filenames into a Hypercore. To avoid having to scan through this entire Hypercore when you want to find a specific file or folder, filenames are indexed using an append-only hash trie, which we call Hypertrie. The hash trie basically functions as a fast append-only key value store with listable folders.
       </p>
 
       <div class="videogif">
@@ -557,7 +556,7 @@
       </div>
 
       <p>
-        If you are looking for a simple database abstraction on top of Hypercore you can also use Hypertries standalone, outside of Hyperdrive. In you want to learn more about how to use it, we suggest you look at the <a href="https://github.com/mafintosh/hypertrie">Hypertrie repository</a>
+        If you are looking for a simple database abstraction on top of Hypercore you can also use Hypertrie standalone, outside of Hyperdrive. In you want to learn more about how to use it, we suggest you look at the <a href="https://github.com/mafintosh/hypertrie">Hypertrie repository</a>
       </p>
 
       <p>
@@ -565,17 +564,17 @@
       </p>
 
       <p>
-        In addition to the Hypertrie, which we refer to as the metadata log, Hyperdrive uses another Hypercore to store the binary file content of each file you insert. Using this dual log design, it makes it easy to replicate or watch only the metadata if that is what you are interested in.
+        In addition to the Hypertrie, which we refer to as the metadata log, Hyperdrive uses another Hypercore to store the binary file content of each file you insert. This dual-log design makes it easy to replicate or watch only the metadata log, without content, if that is what you are interested in.
       </p>
 
       <p>
-        Each entry in the Hypertrie links out to this content log to signal where the binary data starts and ends for this specific. Additionally the entry contains all the normal POSIX data you'd be interested in, such as modification time, created time, file modes, etc.
+        Each entry in the Hypertrie links to the content log to signal where a file's binary data starts and ends. Additionally, the entry contains all the normal POSIX data you'd be interested in, such as modification time, creation time, file modes, etc.
       </p>
 
       <h2>Mounts</h2>
 
       <p>
-        For better composability and collaboration, an entry can also link to a completely different Hyperdrive or Hypercore. We call this feature mounts, and even though it's perceivably simple, it is one of the more powerful features of Hyperdrive for collaboration.
+        For better composability and collaboration, an entry can also link to a completely different Hyperdrive or Hypercore. We call this feature mounts Even though it's ostensibly simple, it can be used to build powerful collaborative features.
       </p>
 
       <div class="videogif">
@@ -583,11 +582,11 @@
       </div>
 
       <p>
-        Internally we have been using Hyperdrive mounts for a concept we call "groupware", where each user mounts their own drive inside a single shared one. This allows you to construct a Dropbox like experience without having to worry about conflicts and likewise collaboration problems.
+        Internally we have been using Hyperdrive mounts for a concept we call "groupware", where each user mounts their own drive inside a single shared one, then applications render multi-user views over the group drive. The groupware pattern can be used to build lightweight, Dropbox-like applications, among others.
       </p>
 
       <p>
-        We are actively exploring even more interesting ways of indexing files and collaborating with them. If you are interested in collobarating with us always feel free to to open an issue on <a href="https://github.com/mafintosh/hyperdrive">Github</a>, reach out at <a href="mailto:hello@hypercore-protocol.org">hello@hypercore-protocol.org</a> or join our <a href="https://discord.com/invite/ga5hxGf">Discord</a>.
+        We are always exploring new ways to enhance Hyperdrive! If you are interested in collobarating with us always feel free to to open an issue on <a href="https://github.com/mafintosh/hyperdrive">Github</a>, reach out at <a href="mailto:hello@hypercore-protocol.org">hello@hypercore-protocol.org</a> or join our <a href="https://discord.com/invite/ga5hxGf">Discord</a>.
       </p>
 
     </section>
@@ -673,21 +672,17 @@
       </p>
 
       <p>
-        Each component of Hyperswarm is built with home networks in mind, meaning that any DHT peer can you help you establish a connection to another peer they know about. This technique is called "UDP holepunching", and is what allows Hyperswarm to make P2P connections without having to worry too much about firewalls.
-      </p>
-
-      <p>
         Hyperswarm is part of the Hypercore protocol but can be used standalone as well. You can learn more on the <a href="https://github.com/hyperswarm">Hyperswarm Github organisation</a> and in the main <a href="https://github.com/hyperswarm/hyperswarm">Node.js implementation repository</a>
       </p>
 
       <h2>A Kademlia DHT</h2>
 
       <p>
-        Like most other P2P projects, Hyperswarm uses a DHT to discover peers on the internet. In the Hypercore protocol, a hash of the Hypercore's public key is used as the topic under which peers share their IP and port to discover each other.
+        As with many P2P projects, Hyperswarm uses a DHT to discover peers on the internet. Hypercore maintains a hash of its public key, called a "discovery key", that is used as the topic with which peers share their IPs and ports to discover each other.
       </p>
 
       <p>
-        Hypercore comes with a capability system where each peer has to verify they know the public key before they start sharing data, so you have to know the public key in order to download data from peers (even if you’re watching the DHT).
+        Hypercore comes with a capability system wherein each peer has to verify they know the correct public key before they start sharing data. Even if you know a Hypercore's discovery key, you must also know the public key in order to download data from peers.
       </p>
 
       <div class="videogif">
@@ -695,28 +690,28 @@
       </div>
 
       <p>
-        The DHT used in Hyperswarm is based on Kademlia. It is a flexible DHT where each request/response sent is a simple extensible <a href="https://github.com/mafintosh/dht-rpc/blob/master/schema.proto">Protocol Buffers message</a>. You can read much more about Kademlia in <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">the Kademlia paper</a>, but it is a UDP-based DHT which is used by many projects, including BitTorrent.
+        The DHT used in Hyperswarm is based on Kademlia, a UDP-based DHT which is used by many projects, including BitTorrent. You can learn a lot more about Kademlia in <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">the Kademlia paper</a>.
       </p>
 
       <p>
-        Distributed Hash Tables scale well in general, but can also be notoriously hard to work with. Hyperswarm employs a series of heuristics in order to answer queries and garbage collected stale data as fast as possible.
+        DHTs scale well in general, but are notoriously hard to work with. Hyperswarm employs a series of heuristics to answer queries quickly and garbage collect stale data as fast as possible.
       </p>
 
       <p>
-        You should note that DHTs in general expose routing information such as your IP and port to help route other peers to you. Better privacy preserving DHTs are an active research area by many participants in the P2P ecosystem.
+        As a general note, most DHTs (Hyperswarm included) generally expose routing information such as your IP/port to help route requests. Privacy-preserving DHTs are an active research area by many participants in the P2P ecosystem.
       </p>
 
       <h2>Distributed Holepunching</h2>
 
       <p>
-        P2P networks mean connecting to peoples computers where-ever they are. This is often a challenge due to firewalls which reject incoming connections and due to NATs which mask your IP. To help “break through” firewalls, a technique called UDP holepunching is used.
+        Ideal P2P networks should be able to connect any two peers together, wherever they are. In practice, this is a challenge due to firewalls which reject incoming connections and NATs which mask your IP. To help “break through” firewalls, a technique called UDP holepunching is used.
       </p>
 
       <p>
         Traditionally UDP holepunching requires the use of centralised servers that are preknown by each peer in a network.
       </p>
       <p>
-        Hyperswarm expands on holepunching by making it a first class feature of its DHT. This means that any peer in the DHT can help you holepunch to any peer that the DHT node knows about.
+        Hyperswarm expands on holepunching by making it a first-class feature: any peer in the DHT can help you holepunch to any other peer that it knows about.
       </p>
 
       <div class="videogif" style="height: 390px;">
@@ -728,7 +723,7 @@
       </p>
 
       <p>
-        Hypercore utilises the <a href="https://noiseprotocol.org/">Noise protocol framework</a> to build end-to-end encrypted connections on top of the UTP/TCP streams to other peers provided by Hyperswarm.
+        Importantly, Hyperswarm connections are unencrypted -- encryption must be added separately. As an example, once Hyperswarm has established a connection, Hypercore wraps it in a <a href="https://noiseprotocol.org/">Noise protocol</a> stream to add end-to-end encryption.
       </p>
 
     </section>
