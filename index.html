@@ -46,6 +46,7 @@
     }
 
     nav {
+      white-space: nowrap;
       padding-top: 30px;
       text-align: center;
     }
@@ -84,6 +85,7 @@
     }
 
     body > div {
+      padding: 0 30px;
       width: 700px;
       margin: auto;
     }
@@ -105,6 +107,7 @@
     .videogif {
       overflow: hidden;
       height: 340px;
+      max-width: 700px;
     }
 
     .end {
@@ -112,6 +115,11 @@
       margin: 100px 0;
       text-align: center;
       padding-top: 50px;
+    }
+
+    .end a {
+      max-width: 600px;
+      text-overflow: ellipsis;
     }
 
     code {
@@ -125,6 +133,7 @@
     video {
       width: 100%;
       margin-top: -100px;
+
     }
 
     a {
@@ -161,7 +170,14 @@
         transform: scale(1);
       }
     }
+
+    @media only screen and (max-width: 800px) {
+      nav a {
+        margin: 0 9px;
+      }
+    }
   </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <div id="hypercore"><div id="hyperdrive"><div id="hyperswarm">
@@ -468,7 +484,7 @@
         <div style="animation-delay: 1.327s;"></div>
         <div style="animation-delay: 0.150s;"></div>
         <div style="animation-delay: 1.410s;"></div>
-        <div style="animation-delay: 0.0s;"></div>
+        <div style="animation-delay: 0.1s;"></div>
       </div>
 
       <h1>Hyperdrive is a P2P filesystem</h1>
@@ -563,7 +579,7 @@
 
     <section id="swarm">
       <div class="bar">
-        <div style="animation-delay: 0.0s;"></div>
+        <div style="animation-delay: 0.1s;"></div>
         <div style="animation-delay: 2.45s;"></div>
         <div style="animation-delay: 1.946s;"></div>
         <div style="animation-delay: 2.137s;"></div>
@@ -635,7 +651,7 @@
         <div style="animation-delay: 0.150s;"></div>
       </div>
 
-      <h1>Hyperswarm is a P2P network stack for the home</h1>
+      <h1>Hyperswarm is a DHT for the home</h1>
 
       <p>
         Hyperswarm combines a <a href="https://github.com/hyperswarm/dht">Kademlia-based distributed hash table (DHT)</a> for global discovery with MDNS to discover peers on local networks.
@@ -703,8 +719,9 @@
     </section>
 
     <div class="end">
-      <a title="Open this page in Beaker!" href="hyper://d5c0ef66e78b9aa6ec0a5812b102726c3ccb84b2d3b15edce518ae3a2a756e62">hyper://d5c0ef66e78b9aa6ec0a5812b102726c3ccb84b2d3b15edce518ae3a2a756e62
-        </a>
+      <a title="Open this page in Beaker!" href="hyper://d5c0ef66e78b9aa6ec0a5812b102726c3ccb84b2d3b15edce518ae3a2a756e62">
+        hyper://d5c0ef66e78b9aa6ec0a5812b102726c3ccb84b2d3b15edce518ae3a2a756e62
+      </a>
     </div>
 
   </div></div></div>
