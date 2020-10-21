@@ -4,9 +4,9 @@ const wid = 10
 const hei = 30
 const n = widBar / wid * heiBar / hei
 
-// random()
+random()
 // bisect()
-stream()
+// stream()
 
 function stream () {
   for (let i = 0; i < n; i++) {

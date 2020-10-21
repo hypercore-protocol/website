@@ -34,19 +34,19 @@
       font-size: 14px;
     }
 
-    #drive, #swarm, #hyperswarm:target #core, #hyperdrive:target #core {
+    #space, #drive, #swarm, #hyperswarm:target #core, #hyperdrive:target #core, #hyperspace:target #core {
       display: none;
     }
 
-    #hyperswarm:target #swarm, #hyperdrive:target #drive {
+    #hyperswarm:target #swarm, #hyperdrive:target #drive, #hyperspace:target #space {
       display: block;
     }
 
-    #hyperswarm:target #core-link, #hyperdrive:target #core-link {
+    #hyperswarm:target #core-link, #hyperdrive:target #core-link, #hyperspace:target #core-link {
       border-bottom: none;
     }
 
-    #core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link {
+    #core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link, #hyperspace:target #space-link {
       border-bottom: 5px solid black;
     }
 
@@ -89,7 +89,7 @@
     nav a {
       display: inline-block;
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 10px;
       font-size: 20px;
       font-weight: bold;
       color: black;
@@ -99,7 +99,7 @@
 
     body > div {
       padding: 0 30px;
-      max-width: 700px;
+      max-width: 750px;
       margin: auto;
     }
 
@@ -209,13 +209,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div id="hypercore"><div id="hyperdrive"><div id="hyperswarm">
+  <div id="hypercore"><div id="hyperdrive"><div id="hyperswarm"><div id="hyperspace">
     <nav>
       <img src="images/hypercore-protocol.png" id="logo">
 
       <a id="core-link" href="#hypercore">Hypercore</a>
       <a id="drive-link" href="#hyperdrive">Hyperdrive</a>
       <a id="swarm-link" href="#hyperswarm">Hyperswarm</a>
+      <a id="space-link" href="#hyperspace">Hyperspace</a>
       <a id="blog-link" href="https://blog.hypercore-protocol.org/">Blog</a>
     </nav>
 
@@ -438,7 +439,7 @@
               Python implementation of the Hypercore protocol.
             </p>
           </div>
-          
+
           <div>
             <a href="https://www.libscie.org/">Liberate Science</a>
             <p>
@@ -545,26 +546,26 @@
         If you want to download or share filesystems, we suggest you read on and try out the daemon. This website is even available as a drive, using the link at the bottom of the page!
       </p>
 
-      <h2>The Hyperdrive Daemon</h2>
+      <h2>Using Hyperdrive with Hyperspace</h2>
 
       <p>
-        The cross-platform Hyperdrive daemon deals with all the storage and networking details for you. The daemon's CLI lets you create, share, and inspect Hyperdrives in your library, and its gRPC API provides full programmatic control over daemon-managed drives.
+        Since Hyperspace is designed to be lightweight, it doesn’t provide built-in support for higher-level data structures, like Hyperdrive. Instead of baking everything into one service, we imagine an ecosystem of companion services running alongside Hyperspace.
       </p>
 
       <p>
-        You can install the daemon today using the NPM package manager.
+        As an example, you can launch the <a href="https://github.com/hyperspace-org/hyperdrive-service">Hyperdrive service</a> alongside Hyperspace, which gives you FUSE and CLI interfaces for working with Hyperdrives.
       </p>
 
       <p>
-        <code>npm install -g hyperdrive-daemon</code>
+        First, install and launch Hyperspace, then set up the service by running:
       </p>
 
       <p>
-        If you're on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer -- moving files in and out of Hyperdrive is a breeze.
+        <code>npm install -g @hyperspace/hyperdrive</code>
       </p>
 
       <p>
-        As with our other modules and data structures, you can read more about the daemon in <a href="https://github.com/andrewosh/hyperdrive-daemon">Hyperdrive Daemon Github repository</a>.
+        If you’re on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer.
       </p>
 
       <h2>How does Hyperdrive work?</h2>
@@ -611,6 +612,105 @@
         We are always exploring new ways to enhance Hyperdrive! If you are interested in collobarating with us always feel free to to open an issue on <a href="https://github.com/mafintosh/hyperdrive">Github</a>, reach out at <a href="https://twitter.com/hypercoreproto">@hypercoreproto</a> or join our <a href="https://discord.com/invite/ga5hxGf">Discord</a>.
       </p>
 
+    </section>
+
+    <section id="space">
+      <div class="bar">
+        <div style="animation-delay: 0.931s;"></div>
+        <div style="animation-delay: 0.517s;"></div>
+        <div style="animation-delay: 0.867s;"></div>
+        <div style="animation-delay: 0.781s;"></div>
+        <div style="animation-delay: 0.820s;"></div>
+        <div style="animation-delay: 0.812s;"></div>
+        <div style="animation-delay: 0.458s;"></div>
+        <div style="animation-delay: 0.955s;"></div>
+        <div style="animation-delay: 0.179s;"></div>
+        <div style="animation-delay: 0.3s;"></div>
+        <div style="animation-delay: 0.210s;"></div>
+        <div style="animation-delay: 0.700s;"></div>
+        <div style="animation-delay: 0.130s;"></div>
+        <div style="animation-delay: 0.204s;"></div>
+        <div style="animation-delay: 0.639s;"></div>
+        <div style="animation-delay: 0.564s;"></div>
+        <div style="animation-delay: 0.16s;"></div>
+        <div style="animation-delay: 0.127s;"></div>
+        <div style="animation-delay: 0.558s;"></div>
+        <div style="animation-delay: 0.456s;"></div>
+        <div style="animation-delay: 0.882s;"></div>
+        <div style="animation-delay: 0.434s;"></div>
+        <div style="animation-delay: 0.833s;"></div>
+        <div style="animation-delay: 0.423s;"></div>
+        <div style="animation-delay: 0.645s;"></div>
+        <div style="animation-delay: 0.569s;"></div>
+        <div style="animation-delay: 0.909s;"></div>
+        <div style="animation-delay: 0.439s;"></div>
+        <div style="animation-delay: 0.690s;"></div>
+        <div style="animation-delay: 0.32s;"></div>
+        <div style="animation-delay: 0.574s;"></div>
+        <div style="animation-delay: 0.827s;"></div>
+        <div style="animation-delay: 0.822s;"></div>
+        <div style="animation-delay: 0.861s;"></div>
+        <div style="animation-delay: 0.850s;"></div>
+        <div style="animation-delay: 0.245s;"></div>
+        <div style="animation-delay: 0.704s;"></div>
+        <div style="animation-delay: 0.479s;"></div>
+        <div style="animation-delay: 0.660s;"></div>
+        <div style="animation-delay: 0.899s;"></div>
+        <div style="animation-delay: 0.523s;"></div>
+        <div style="animation-delay: 0.356s;"></div>
+        <div style="animation-delay: 0.166s;"></div>
+        <div style="animation-delay: 0.290s;"></div>
+        <div style="animation-delay: 0.642s;"></div>
+        <div style="animation-delay: 0.662s;"></div>
+        <div style="animation-delay: 0.830s;"></div>
+        <div style="animation-delay: 0.735s;"></div>
+        <div style="animation-delay: 0.75s;"></div>
+        <div style="animation-delay: 0.730s;"></div>
+        <div style="animation-delay: 0.424s;"></div>
+        <div style="animation-delay: 0.734s;"></div>
+        <div style="animation-delay: 0.835s;"></div>
+        <div style="animation-delay: 0.106s;"></div>
+        <div style="animation-delay: 0.350s;"></div>
+        <div style="animation-delay: 0.379s;"></div>
+        <div style="animation-delay: 0.343s;"></div>
+        <div style="animation-delay: 0.528s;"></div>
+        <div style="animation-delay: 0.322s;"></div>
+        <div style="animation-delay: 0.308s;"></div>
+        <div style="animation-delay: 0.515s;"></div>
+        <div style="animation-delay: 0.203s;"></div>
+        <div style="animation-delay: 0.706s;"></div>
+        <div style="animation-delay: 0.430s;"></div>
+        <div style="animation-delay: 0.897s;"></div>
+        <div style="animation-delay: 0.157s;"></div>
+        <div style="animation-delay: 0.671s;"></div>
+        <div style="animation-delay: 0.773s;"></div>
+        <div style="animation-delay: 0.697s;"></div>
+        <div style="animation-delay: 0.904s;"></div>
+      </div>
+
+      <h1>Hyperspace is a Hypercore daemon</h1>
+
+      <p>
+        Hyperspace is a minimal server, that allows you to easily interface with the Hypercore stack using an RPC interface.
+      </p>
+
+      <p>
+        It allows you to work with Hyperdrives, Hypercore, and many other Hyper abstractions without having to deal with
+        the complexities around setting up network configurations and managing storage.
+      </p>
+
+      <p>
+        You can install the daemon today using the NPM package manager.
+      </p>
+
+      <p>
+        <code>npm install -g hyperspace</code>
+      </p>
+
+      <p>
+        The Hyperspace release <a href="https://blog.hypercore-protocol.org/posts/hyperspace/">blog post</a> has lots of details on how to get up and running with it and more information
+        on how to build new things. You can also read more about it on the <a href="https://github.com/hypercore-protocol/hyperspace/">Hyperspace Github repository</a>
+      </p>
     </section>
 
     <section id="swarm">
@@ -756,7 +856,7 @@
       </a>
     </div>
 
-  </div></div></div>
+  </div></div></div></div>
   <style>
     .bar > div {
       animation: expand 0s;
