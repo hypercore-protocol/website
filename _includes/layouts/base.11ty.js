@@ -31,5 +31,5 @@ exports.render = function (data) {
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
   </body>
 </html>
-`
+`.trim()
 }
