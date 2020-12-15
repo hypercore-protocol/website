@@ -1,8 +1,10 @@
+<%
 const widBar = 700
 const heiBar = 30
 const wid = 10
 const hei = 30
 const n = widBar / wid * heiBar / hei
+const out = []
 
 random()
 // bisect()
@@ -39,5 +41,9 @@ function div (delay) {
   delay = Math.round(delay)
   const n = Math.floor(delay / 1000)
   const m = delay % 1000
-  console.log('<div style="animation-delay: ' + n + '.' + m + 's;"></div>')
+  out.push('<div style="animation-delay: ' + n + '.' + m + 's;"></div>')
 }
+%>
+<div class="bar">
+  <%- out.join('\n') %>
+</div>

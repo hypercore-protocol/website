@@ -1,95 +1,24 @@
 ---
+title: How the Hypercore Protocol Works
 layout: layouts/base
 ---
 
 <link rel="stylesheet" type="text/css" href="<%= rootPath %>css/pages/protocol.css">
 
-<div id="hypercore"><div id="hyperdrive"><div id="hyperswarm"><div id="hyperspace">
+<main>
+<div id="hypercore"><div id="hyperdrive"><div id="hyperswarm">
+  <img src="<%= rootPath %>images/hypercore-protocol.png" id="logo">
+  <h1>How the Hypercore Protocol Works</h1>
   <nav>
-    <img src="<%= rootPath %>images/hypercore-protocol.png" id="logo">
-
     <a id="core-link" href="#hypercore">Hypercore</a>
     <a id="drive-link" href="#hyperdrive">Hyperdrive</a>
     <a id="swarm-link" href="#hyperswarm">Hyperswarm</a>
-    <a id="space-link" href="#hyperspace">Hyperspace</a>
-    <a id="blog-link" href="https://blog.hypercore-protocol.org/">Blog</a>
   </nav>
 
   <section id="core">
-    <div class="bar">
-      <div style="animation-delay: 0.800s;"></div>
-      <div style="animation-delay: 0.372s;"></div>
-      <div style="animation-delay: 0.805s;"></div>
-      <div style="animation-delay: 0.465s;"></div>
-      <div style="animation-delay: 0.39s;"></div>
-      <div style="animation-delay: 0.518s;"></div>
-      <div style="animation-delay: 0.36s;"></div>
-      <div style="animation-delay: 0.139s;"></div>
-      <div style="animation-delay: 0.603s;"></div>
-      <div style="animation-delay: 0.82s;"></div>
-      <div style="animation-delay: 0.205s;"></div>
-      <div style="animation-delay: 0.575s;"></div>
-      <div style="animation-delay: 0.786s;"></div>
-      <div style="animation-delay: 0.501s;"></div>
-      <div style="animation-delay: 0.123s;"></div>
-      <div style="animation-delay: 0.205s;"></div>
-      <div style="animation-delay: 0.742s;"></div>
-      <div style="animation-delay: 0.576s;"></div>
-      <div style="animation-delay: 0.650s;"></div>
-      <div style="animation-delay: 0.20s;"></div>
-      <div style="animation-delay: 0.898s;"></div>
-      <div style="animation-delay: 0.277s;"></div>
-      <div style="animation-delay: 0.198s;"></div>
-      <div style="animation-delay: 0.232s;"></div>
-      <div style="animation-delay: 0.87s;"></div>
-      <div style="animation-delay: 0.510s;"></div>
-      <div style="animation-delay: 0.937s;"></div>
-      <div style="animation-delay: 0.654s;"></div>
-      <div style="animation-delay: 0.228s;"></div>
-      <div style="animation-delay: 0.341s;"></div>
-      <div style="animation-delay: 0.140s;"></div>
-      <div style="animation-delay: 0.62s;"></div>
-      <div style="animation-delay: 0.883s;"></div>
-      <div style="animation-delay: 0.343s;"></div>
-      <div style="animation-delay: 0.286s;"></div>
-      <div style="animation-delay: 0.130s;"></div>
-      <div style="animation-delay: 0.373s;"></div>
-      <div style="animation-delay: 0.885s;"></div>
-      <div style="animation-delay: 0.990s;"></div>
-      <div style="animation-delay: 0.625s;"></div>
-      <div style="animation-delay: 0.794s;"></div>
-      <div style="animation-delay: 0.819s;"></div>
-      <div style="animation-delay: 0.404s;"></div>
-      <div style="animation-delay: 0.389s;"></div>
-      <div style="animation-delay: 0.259s;"></div>
-      <div style="animation-delay: 0.436s;"></div>
-      <div style="animation-delay: 0.693s;"></div>
-      <div style="animation-delay: 0.120s;"></div>
-      <div style="animation-delay: 0.108s;"></div>
-      <div style="animation-delay: 0.706s;"></div>
-      <div style="animation-delay: 0.844s;"></div>
-      <div style="animation-delay: 0.241s;"></div>
-      <div style="animation-delay: 0.911s;"></div>
-      <div style="animation-delay: 0.689s;"></div>
-      <div style="animation-delay: 0.819s;"></div>
-      <div style="animation-delay: 0.674s;"></div>
-      <div style="animation-delay: 0.230s;"></div>
-      <div style="animation-delay: 0.711s;"></div>
-      <div style="animation-delay: 0.221s;"></div>
-      <div style="animation-delay: 0.788s;"></div>
-      <div style="animation-delay: 0.795s;"></div>
-      <div style="animation-delay: 0.894s;"></div>
-      <div style="animation-delay: 0.295s;"></div>
-      <div style="animation-delay: 0.585s;"></div>
-      <div style="animation-delay: 0.669s;"></div>
-      <div style="animation-delay: 0.128s;"></div>
-      <div style="animation-delay: 0.479s;"></div>
-      <div style="animation-delay: 0.608s;"></div>
-      <div style="animation-delay: 0.391s;"></div>
-      <div style="animation-delay: 0.587s;"></div>
-    </div>
+    <% include /bar-anim %>
 
-    <h1>Hypercore is a distributed append-only log</h1>
+    <h2>Hypercore is a distributed append-only log</h2>
     <p>
       Hypercore comes with a secure transport protocol, making it easy to build fast and scalable peer-to-peer applications. Think lightweight blockchain crossed with BitTorrent.
     </p>
@@ -103,7 +32,7 @@ layout: layouts/base
       To get in touch with us, you can <a href="https://discord.com/invite/ga5hxGf">join our Discord</a>, or reach out to any of the core team members, <a href="https://twitter.com/mafintosh">@mafintosh</a>, <a href="https://twitter.com/pfrazee">@pfrazee</a>, and <a href="https://twitter.com/andrewosh">@andrewosh</a>.
     </p>
 
-    <h2>Append-only logs?</h2>
+    <h3>Append-only logs?</h3>
     <p>
       If you are not familiar with append-only logs, they are basically just lists you can only append to. If you think about it in terms of normal array operations, it is a log where you can only call get(index), push(data) and retrieve the log length, but where you can never overwrite old entries.
     </p>
@@ -117,7 +46,7 @@ layout: layouts/base
       Using append-only logs, Hypercore can easily generate compressed bitfields describing which portions of a log a peer has. This, among other things, helps make the replication protocol light and efficient.
     </p>
 
-    <h2>Secured by Merkle trees and cryptography</h2>
+    <h3>Secured by Merkle trees and cryptography</h3>
     <p>
       Hypercore verifies log contents by building a Merkle tree using the BLAKE2b-256 hash function. Peers can also use this Merkle tree to only download the parts of the log they are interested in, and redistribute these parts to others.
     </p>
@@ -133,200 +62,12 @@ layout: layouts/base
     <p>
       Only the owner of the private key can append to the log. But one Hypercore is rarely used on its own -- more powerful, multi-user data structures can be created by combining multiple cores. Hypercore's main purpose is to be a building block in other things.
     </p>
-    <h2>Community</h2>
-    <p>
-      Hypercore is best used as building block to create powerful peer to peer applications and modules.
-      It has served as the foundation of the <a href="https://dat.foundation">Dat project</a> for many years.
-      Here are some of the groups using and building the technology.
-      <div class="community-small">
-        <div>
-          <a href="https://hyperdivision.dk">Hyperdivision</a>
-          <p>
-            Hypercore and cryptography related products and consultancy.
-          </p>
-        </div>
-        <div>
-          <a href="https://beakerbrowser.com">Beaker</a>
-          <p>
-            Beaker is an experimental browser for exploring and building the peer-to-peer Web using Hyperdrives.
-          </p>
-        </div>
-        <div>
-          <a href="https://www.digital-democracy.org/">Digital Democracy</a>
-          <p>
-            Digital Democracy works in solidarity with marginalized communities to use technology to defend their rights.
-          </p>
-        </div>
-        <div>
-          <a href="https://geutstudio.com/">Geut</a>
-          <p>
-            Custom JS Software Development Team. Code with opinions.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://cabal.chat/">Cabal</a>
-          <p>
-            Cabal is an experimental p2p community chat platform, focusing on group chat in channels.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://ara.one/">Ara</a>
-          <p>
-            Ara is a set of decentralized, open source software tools that handle real-world, user-level functionality in online identity, content distribution, and rights management.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://arso.xyz/">arso</a>
-          <p>
-            arso builds tools for decentralized archives of community media, currently developing Sonar, a p2p database and search engine.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://www.inkandswitch.com/">Ink & Switch</a>
-          <p>
-            We are an industrial research lab working on digital tools for creativity and productivity.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://www.wireline.io/">Wireline</a>
-          <p>
-            Wireline includes open source protocols for identity, decentralized credentials, distributed data consistency, and the management of complex peer-to-peer networks.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://datcxx.github.io/">DatCXX</a>
-          <p>
-            DatCXX is a work in progress implementation of Dat in C++.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://playproject.io/">Playproject</a>
-          <p>
-            The Playproject is an organization using dat for p2p search smart contracts and a distributed file storage network called datdot.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://peermaps.org/">Peermaps</a>
-          <p>
-            Peermaps is a distributed, offline-friendly alternative to commercial map providers such as google maps.
-          </p>
-        </div>
-
-
-        <div>
-          <a href="https://datrs.yoshuawuyts.com/">DatRS</a>
-          <p>
-            Rustlang implementation of the Dat Project protocols. The goal is to eventually bind to C, WebAssembly, Swift and Java to support most native platforms.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://hyperpy.decentral1.se/">Hyperpy</a>
-          <p>
-            Python implementation of the Hypercore protocol.
-          </p>
-        </div>
-
-        <div>
-          <a href="https://www.libscie.org/">Liberate Science</a>
-          <p>
-            Liberate Science is a worker cooperative democratising research work.
-          </p>
-        </div>
-        
-        <div>
-          <a href="https://agregore.mauve.moe/">Agregore</a>
-          <p>
-            A minimalist web browser that combines multiple p2p protocols.
-          </p>
-        </div>
-      </div>
-    </p>
   </section>
 
   <section id="drive">
-    <div class="bar" class="random">
-      <div style="animation-delay: 1.711s;"></div>
-      <div style="animation-delay: 1.321s;"></div>
-      <div style="animation-delay: 1.981s;"></div>
-      <div style="animation-delay: 1.665s;"></div>
-      <div style="animation-delay: 1.369s;"></div>
-      <div style="animation-delay: 0.750s;"></div>
-      <div style="animation-delay: 1.442s;"></div>
-      <div style="animation-delay: 1.378s;"></div>
-      <div style="animation-delay: 1.772s;"></div>
-      <div style="animation-delay: 1.381s;"></div>
-      <div style="animation-delay: 1.850s;"></div>
-      <div style="animation-delay: 1.957s;"></div>
-      <div style="animation-delay: 1.482s;"></div>
-      <div style="animation-delay: 1.740s;"></div>
-      <div style="animation-delay: 1.881s;"></div>
-      <div style="animation-delay: 1.965s;"></div>
-      <div style="animation-delay: 1.673s;"></div>
-      <div style="animation-delay: 1.583s;"></div>
-      <div style="animation-delay: 1.372s;"></div>
-      <div style="animation-delay: 1.991s;"></div>
-      <div style="animation-delay: 1.338s;"></div>
-      <div style="animation-delay: 1.313s;"></div>
-      <div style="animation-delay: 1.905s;"></div>
-      <div style="animation-delay: 1.954s;"></div>
-      <div style="animation-delay: 2.19s;"></div>
-      <div style="animation-delay: 1.288s;"></div>
-      <div style="animation-delay: 1.781s;"></div>
-      <div style="animation-delay: 1.326s;"></div>
-      <div style="animation-delay: 1.740s;"></div>
-      <div style="animation-delay: 1.358s;"></div>
-      <div style="animation-delay: 1.749s;"></div>
-      <div style="animation-delay: 1.591s;"></div>
-      <div style="animation-delay: 1.307s;"></div>
-      <div style="animation-delay: 1.361s;"></div>
-      <div style="animation-delay: 1.540s;"></div>
-      <div style="animation-delay: 1.852s;"></div>
-      <div style="animation-delay: 1.302s;"></div>
-      <div style="animation-delay: 0.600s;"></div>
-      <div style="animation-delay: 1.253s;"></div>
-      <div style="animation-delay: 1.600s;"></div>
-      <div style="animation-delay: 1.675s;"></div>
-      <div style="animation-delay: 1.275s;"></div>
-      <div style="animation-delay: 1.291s;"></div>
-      <div style="animation-delay: 1.489s;"></div>
-      <div style="animation-delay: 1.305s;"></div>
-      <div style="animation-delay: 1.931s;"></div>
-      <div style="animation-delay: 1.507s;"></div>
-      <div style="animation-delay: 1.519s;"></div>
-      <div style="animation-delay: 1.720s;"></div>
-      <div style="animation-delay: 1.592s;"></div>
-      <div style="animation-delay: 1.662s;"></div>
-      <div style="animation-delay: 1.735s;"></div>
-      <div style="animation-delay: 1.953s;"></div>
-      <div style="animation-delay: 0.450s;"></div>
-      <div style="animation-delay: 1.580s;"></div>
-      <div style="animation-delay: 1.842s;"></div>
-      <div style="animation-delay: 1.664s;"></div>
-      <div style="animation-delay: 2.27s;"></div>
-      <div style="animation-delay: 1.348s;"></div>
-      <div style="animation-delay: 1.602s;"></div>
-      <div style="animation-delay: 1.856s;"></div>
-      <div style="animation-delay: 0.300s;"></div>
-      <div style="animation-delay: 1.358s;"></div>
-      <div style="animation-delay: 1.465s;"></div>
-      <div style="animation-delay: 1.453s;"></div>
-      <div style="animation-delay: 1.705s;"></div>
-      <div style="animation-delay: 1.327s;"></div>
-      <div style="animation-delay: 0.150s;"></div>
-      <div style="animation-delay: 1.410s;"></div>
-      <div style="animation-delay: 0.1s;"></div>
-    </div>
+    <% include /bar-anim %>
 
-    <h1>Hyperdrive is a P2P filesystem</h1>
+    <h2>Hyperdrive is a P2P filesystem</h2>
 
     <p>
       Hyperdrive is designed to help you share files quickly and safely, directly from your computer.
@@ -345,32 +86,10 @@ layout: layouts/base
     </p>
 
     <p>
-      If you want to download or share filesystems, we suggest you read on and try out the daemon. This website is even available as a drive, using the link at the bottom of the page!
+      If you want to download or share filesystems, we suggest you read on and try out the daemon.
     </p>
 
-    <h2>Using Hyperdrive with Hyperspace</h2>
-
-    <p>
-      Since Hyperspace is designed to be lightweight, it doesn’t provide built-in support for higher-level data structures, like Hyperdrive. Instead of baking everything into one service, we imagine an ecosystem of companion services running alongside Hyperspace.
-    </p>
-
-    <p>
-      As an example, you can launch the <a href="https://github.com/hyperspace-org/hyperdrive-service">Hyperdrive service</a> alongside Hyperspace, which gives you FUSE and CLI interfaces for working with Hyperdrives.
-    </p>
-
-    <p>
-      First, install and launch Hyperspace, then set up the service by running:
-    </p>
-
-    <p>
-      <code>npm install -g @hyperspace/hyperdrive</code>
-    </p>
-
-    <p>
-      If you’re on Mac or Linux, the daemon also offers FUSE support, meaning your drives will appear as normal folders on your computer.
-    </p>
-
-    <h2>How does Hyperdrive work?</h2>
+    <h3>How does Hyperdrive work?</h3>
 
     <p>
       Hyperdrive indexes filenames into a Hypercore. To avoid having to scan through this entire Hypercore when you want to find a specific file or folder, filenames are indexed using an append-only hash trie, which we call Hypertrie. The hash trie basically functions as a fast append-only key value store with listable folders.
@@ -396,7 +115,7 @@ layout: layouts/base
       Each entry in the Hypertrie links to the content log to signal where a file's binary data starts and ends. Additionally, the entry contains all the normal POSIX data you'd be interested in, such as modification time, creation time, file modes, etc.
     </p>
 
-    <h2>Mounts</h2>
+    <h3>Mounts</h3>
 
     <p>
       For better composability and collaboration, an entry can also link to a completely different Hyperdrive or Hypercore. We call this feature mounts. Even though it's ostensibly simple, it can be used to build powerful collaborative features.
@@ -416,180 +135,10 @@ layout: layouts/base
 
   </section>
 
-  <section id="space">
-    <div class="bar">
-      <div style="animation-delay: 0.931s;"></div>
-      <div style="animation-delay: 0.517s;"></div>
-      <div style="animation-delay: 0.867s;"></div>
-      <div style="animation-delay: 0.781s;"></div>
-      <div style="animation-delay: 0.820s;"></div>
-      <div style="animation-delay: 0.812s;"></div>
-      <div style="animation-delay: 0.458s;"></div>
-      <div style="animation-delay: 0.955s;"></div>
-      <div style="animation-delay: 0.179s;"></div>
-      <div style="animation-delay: 0.3s;"></div>
-      <div style="animation-delay: 0.210s;"></div>
-      <div style="animation-delay: 0.700s;"></div>
-      <div style="animation-delay: 0.130s;"></div>
-      <div style="animation-delay: 0.204s;"></div>
-      <div style="animation-delay: 0.639s;"></div>
-      <div style="animation-delay: 0.564s;"></div>
-      <div style="animation-delay: 0.16s;"></div>
-      <div style="animation-delay: 0.127s;"></div>
-      <div style="animation-delay: 0.558s;"></div>
-      <div style="animation-delay: 0.456s;"></div>
-      <div style="animation-delay: 0.882s;"></div>
-      <div style="animation-delay: 0.434s;"></div>
-      <div style="animation-delay: 0.833s;"></div>
-      <div style="animation-delay: 0.423s;"></div>
-      <div style="animation-delay: 0.645s;"></div>
-      <div style="animation-delay: 0.569s;"></div>
-      <div style="animation-delay: 0.909s;"></div>
-      <div style="animation-delay: 0.439s;"></div>
-      <div style="animation-delay: 0.690s;"></div>
-      <div style="animation-delay: 0.32s;"></div>
-      <div style="animation-delay: 0.574s;"></div>
-      <div style="animation-delay: 0.827s;"></div>
-      <div style="animation-delay: 0.822s;"></div>
-      <div style="animation-delay: 0.861s;"></div>
-      <div style="animation-delay: 0.850s;"></div>
-      <div style="animation-delay: 0.245s;"></div>
-      <div style="animation-delay: 0.704s;"></div>
-      <div style="animation-delay: 0.479s;"></div>
-      <div style="animation-delay: 0.660s;"></div>
-      <div style="animation-delay: 0.899s;"></div>
-      <div style="animation-delay: 0.523s;"></div>
-      <div style="animation-delay: 0.356s;"></div>
-      <div style="animation-delay: 0.166s;"></div>
-      <div style="animation-delay: 0.290s;"></div>
-      <div style="animation-delay: 0.642s;"></div>
-      <div style="animation-delay: 0.662s;"></div>
-      <div style="animation-delay: 0.830s;"></div>
-      <div style="animation-delay: 0.735s;"></div>
-      <div style="animation-delay: 0.75s;"></div>
-      <div style="animation-delay: 0.730s;"></div>
-      <div style="animation-delay: 0.424s;"></div>
-      <div style="animation-delay: 0.734s;"></div>
-      <div style="animation-delay: 0.835s;"></div>
-      <div style="animation-delay: 0.106s;"></div>
-      <div style="animation-delay: 0.350s;"></div>
-      <div style="animation-delay: 0.379s;"></div>
-      <div style="animation-delay: 0.343s;"></div>
-      <div style="animation-delay: 0.528s;"></div>
-      <div style="animation-delay: 0.322s;"></div>
-      <div style="animation-delay: 0.308s;"></div>
-      <div style="animation-delay: 0.515s;"></div>
-      <div style="animation-delay: 0.203s;"></div>
-      <div style="animation-delay: 0.706s;"></div>
-      <div style="animation-delay: 0.430s;"></div>
-      <div style="animation-delay: 0.897s;"></div>
-      <div style="animation-delay: 0.157s;"></div>
-      <div style="animation-delay: 0.671s;"></div>
-      <div style="animation-delay: 0.773s;"></div>
-      <div style="animation-delay: 0.697s;"></div>
-      <div style="animation-delay: 0.904s;"></div>
-    </div>
-
-    <h1>Hyperspace is a Hypercore daemon</h1>
-
-    <p>
-      Hyperspace is a minimal server, that allows you to easily interface with the Hypercore stack using an RPC interface.
-    </p>
-
-    <p>
-      It allows you to work with Hyperdrives, Hypercore, and many other Hyper abstractions without having to deal with
-      the complexities around setting up network configurations and managing storage.
-    </p>
-
-    <p>
-      You can install the daemon today using the NPM package manager.
-    </p>
-
-    <p>
-      <code>npm install -g hyperspace</code>
-    </p>
-
-    <p>
-      The Hyperspace release <a href="https://blog.hypercore-protocol.org/posts/hyperspace/">blog post</a> has lots of details on how to get up and running with it and more information
-      on how to build new things. You can also read more about it on the <a href="https://github.com/hypercore-protocol/hyperspace/">Hyperspace Github repository</a>
-    </p>
-  </section>
-
   <section id="swarm">
-    <div class="bar">
-      <div style="animation-delay: 0.1s;"></div>
-      <div style="animation-delay: 2.45s;"></div>
-      <div style="animation-delay: 1.946s;"></div>
-      <div style="animation-delay: 2.137s;"></div>
-      <div style="animation-delay: 1.871s;"></div>
-      <div style="animation-delay: 2.278s;"></div>
-      <div style="animation-delay: 2.125s;"></div>
-      <div style="animation-delay: 2.281s;"></div>
-      <div style="animation-delay: 2.122s;"></div>
-      <div style="animation-delay: 2.471s;"></div>
-      <div style="animation-delay: 0.650s;"></div>
-      <div style="animation-delay: 1.896s;"></div>
-      <div style="animation-delay: 2.351s;"></div>
-      <div style="animation-delay: 2.327s;"></div>
-      <div style="animation-delay: 2.376s;"></div>
-      <div style="animation-delay: 2.422s;"></div>
-      <div style="animation-delay: 2.108s;"></div>
-      <div style="animation-delay: 1.885s;"></div>
-      <div style="animation-delay: 2.345s;"></div>
-      <div style="animation-delay: 2.502s;"></div>
-      <div style="animation-delay: 0.800s;"></div>
-      <div style="animation-delay: 2.41s;"></div>
-      <div style="animation-delay: 2.97s;"></div>
-      <div style="animation-delay: 2.599s;"></div>
-      <div style="animation-delay: 2.21s;"></div>
-      <div style="animation-delay: 2.495s;"></div>
-      <div style="animation-delay: 2.66s;"></div>
-      <div style="animation-delay: 2.133s;"></div>
-      <div style="animation-delay: 2.231s;"></div>
-      <div style="animation-delay: 2.49s;"></div>
-      <div style="animation-delay: 0.950s;"></div>
-      <div style="animation-delay: 2.384s;"></div>
-      <div style="animation-delay: 2.437s;"></div>
-      <div style="animation-delay: 2.472s;"></div>
-      <div style="animation-delay: 2.226s;"></div>
-      <div style="animation-delay: 1.851s;"></div>
-      <div style="animation-delay: 1.852s;"></div>
-      <div style="animation-delay: 2.534s;"></div>
-      <div style="animation-delay: 1.897s;"></div>
-      <div style="animation-delay: 2.435s;"></div>
-      <div style="animation-delay: 1.100s;"></div>
-      <div style="animation-delay: 1.978s;"></div>
-      <div style="animation-delay: 2.213s;"></div>
-      <div style="animation-delay: 1.986s;"></div>
-      <div style="animation-delay: 2.271s;"></div>
-      <div style="animation-delay: 2.210s;"></div>
-      <div style="animation-delay: 1.902s;"></div>
-      <div style="animation-delay: 1.866s;"></div>
-      <div style="animation-delay: 2.627s;"></div>
-      <div style="animation-delay: 2.344s;"></div>
-      <div style="animation-delay: 1.250s;"></div>
-      <div style="animation-delay: 1.995s;"></div>
-      <div style="animation-delay: 2.228s;"></div>
-      <div style="animation-delay: 2.443s;"></div>
-      <div style="animation-delay: 2.524s;"></div>
-      <div style="animation-delay: 2.461s;"></div>
-      <div style="animation-delay: 2.423s;"></div>
-      <div style="animation-delay: 2.7s;"></div>
-      <div style="animation-delay: 2.125s;"></div>
-      <div style="animation-delay: 1.918s;"></div>
-      <div style="animation-delay: 1.400s;"></div>
-      <div style="animation-delay: 2.305s;"></div>
-      <div style="animation-delay: 2.357s;"></div>
-      <div style="animation-delay: 2.34s;"></div>
-      <div style="animation-delay: 2.450s;"></div>
-      <div style="animation-delay: 2.431s;"></div>
-      <div style="animation-delay: 2.519s;"></div>
-      <div style="animation-delay: 2.410s;"></div>
-      <div style="animation-delay: 2.449s;"></div>
-      <div style="animation-delay: 0.150s;"></div>
-    </div>
+    <% include /bar-anim %>
 
-    <h1>Hyperswarm is a DHT for the home</h1>
+    <h2>Hyperswarm is a DHT for the home</h2>
 
     <p>
       Hyperswarm combines a <a href="https://github.com/hyperswarm/dht">Kademlia-based distributed hash table (DHT)</a> for global discovery with MDNS to discover peers on local networks.
@@ -599,7 +148,7 @@ layout: layouts/base
       Hyperswarm is part of the Hypercore protocol but can be used standalone as well. You can learn more on the <a href="https://github.com/hyperswarm">Hyperswarm Github organisation</a> and in the main <a href="https://github.com/hyperswarm/hyperswarm">Node.js implementation repository</a>
     </p>
 
-    <h2>A Kademlia DHT</h2>
+    <h3>A Kademlia DHT</h3>
 
     <p>
       As with many P2P projects, Hyperswarm uses a DHT to discover peers on the internet. Hypercore maintains a hash of its public key, called a "discovery key", that is used as the topic with which peers share their IPs and ports to discover each other.
@@ -625,7 +174,7 @@ layout: layouts/base
       As a general note, most DHTs (Hyperswarm included) generally expose routing information such as your IP/port to help route requests. Privacy-preserving DHTs are an active research area by many participants in the P2P ecosystem.
     </p>
 
-    <h2>Distributed Holepunching</h2>
+    <h3>Distributed Holepunching</h3>
 
     <p>
       Ideal P2P networks should be able to connect any two peers together, wherever they are. In practice, this is a challenge due to firewalls which reject incoming connections and NATs which mask your IP. To help “break through” firewalls, a technique called UDP holepunching is used.
@@ -652,10 +201,10 @@ layout: layouts/base
 
   </section>
 
-  <div class="end">
-    <a title="Open this page in Beaker!" href="hyper://a8109b835d27c30ad4d55b321dd7c4032c037eaf1f6f2b00de7b03b5a6cc504a">
-      hyper://a8109b835d27c30ad4d55b321dd7c4032c037eaf1f6f2b00de7b03b5a6cc504a
-    </a>
-  </div>
-
-</div></div></div></div>
+  <nav>
+    <a id="core-link" href="#hypercore">Hypercore</a>
+    <a id="drive-link" href="#hyperdrive">Hyperdrive</a>
+    <a id="swarm-link" href="#hyperswarm">Hyperswarm</a>
+  </nav>
+</div></div></div>
+</main>
