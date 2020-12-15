@@ -1,0 +1,21 @@
+{
+  "name": "hypercore-protocol.org",
+  "description": "The hypercore-protocol.org website",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypercore-protocol/new-website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hypercore-protocol/new-website/issues"
+  },
+  "homepage": "https://github.com/hypercore-protocol/new-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
