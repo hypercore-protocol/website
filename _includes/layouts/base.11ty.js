@@ -22,7 +22,7 @@ exports.render = function (data) {
     <meta name="og:description" content="A fast, scalable, and secure peer-to-peer protocol for everyone.">
     <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
 
-    <link rel="stylesheet" type="text/css" href="/fonts/index.css">
+    <link rel="stylesheet" type="text/css" href="${data.rootPath}fonts/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
