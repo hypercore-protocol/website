@@ -2,198 +2,11 @@
 layout: layouts/base
 ---
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-  }
+<link rel="stylesheet" type="text/css" href="<%= rootPath %>css/pages/protocol.css">
 
-  nav a, h1, h2 {
-    font-family: 'ibm_plex_monoregular';
-  }
-
-  body {
-    font-family: 'ibm_plex_sansregular';
-    line-height: 23px;
-    font-size: 14px;
-  }
-
-  #space, #drive, #swarm, #hyperswarm:target #core, #hyperdrive:target #core, #hyperspace:target #core {
-    display: none;
-  }
-
-  #hyperswarm:target #swarm, #hyperdrive:target #drive, #hyperspace:target #space {
-    display: block;
-  }
-
-  #hyperswarm:target #core-link, #hyperdrive:target #core-link, #hyperspace:target #core-link {
-    border-bottom: none;
-  }
-
-  #core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link, #hyperspace:target #space-link {
-    border-bottom: 5px solid black;
-  }
-
-  #logo {
-    width: 100px;
-    height: 127px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    display: block;
-  }
-
-  nav {
-    padding-top: 30px;
-    text-align: center;
-  }
-
-  section {
-    margin-top: 40px;
-    text-align: justify;
-  }
-
-  section h1 {
-    font-size: 24px;
-    margin: 60px auto;
-    text-align: center;
-  }
-
-  section h2 {
-    margin: 50px 0;
-    padding-top: 50px;
-    border-top: 10px solid black;
-    font-size: 19px;
-    text-align: center;
-  }
-
-  nav a:hover {
-    border-bottom: 5px solid black !important;
-  }
-
-  nav a {
-    display: inline-block;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    border-bottom: 5px solid transparent;
-    padding: 5px;
-  }
-
-  body > div {
-    padding: 0 30px;
-    max-width: 750px;
-    margin: auto;
-  }
-
-  .bar {
-    display: flex;
-    flex-direction: row;
-    height: 20px;
-  }
-
-  .bar > div {
-    flex: 1 1 10px;
-    background-color: black;
-    transform: scale(0);
-    height: 20px;
-  }
-
-  .videogif {
-    overflow: hidden;
-    height: 340px;
-    max-width: 100%;
-  }
-
-  .end {
-    border-top: 20px solid black;
-    margin: 100px 0;
-    text-align: center;
-    padding-top: 50px;
-  }
-
-  .end a {
-    display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap
-  }
-
-  code {
-    font-family: 'ibm_plex_monoregular';
-    display: block;
-    border: 2px solid black;
-    padding: 10px 20px;
-    text-align: center;
-  }
-
-  video {
-    width: 100%;
-    margin-top: -100px;
-    height: 525px;
-  }
-
-  a {
-    color: black;
-  }
-
-  * {
-    outline: none;
-  }
-
-  .community-small {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 40px 0 10px 0;
-  }
-
-  .community-small > div:nth-child(odd) {
-    margin-right: 96px;
-  }
-
-  .community-small > div {
-    margin-bottom: 50px;
-    text-align: left;
-    vertical-align: top;
-    flex: 1 1 calc(50% - 48px);
-  }
-
-  .community-small a, .community-big a {
-    font-family: 'ibm_plex_monoregular';
-    font-size: 22px;
-  }
-
-  @keyframes expand {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    nav a {
-      margin: 0 9px;
-    }
-
-    .community-small > div {
-      margin-bottom: 30px;
-      margin-right: 0 !important;
-      flex: 1 1 100%;
-    }
-
-    nav a {
-      margin-bottom: 5px;
-    }
-  }
-</style>
 <div id="hypercore"><div id="hyperdrive"><div id="hyperswarm"><div id="hyperspace">
   <nav>
-    <img src="images/hypercore-protocol.png" id="logo">
+    <img src="<%= rootPath %>images/hypercore-protocol.png" id="logo">
 
     <a id="core-link" href="#hypercore">Hypercore</a>
     <a id="drive-link" href="#hyperdrive">Hyperdrive</a>
@@ -295,7 +108,7 @@ layout: layouts/base
       If you are not familiar with append-only logs, they are basically just lists you can only append to. If you think about it in terms of normal array operations, it is a log where you can only call get(index), push(data) and retrieve the log length, but where you can never overwrite old entries.
     </p>
     <div class="videogif">
-      <video src="videos/aol.mp4" autoplay loop muted playsinline></video>
+      <video src="<%= rootPath %>videos/aol.mp4" autoplay loop muted playsinline></video>
     </div>
     <p>
       Hypercore allows you to quickly distribute these kind of logs in a peer-to-peer fashion. Each peer can choose to download only the section of the log they are interested in, without having to download everything from the beginning.
@@ -309,13 +122,13 @@ layout: layouts/base
       Hypercore verifies log contents by building a Merkle tree using the BLAKE2b-256 hash function. Peers can also use this Merkle tree to only download the parts of the log they are interested in, and redistribute these parts to others.
     </p>
     <div class="videogif" style="height: 300px;">
-      <video src="videos/merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -150px;"></video>
+      <video src="<%= rootPath %>videos/merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -150px;"></video>
     </div>
     <p>
       Merkle trees are widely used in many distributed systems. They are normally only used to verify static content, because when content changes the root of the tree changes as well. To support mutable datasets, Hypercore uses asymmetric cryptography to sign the root of the Merkle tree as data is appended to it.
     </p>
     <div class="videogif" style="height: 380px;">
-      <video src="videos/growing-merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
+      <video src="<%= rootPath %>videos/growing-merkle-trees.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
     </div>
     <p>
       Only the owner of the private key can append to the log. But one Hypercore is rarely used on its own -- more powerful, multi-user data structures can be created by combining multiple cores. Hypercore's main purpose is to be a building block in other things.
@@ -564,7 +377,7 @@ layout: layouts/base
     </p>
 
     <div class="videogif">
-      <video src="videos/trie.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
+      <video src="<%= rootPath %>videos/trie.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
     </div>
 
     <p>
@@ -590,7 +403,7 @@ layout: layouts/base
     </p>
 
     <div class="videogif">
-      <video src="videos/metadata-and-content-and-mounts.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
+      <video src="<%= rootPath %>videos/metadata-and-content-and-mounts.mp4" autoplay loop muted playsinline style="margin-top: -100px;"></video>
     </div>
 
     <p>
@@ -797,7 +610,7 @@ layout: layouts/base
     </p>
 
     <div class="videogif">
-      <video src="videos/dht.mp4" autoplay loop muted playsinline style="margin-top: -90px;">
+      <video src="<%= rootPath %>videos/dht.mp4" autoplay loop muted playsinline style="margin-top: -90px;">
     </div>
 
     <p>
@@ -826,7 +639,7 @@ layout: layouts/base
     </p>
 
     <div class="videogif" style="height: 390px;">
-      <video src="videos/dht-holepunching.mp4" autoplay loop muted playsinline style="margin-top: -60px;">
+      <video src="<%= rootPath %>videos/dht-holepunching.mp4" autoplay loop muted playsinline style="margin-top: -60px;">
     </div>
 
     <p>
@@ -846,9 +659,3 @@ layout: layouts/base
   </div>
 
 </div></div></div></div>
-<style>
-  .bar > div {
-    animation: expand 0s;
-    animation-fill-mode: forwards;
-  }
-</style>

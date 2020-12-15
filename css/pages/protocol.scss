@@ -1,0 +1,172 @@
+#space, #drive, #swarm, #hyperswarm:target #core, #hyperdrive:target #core, #hyperspace:target #core {
+  display: none;
+}
+
+#hyperswarm:target #swarm, #hyperdrive:target #drive, #hyperspace:target #space {
+  display: block;
+}
+
+#hyperswarm:target #core-link, #hyperdrive:target #core-link, #hyperspace:target #core-link {
+  border-bottom: none;
+}
+
+#core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link, #hyperspace:target #space-link {
+  border-bottom: 5px solid black;
+}
+
+#logo {
+  width: 100px;
+  height: 127px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  display: block;
+}
+
+nav {
+  padding-top: 30px;
+  text-align: center;
+}
+
+section {
+  margin-top: 40px;
+  text-align: justify;
+}
+
+section h1 {
+  font-size: 24px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+section h2 {
+  margin: 50px 0;
+  padding-top: 50px;
+  border-top: 10px solid black;
+  font-size: 19px;
+  text-align: center;
+}
+
+nav a:hover {
+  border-bottom: 5px solid black !important;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  border-bottom: 5px solid transparent;
+  padding: 5px;
+}
+
+body > div {
+  padding: 0 30px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.bar {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+}
+
+.bar > div {
+  flex: 1 1 10px;
+  background-color: black;
+  transform: scale(0);
+  height: 20px;
+}
+
+.videogif {
+  overflow: hidden;
+  height: 340px;
+  max-width: 100%;
+}
+
+.end {
+  border-top: 20px solid black;
+  margin: 100px 0;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.end a {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+
+code {
+  font-family: 'ibm_plex_monoregular';
+  display: block;
+  border: 2px solid black;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+video {
+  width: 100%;
+  margin-top: -100px;
+  height: 525px;
+}
+
+a {
+  color: black;
+}
+
+.community-small {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 40px 0 10px 0;
+}
+
+.community-small > div:nth-child(odd) {
+  margin-right: 96px;
+}
+
+.community-small > div {
+  margin-bottom: 50px;
+  text-align: left;
+  vertical-align: top;
+  flex: 1 1 calc(50% - 48px);
+}
+
+.community-small a, .community-big a {
+  font-family: 'ibm_plex_monoregular';
+  font-size: 22px;
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  nav a {
+    margin: 0 9px;
+  }
+
+  .community-small > div {
+    margin-bottom: 30px;
+    margin-right: 0 !important;
+    flex: 1 1 100%;
+  }
+
+  nav a {
+    margin-bottom: 5px;
+  }
+}
+
+.bar > div {
+  animation: expand 0s;
+  animation-fill-mode: forwards;
+}

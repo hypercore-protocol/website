@@ -20,11 +20,13 @@ title: Hypercore Protocol
     <meta name="og:description" content="A fast, scalable, and secure peer-to-peer protocol for everyone.">
     <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
 
-    <link rel="stylesheet" type="text/css" href="<%= rootPath %>css/index.css">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath %>css/layouts/base.css">
     <link rel="stylesheet" type="text/css" href="<%= rootPath %>fonts/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <% include /header-nav %>
+
     <%- content %>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>

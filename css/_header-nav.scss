@@ -1,0 +1,41 @@
+@import 'vars';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-mono;
+  padding: 1rem;
+  max-width: $max-width-default;
+  margin: 0 auto;
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    margin-right: 2rem;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.awesome {
+      color: $color-awesome;
+    }
+  }
+
+  img.logo {
+    display: block;
+    height: 30px;
+  }
+
+  img.icon {
+    display: block;
+    height: 22px;
+  }
+}

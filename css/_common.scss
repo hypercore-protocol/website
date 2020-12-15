@@ -1,0 +1,41 @@
+@import "vars";
+
+* {
+  outline: none;
+}
+
+body {
+  color: $color-default;
+  margin: 0;
+  padding: 0;
+  background-color: $bg-default;
+  font-family: $font-sans;
+  line-height: 23px;
+  font-size: 14px;
+}
+
+a {
+  color: $color-link;
+}
+
+h1, h2 {
+  font-family: $font-mono;
+}
+
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 3px 8px 5px;
+  line-height: 1;
+
+  &.black {
+    background: $btn-bg-black;
+    border: $btn-border-black;
+    color: $btn-color-black;
+  }
+  &.white {
+    background: $btn-bg-white;
+    border: $btn-border-white;
+    color: $btn-color-white;
+  }
+}
