@@ -1,19 +1,14 @@
 [
   ["guides/", "Introduction"],
   ["guides/faq/", "FAQ"],
-  ["guides/beam/", "Beaming Data", [
-    ["guides/beam/files/", "Beaming Files"],
-    ["guides/beam/folders/", "Beaming Folders"],
-    ["guides/beam/hyperdrives/", "Beaming Hyperdrives"]
-  ]],
-  ["guides/hyperdrives/", "Hyperdrives", [
-    ["guides/hyperdrives/creating-drives/", "Creating Drives"],
-    ["guides/hyperdrives/downloading-drives/", "Downloading Drives"],
-    ["guides/hyperdrives/seeding-drives/", "Seeding Drives"],
-    ["guides/hyperdrives/advanced-tools", "Advanced Tools"]
+  ["guides/hyp/", "Using the Hyp CLI", [
+    ["guides/hyp/beaming-files/", "Beaming Files"],
+    ["guides/hyp/sharing-hyperdrives/", "Sharing Hyperdrives"],
+    ["guides/hyp/cheatsheet/", "Cheatsheet"]
   ]],
   ["guides/dev/", "Developers", [
     ["guides/dev/apis/", "APIs"],
     ["guides/dev/workshops/", "Workshops"]
-  ]]
+  ]],
+  ["protocol/", "Protocol Overview"]
 ]
