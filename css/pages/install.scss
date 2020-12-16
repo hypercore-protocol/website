@@ -10,12 +10,15 @@ main {
   }
 
   section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0.5rem 2rem;
+    margin: 2rem auto 2rem;
+    padding: 1.5rem 5rem 2rem;
 
     &.highlighted {
-      border: 3px dashed;
+      border: 1px solid;
+    }
+
+    &.secondary {
+      color: #666;
     }
   }
 }
