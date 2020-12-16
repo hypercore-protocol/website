@@ -2,6 +2,30 @@
 layout: layouts/guides
 ---
 
-todo
+<%
+const reservedChars = /[^A-Za-z0-9]/g
+const continuousDashes = /(-[-]+)/g
+const endingDashes = /([-]+$)/g
+function slugify (str = '') {
+  return str.toLowerCase().replace(reservedChars, '-').replace(continuousDashes, '-').replace(endingDashes, '')
+}
 
-<%= page.url %>
+function header (str) {
+  let slug = slugify(str)
+  return `<h2 id="${slug}"><a href="#${slug}" title="${str}">${str}</a></h2>`
+}
+%>
+
+<h1>Frequently Asked Questions</h1>
+
+<%- header('This is a question') %>
+
+<p>This is the answer</p>
+
+<%- header('This is a question') %>
+
+<p>This is the answer</p>
+
+<%- header('This is a question') %>
+
+<p>This is the answer</p>
