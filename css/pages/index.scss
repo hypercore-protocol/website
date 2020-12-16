@@ -1,3 +1,5 @@
+@import "../layouts/base";
+
 .hero {
   text-align: center;
   margin: 8rem 0;
@@ -8,7 +10,8 @@
   }
 
   .btn {
-    width: 90px;
+    width: 100px;
     text-align: center;
+    padding: 8px 0 9px;
   }
 }

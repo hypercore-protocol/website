@@ -1,0 +1,41 @@
+---
+layout: layouts/base
+css: css/layouts/guides.css
+---
+
+<%
+function renderGuidesNav (items) {
+  return `
+    <ul>
+      ${(items || guidesNav).map(renderGuidesNavItem).join('\n')}
+    </ul>
+  `
+}
+
+function renderGuidesNavItem ([url, label, children]) {
+  let cls = url === page.url ? 'current' : ''
+  let childHtml = ''
+  if (children && (url === page.url || page.url.startsWith(url))) {
+    childHtml = renderGuidesNav(children)
+    if (!cls) cls = 'child-current'
+  }
+  return `
+    <li>
+      <a class="${cls}" href="${url}" title="${label}">${label}</a>
+      ${childHtml}
+    </li>
+  `
+}
+%>
+
+<main>
+  <div class="guides-layout">
+    <nav>
+      <h1>Guides</h1>
+      <%- renderGuidesNav() %>
+    </nav>
+    <article>
+      <%- content %>
+    </article>
+  </div>
+</main>
