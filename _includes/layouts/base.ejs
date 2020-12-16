@@ -1,5 +1,6 @@
 ---
 title: Hypercore Protocol
+wideLayout: false
 ---
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ title: Hypercore Protocol
     <link rel="stylesheet" type="text/css" href="<%= rootPath %>fonts/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body class="<%= wideLayout ? 'wide' : 'narrow' %>">
     <header>
       <div class="nav-left">
         <a href="<%= rootPath %>" title="Home"><img class="logo" src="<%= rootPath %>images/hypercore-protocol.png"></a>

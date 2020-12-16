@@ -12,38 +12,47 @@
     box-sizing: border-box;
     padding-top: 10px;
 
+    & > ul {
+      font-size: 18px;
+
+      ul {
+        font-size: 16px;
+      }
+    }
+
+    li {
+      padding: 0 0 1rem;
+
+      ul {
+        padding: 0.5rem 0 0 1.5rem;
+
+        li {
+          padding: 0.5rem 0 0.5rem;
+        }
+      }
+    }
+
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
 
       li {
-        margin-bottom: 0.5rem;
-        padding: 0;
-
         a {
           display: block;
-          padding: 0.5em 0.8rem;
-          background: #eee;
           text-decoration: none;
 
           &:hover {
-            background: #ddd;
+            color: $color-blue;
           }
         
           &.current {
             font-weight: bold;
-            background: $color-blue;
-            color: #fff;
+            color: $color-blue;
           }
 
           &.child-current {
             font-weight: bold;
-            background: #ddd;
-
-            &:hover {
-              background: #ccc;
-            }
           }
         }
       }
@@ -56,7 +65,7 @@
           display: block;
           position: absolute;
           top: 5px;
-          bottom: 20px;
+          bottom: 18px;
           left: 10px;
           width: 1px;
           background: #bbb;
@@ -69,7 +78,7 @@
             content: '';
             display: block;
             position: absolute;
-            top: 18px;
+            top: 19px;
             left: -13px;
             width: 10px;
             height: 1px;
@@ -78,20 +87,13 @@
         }
       }
     }
-
-    li {
-      padding: 0 0 0.5rem;
-
-      ul {
-        padding: 0.5rem 0 0 1.5rem;
-      }
-    }
   }
 
   div.guide-content {
     flex: 1;
     padding: 0 30px 0 40px;
     font-size: 18px;
+    max-width: 40em;
 
     & > :first-child {
       margin-top: 0;

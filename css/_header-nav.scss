@@ -39,3 +39,7 @@ header {
     height: 22px;
   }
 }
+
+body.wide header {
+  max-width: $max-width-wide;
+}

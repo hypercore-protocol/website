@@ -5,3 +5,7 @@ main {
   max-width: $max-width-default;
   margin: 0 auto;
 }
+
+body.wide main {
+  max-width: $max-width-wide;
+}
