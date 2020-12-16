@@ -3,6 +3,15 @@ title: Hypercore Protocol
 wideLayout: false
 ---
 
+<%
+function navItem (url, label, addedCls = '') {
+  let realUrl = `/${url}`
+  let cls = page.url === realUrl || page.url.startsWith(realUrl) ? 'current' : ''
+  if (addedCls) cls += ` ${addedCls}`
+  return `<a class="${cls}" href="${rootPath}${url}" title="${label}">${label}</a>`
+}
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,10 +48,10 @@ wideLayout: false
     <header>
       <div class="nav-left">
         <a href="<%= rootPath %>" title="Home"><img class="logo" src="<%= rootPath %>images/hypercore-protocol.png"></a>
-        <a href="<%= rootPath %>guides" title="Guides">Guides</a>
-        <a href="<%= rootPath %>protocol" title="Protocol">Protocol</a>
-        <a href="<%= rootPath %>install" title="Install">Install</a>
-        <a class="awesome" href="<%= rootPath %>awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+        <%- navItem('guides', 'Guides') %>
+        <%- navItem('protocol', 'Protocol') %>
+        <%- navItem('install', 'Install') %>
+        <%- navItem('awesome-hacks', 'Awesome Hacks', 'awesome') %>
       </div>
       <div class="nav-right">
         <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="<%= rootPath %>images/discord-icon.webp"></a>

@@ -19,6 +19,7 @@ header {
     text-decoration: none;
     margin-right: 2rem;
     font-weight: bold;
+    border-bottom: 2px solid transparent;
 
     &:hover {
       text-decoration: underline;
@@ -26,6 +27,10 @@ header {
 
     &.awesome {
       color: $color-pink;
+    }
+
+    &.current {
+      border-bottom: 2px solid;
     }
   }
 
