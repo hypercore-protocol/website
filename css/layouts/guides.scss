@@ -1,9 +1,32 @@
 @import "base";
 
+.guides-breadcrumbs {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0.5rem 0.8rem;
+  margin: 0 0 1rem;
+  font-size: 18px;
+  color: #777;
+  border-top: 1px solid #ccc;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: #555;
+    }
+  }
+
+  a, span {
+    margin-right: 0.5rem;
+  }
+}
+
 .guides-layout {
   display: flex;
   align-items: flex-start;
-  padding: 2rem 0;
+  padding: 0 0.8rem;
 
   nav {
     position: sticky;

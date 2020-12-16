@@ -28,9 +28,34 @@ function renderGuidesNavItem ([url, label, children]) {
     </li>
   `
 }
+
+function renderBreadcrumbs () {
+  let path = [[`${rootPath}guides`, 'Guides']].concat(findBreadcrumbPath())
+  return path.map(([url, title]) => `
+    <a href="${rootPath}${url}" title="${title}">${title}</a>
+  `).join('<span>&rsaquo;</span>')
+}
+
+function findBreadcrumbPath (items) {
+  items = items || guidesNav
+  for (let item of items) {
+    let [url, title, children] = item
+    let realUrl = `/${url}`
+    if (realUrl === page.url) {
+      return [item]
+    }
+    if (children && page.url.startsWith(realUrl)) {
+      return [item].concat(findBreadcrumbPath(children))
+    }
+  }
+  return []
+}
 %>
 
 <main>
+  <div class="guides-breadcrumbs">
+    <%- renderBreadcrumbs() %>
+  </div>
   <div class="guides-layout">
     <nav>
       <%- renderGuidesNav() %>
