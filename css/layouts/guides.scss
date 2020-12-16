@@ -1,5 +1,10 @@
 @import "base";
 
+p,
+ul {
+  line-height: 1.6;
+}
+
 .guides-breadcrumbs {
   display: flex;
   box-sizing: border-box;
