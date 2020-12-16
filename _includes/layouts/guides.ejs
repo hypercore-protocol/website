@@ -21,6 +21,9 @@ function renderGuidesNavItem ([url, label, children]) {
     childHtml = renderGuidesNav(children)
     if (!cls) cls = 'child-current'
   }
+  if (!url.startsWith('guides')) {
+    cls += ' external'
+  }
   return `
     <li>
       <a class="${cls}" href="${rootPath}${url}" title="${label}">${label}</a>
