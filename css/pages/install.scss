@@ -1,0 +1,22 @@
+@import "../layouts/base";
+
+main {
+  padding: 2rem 0;
+
+  section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0.5rem 2rem;
+
+    &.highlighted {
+      border: 3px dashed;
+    }
+  }
+}
+
+.install-instructions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  margin-bottom: 1em;
+}

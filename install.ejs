@@ -1,10 +1,38 @@
 ---
 layout: layouts/base
+css: css/pages/install.css
+title: "Install | Hypercore Protocol"
 ---
 
-<link rel="stylesheet" type="text/css" href="<%= rootPath %>css/pages/install.css">
-
 <main>
-  Install todo
+  <section class="highlighted">
+    <h1>Install the Hyp CLI</h1>
+    <div class="install-instructions">
+      <div class="description">
+        <p>
+          Hyp is a command-line tool for Hypercore Protocol.
+          It includes tools for transferring data, seeding files, and running the daemon.
+        </p>
+        <p>
+          After installing, read the <a href="<%= rootPath %>guides/hyp/" title="Using the Hyp CLI">"Using the Hyp CLI"</a> guide to get started.
+        </p>
+      </div>
+      <div class="steps">
+        <div class="bash">npm install -g @hyperspace/cli</div>
+        <p>Requires nodejs 14+</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The Hyperspace Daemon</h2>
+    <p>
+      If you're building an application or service, you should look at the <a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace Daemon">Hyperspace Daemon</a>.
+      It provides an complete out-of-the-box toolset for the Hypercore Protocol.
+    </p>
+    <p>
+      You can also use the <a href="<%= rootPath %>guides/dev/apis/" title="API Docs">individual modules</a> to build a solution that fits your usecase.
+    </p>
+  </section>
 </main>
 

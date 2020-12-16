@@ -35,3 +35,12 @@ a.btn {
     color: $btn-color-white;
   }
 }
+
+.bash {
+  background: #111;
+  color: #fff;
+  padding: 1rem;
+  margin: 1em 0;
+  font-family: $font-mono;
+  white-space: pre;
+}
