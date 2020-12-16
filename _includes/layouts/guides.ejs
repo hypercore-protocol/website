@@ -13,15 +13,16 @@ function renderGuidesNav (items) {
 }
 
 function renderGuidesNavItem ([url, label, children]) {
-  let cls = url === page.url ? 'current' : ''
+  var realUrl = `/${url}`
+  let cls = realUrl === page.url ? 'current' : ''
   let childHtml = ''
-  if (children && (url === page.url || page.url.startsWith(url))) {
+  if (children && (realUrl === page.url || page.url.startsWith(realUrl))) {
     childHtml = renderGuidesNav(children)
     if (!cls) cls = 'child-current'
   }
   return `
     <li>
-      <a class="${cls}" href="${url}" title="${label}">${label}</a>
+      <a class="${cls}" href="${rootPath}${url}" title="${label}">${label}</a>
       ${childHtml}
     </li>
   `
