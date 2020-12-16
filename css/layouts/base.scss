@@ -1,9 +1,11 @@
 @import "../common";
 @import "../header-nav";
+@import "../footer";
 
 main {
   max-width: $max-width-default;
   margin: 0 auto;
+  min-height: 80vh;
 }
 
 body.wide main {

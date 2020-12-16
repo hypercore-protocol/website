@@ -10,6 +10,9 @@ function navItem (url, label, addedCls = '') {
   if (addedCls) cls += ` ${addedCls}`
   return `<a class="${cls}" href="${rootPath}${url}" title="${label}">${label}</a>`
 }
+function footerLink (url, label) {
+  return `<div><a href="${url}" title="${label}">${label}</a></div>`
+}
 %>
 
 <!DOCTYPE html>
@@ -61,6 +64,39 @@ function navItem (url, label, addedCls = '') {
     </header>
 
     <%- content %>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="linklists">
+          <div>
+            <h5>Site</h5>
+            <%- footerLink(rootPath, 'Home') %>
+            <%- footerLink(rootPath + 'guides/', 'Guides') %>
+            <%- footerLink(rootPath + 'protocol/', 'Protocol') %>
+            <%- footerLink(rootPath + 'install/', 'Install') %>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <%- footerLink(rootPath, 'Hyperspace') %>
+            <%- footerLink(rootPath, 'Hyp CLI') %>
+            <%- footerLink(rootPath, 'Hypercore') %>
+            <%- footerLink(rootPath, 'Hyperdrive') %>
+            <%- footerLink(rootPath, 'Hyperbee') %>
+            <%- footerLink(rootPath, 'Hyperswarm') %>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <%- footerLink('https://blog.hypercore-protocol.org', 'Blog') %>
+            <%- footerLink('https://github.com/hypercore-protocol', 'GitHub') %>
+            <%- footerLink('https://twitter.com/hypercoreproto', 'Twitter') %>
+            <%- footerLink('https://chat.hypercore-protocol.org', 'Discord Chat') %>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
   </body>
