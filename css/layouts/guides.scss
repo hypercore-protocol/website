@@ -91,37 +91,6 @@
         }
       }
     }
-
-    // lines pointing to child items
-    ul > ul {
-      position: relative;
-
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 5px;
-        bottom: 18px;
-        left: 10px;
-        width: 1px;
-        background: #bbb;
-      }
-
-      li {
-        position: relative;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 19px;
-          left: -13px;
-          width: 10px;
-          height: 1px;
-          background: #bbb;
-        }
-      }
-    }
   }
 
   div.guide-content {
