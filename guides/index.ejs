@@ -19,3 +19,47 @@ layout: layouts/guides
   It creates <a href="hyperdrives" title="Hyperdrives">networked datasets</a> which users can <a href="hyperdrives/seeding-drives/" title="Seeding Hyperdrives">seed</a> in a distributed mesh.
   Hypercore includes a variety of tools for <a href="beam" title="Beaming Data">connecting devices</a> and is built on a <a href="dev" title="Developers">very modular API</a> for building custom programs.
 </p>
+
+<div class="linkboxes">
+  <a href="<%= rootPath %>guides/hyp/" title="Using the Hyp CLI">
+    <img src="<%= rootPath %>images/icons8/command-line-50.png">
+    <div>Using the Hyp CLI</div>
+  </a>
+  <a href="<%= rootPath %>guides/dev/" title="Developer Docs">
+    <img src="<%= rootPath %>images/icons8/code-50.png">
+    <div>Developer Docs</div>
+  </a>
+  <a href="<%= rootPath %>protocol/" title="Protocol Overview">
+    <img src="<%= rootPath %>images/icons8/protocol-50.png">
+    <div>Protocol Overview</div>
+  </a>
+</div>
+
+<h2>Useful Links</h2>
+
+<% const link = (url, title) => `<a href="${url}" title="${title}">${title}</a>` %>
+
+<div class="linklists">
+  <div class="linklist">
+    <h5>Docs</h5>
+    <%- link(rootPath + 'guides/faq/', 'FAQ') %>
+    <%- link(rootPath + 'guides/hyp/', 'Using the Hyp CLI') %>
+    <%- link(rootPath + 'guides/dev/apis/', 'API Docs') %>
+    <%- link(rootPath + 'guides/dev/workshops/', 'Workshops') %>
+    <%- link(rootPath + 'protocol/', 'Protocol Overview') %>
+  </div>
+  <div class="linklist">
+    <h5>Repos</h5>
+    <%- link('https://github.com/hypercore-protocol/cli', 'Hyp CLI') %>
+    <%- link('https://github.com/hypercore-protocol/hyperspace', 'Hyperspace Daemon') %>
+    <%- link('https://github.com/hypercore-protocol/hypercore', 'Hypercore') %>
+    <%- link('https://github.com/hypercore-protocol/hyperdrive', 'Hyperdrive') %>
+    <%- link('https://github.com/mafintosh/hyperbee', 'Hyperbee') %>
+    <%- link('https://github.com/hyperswarm', 'Hyperswarm') %>
+  </div>
+  <div class="linklist">
+    <h5>General</h5>
+    <%- link('https://github.com/hypercore-protocol', 'Github Organization') %>
+    <%- link('https://chat.hypercore-protocol.org', 'Discord Server (chat)') %>
+  </div>
+</div>
