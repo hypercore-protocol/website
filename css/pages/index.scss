@@ -5,12 +5,22 @@
   margin: 8rem 0;
   font-size: 21px;
 
+  h1 {
+    font-family: $font-mono;
+    margin-bottom: 0;
+  }
+
   img {
     height: 150px;
   }
 
+  p {
+    margin: 1rem 0 2rem;
+    font-size: 1.1em;
+  }
+
   .btn {
-    width: 100px;
+    width: 120px;
     text-align: center;
     padding: 8px 0 9px;
   }
