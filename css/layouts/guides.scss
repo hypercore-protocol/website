@@ -26,7 +26,7 @@
 .guides-layout {
   display: flex;
   align-items: flex-start;
-  padding: 0 0.8rem;
+  padding: 0 0.8rem 2rem;
 
   nav {
     position: sticky;
@@ -109,7 +109,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
-  margin: 2em 0;
+  margin: 3em 0;
 
   a {
     border: 1px solid #000;
@@ -135,6 +135,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5rem;
+  margin-bottom: 3em;
 
   .linklist {
     h5 {
