@@ -17,18 +17,17 @@ layout: layouts/guides
   But exploring the space of options can be daunting, especially if you're new to the P2P world. If you're looking for an opinionated combination of modules that "just work", our Hyperspace server is the way to go.
 </p>
 
+<h2>Architectural Overview</h2>
+(TODO: Put an overview diagram here)
+
 <h2>Our Core Modules</h2>
 
 <p>
   To get a better sense of how the Hypercore Protocol modules fit together, here's a quick overview/categorization of the big ones.
 </p>
 
-<h3><a href="https://github.com/hypercore-protocol/Hypercore>Hypercore">Hypercore</a></h3>
+<h3><a href="https://github.com/hypercore-protocol/Hypercore">Hypercore</a></h3>
 <table class="module-table">
-  <tr>
-    <td class="row-name">Category</td>
-    <td>foundational</td>
-  </tr>
   <tr>
     <td class="row-name">Depends On</td>
     <td>
@@ -40,7 +39,8 @@ layout: layouts/guides
     <td>
       <a href="https://github.com/hypercore-protocol/corestore">corestore</a>,
       <a href="https://github.com/mafintosh/hyperbee">hyperbee</a>,
-      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>
+      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>,
+      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>
     </td>
   </tr>
 </table>
@@ -61,10 +61,65 @@ layout: layouts/guides
 Hypercores can be <b>shared</b> using their <code>replicate</code> method, which returns a Duplex stream that can be piped over arbitrary networking protocols. We typically combine Hypercore replication streams with Hyperswarm connections, described below. 
 </p>
 
-<h3>Hyperswarm</h3>
-<h3>Corestore</h3>
+<h3><a href="https://github.com/hyperswarm/hyperswarm">Hyperswarm</a></h3>
+<table class="module-table">
+  <tr>
+    <td class="row-name">Depends On</td>
+    <td>
+      nothing
+    </td>
+  </tr>
+  <tr>
+    <td class="row-name">Used By</td>
+    <td>
+      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
+      <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a>
+    </td>
+  </tr>
+</table>
+
+<p>
+  While Hypercores can be replicated over any Node stream, most people want to use it in peer-to-peer systems. Hyperswarm is the DHT (distributed hash table) we developed for discovering and connecting to other peers, primarily for P2P Hypercore replication.
+</p>
+
+<p>
+  It supports a distributed UDP hole-punching algorithm that makes it especially suitable for home networks.
+</p>
+
+<p>
+  Hyperswarm is often used to discover and share peers for Hypercore replication, but it can also be used for more general P2P applications. As an example, <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a> uses Hyperswarm to establish E2E-encrypted "pipes" between two peers.
+</p>
+
+<h3><a href="https://github.com/hypercore-protocol/corestore">Corestore</a></h3>
+<table class="module-table">
+  <tr>
+    <td class="row-name">Depends On</td>
+    <td>
+      <a href="https://github.com/hypercore-protocol/hypercore">hypercore</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="row-name">Used By</td>
+    <td>
+      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
+      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>
+    </td>
+  </tr>
+</table>
+
+<p>
+  
+</p>
 
 <h2>Higher-Level Data Structures</h2>
+
+<p>
+  Hypercore, on its own, is a very simple data structure -- it's just a long list of blocks. As we'll see in these guides, a list of blocks is perfectly sufficient for many applications, such as video streaming. For other applications, you'll need more powerful data structures, like search trees.
+</p>
+
+<p>
+  To accomplish this, we use a pattern called <b>embedded indexing</b>. With embedded indexing, "pointers" are stored alongside data in Hypercore blocks, making it possible to quickly locate blocks of interest without downloading the complete log. 
+</p>
 
 <h3>Hyperbee</h3>
 <h3>Hyperdrive</h3>
