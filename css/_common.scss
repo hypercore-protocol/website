@@ -36,6 +36,11 @@ a.btn {
   }
 }
 
+h1 a, h2 a, h3 a, h4 a, h4 a {
+  text-decoration: none;
+  &:hover {text-decoration: underline;}
+}
+
 .bash {
   background: #111;
   color: #fff;
@@ -43,4 +48,8 @@ a.btn {
   margin: 1em 0;
   font-family: $font-mono;
   white-space: pre;
+
+  .comment {
+    color: #bbb;
+  }
 }
