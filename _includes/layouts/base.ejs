@@ -48,7 +48,7 @@ function footerLink (url, label) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="<%= wideLayout ? 'wide' : 'narrow' %>">
-    <header>
+    <header class="desktop">
       <div class="nav-left">
         <a href="<%= rootPath %>" title="Home"><img class="logo" src="<%= rootPath %>images/hypercore-protocol.png"></a>
         <%- navItem('guides', 'Guides') %>
@@ -62,6 +62,17 @@ function footerLink (url, label) {
         <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="<%= rootPath %>images/github-icon.png"></a>
       </div>
     </header>
+    <header class="mobile">
+      <a href="<%= rootPath %>" title="Home"><img class="logo" src="<%= rootPath %>images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="<%= rootPath %>images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <%- navItem('', 'Home') %>
+      <%- navItem('guides', 'Guides') %>
+      <%- navItem('protocol', 'Protocol') %>
+      <%- navItem('install', 'Install') %>
+      <%- navItem('awesome-hacks', 'Awesome Hacks') %>
+    </div>
 
     <%- content %>
 
@@ -97,6 +108,7 @@ function footerLink (url, label) {
         </div>
       </div>
     </footer>
+    <script src="<%= rootPath %>js/mobile-nav.js"></script>
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
   </body>

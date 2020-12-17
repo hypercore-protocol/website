@@ -6,6 +6,14 @@ header {
   align-items: center;
   font-family: $font-mono;
   padding: 1rem;
+
+  img.logo {
+    display: block;
+    height: 30px;
+  }
+}
+
+header.desktop {
   max-width: $max-width-default;
   margin: 0 auto;
 
@@ -30,11 +38,6 @@ header {
     }
   }
 
-  img.logo {
-    display: block;
-    height: 30px;
-  }
-
   img.icon {
     display: block;
     height: 22px;
@@ -43,4 +46,48 @@ header {
 
 body.wide header {
   max-width: $max-width-wide;
+}
+
+header.mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  background: #fff;
+}
+
+#mobile-menu {
+  display: none;
+  position: fixed;
+  top: 3.5rem;
+  width: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  background: #eee;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px #0001;
+
+  &.open {
+    display: block;
+  }
+
+  a {
+    display: block;
+    border-top: 1px solid #ccc;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  header.desktop {
+    display: none;
+  }
+  header.mobile {
+    display: flex;
+  }
 }

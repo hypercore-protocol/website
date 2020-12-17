@@ -36,3 +36,25 @@ footer {
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  footer .footer-inner {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  footer .footer-inner .linklists {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 1rem;
+
+    a {
+      display: block;
+      border: 1px solid #ccc;
+      margin-bottom: 0.2rem;
+      padding: 0.5rem 0.9rem;
+    }
+  }
+}

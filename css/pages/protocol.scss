@@ -81,11 +81,28 @@ video {
 }
 
 @media only screen and (max-width: 800px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   nav a {
-    margin: 0 9px;
+    display: block;
+    padding: 10px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #000;
   }
 
-  nav a {
-    margin-bottom: 5px;
+  #hyperswarm:target #core-link, #hyperdrive:target #core-link {
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+  }
+  #core-link, #hyperswarm:target #swarm-link, #hyperdrive:target #drive-link {
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
   }
 }

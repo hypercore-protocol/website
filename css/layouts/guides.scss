@@ -175,3 +175,73 @@ h2, h3 {
     font-weight: bold;
   }
 }
+
+// tighten the spacing of the nav/content
+@media only screen and (max-width: 1060px) {
+  .guides-layout {
+    nav {
+      flex: 0 0 200px;
+    }
+  }
+}
+
+// left nav starts to crowd, remove it
+@media only screen and (max-width: 840px) {
+  main {
+    padding-top: 3rem;
+  }
+
+  .guides-breadcrumbs {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 21px;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border: 0;
+  }
+
+  .guides-layout {
+    display: block;
+
+    nav {
+      display: none;
+    }
+
+    div.guide-content {
+      padding-left: 12px;
+    }
+  }
+}
+
+// switch to mobile nav
+@media only screen and (max-width: 720px) {
+  main {
+    padding-top: 7rem;
+  }
+
+  .guides-breadcrumbs {
+    position: fixed;
+  }
+}
+
+// change columnar UI elements into rows
+@media only screen and (max-width: 620px) {
+  .linkboxes {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .linklists {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 2rem;
+    margin-bottom: 2em;
+
+    .linklist a {
+      padding: 1rem;
+    }
+  }
+}

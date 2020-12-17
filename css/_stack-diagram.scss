@@ -63,3 +63,33 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .stack-diagram {
+    .high-level-structures {
+      & > .items {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
+    }
+
+    .daemon {
+      & > .items {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 0;
+      }
+      .daemon-modules {
+        background: #ddd;
+        border: 1px dashed #000;
+        border-top: 0;
+        padding: 0.5rem 0.75rem 0.75rem;
+        
+        h5 {
+          color: #333;
+        }
+      }
+    }
+  }
+}

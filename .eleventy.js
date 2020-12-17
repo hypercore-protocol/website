@@ -9,4 +9,5 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('videos')
   eleventyConfig.addPassthroughCopy('fonts')
+  eleventyConfig.addPassthroughCopy('js')
 }

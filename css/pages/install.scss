@@ -29,3 +29,43 @@ main {
   grid-gap: 3rem;
   margin-bottom: 1em;
 }
+
+@media only screen and (max-width: 1050px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .install-instructions {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 0;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  main section {
+    padding: 0.5rem 2rem 0.75rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  main {
+    padding-top: 4rem;
+
+    section {
+      padding: 0;
+      margin: 0 0 1rem;
+      
+      &.highlighted {
+        border: 0;
+      }
+
+      .bash {
+        font-size: 14px;
+      }
+    }
+  }
+}
