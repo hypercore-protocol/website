@@ -36,7 +36,7 @@ ul {
   nav {
     position: sticky;
     top: 10px;
-    flex: 0 0 240px;
+    flex: 0 0 260px;
     box-sizing: border-box;
     padding-top: 10px;
 
@@ -79,7 +79,6 @@ ul {
         
           &.current {
             font-weight: bold;
-            color: $color-blue;
           }
 
           &.child-current {
