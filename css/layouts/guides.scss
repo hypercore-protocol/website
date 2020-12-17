@@ -5,6 +5,10 @@ ul {
   line-height: 1.6;
 }
 
+h2, h3 {
+  margin-top: 1.5em;
+}
+
 .guides-breadcrumbs {
   display: flex;
   box-sizing: border-box;
@@ -113,7 +117,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
-  margin: 3em 0;
+  margin: 2em 0;
 
   a {
     border: 1px solid #000;
