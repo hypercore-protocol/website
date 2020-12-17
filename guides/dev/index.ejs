@@ -2,6 +2,88 @@
 layout: layouts/guides
 ---
 
-todo
+<h1>Hypercore for Developers</h1>
 
-<%= page.url %>
+<p>
+  The Hypercore Protocol is designed with flexibility and modularity in mind.
+  Our modules can be viewed as "Lego blocks" for building P2P applications: you're free to pick and choose the tools you need. 
+</p>
+
+<p>
+  Modularity affords you the ability to tweak and customize, gradually honing in on the right set of components and configurations for your use-case.
+</p>
+
+<p>
+  But exploring the space of options can be daunting, especially if you're new to the P2P world. If you're looking for an opinionated combination of modules that "just work", our Hyperspace server is the way to go.
+</p>
+
+<h2>Our Core Modules</h2>
+
+<p>
+  To get a better sense of how the Hypercore Protocol modules fit together, here's a quick overview/categorization of the big ones.
+</p>
+
+<h3><a href="https://github.com/hypercore-protocol/Hypercore>Hypercore">Hypercore</a></h3>
+<table class="module-table">
+  <tr>
+    <td class="row-name">Category</td>
+    <td>foundational</td>
+  </tr>
+  <tr>
+    <td class="row-name">Depends On</td>
+    <td>
+      <a href="https://github.com/random-access-storage">random-access-storage</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="row-name">Used By</td>
+    <td>
+      <a href="https://github.com/hypercore-protocol/corestore">corestore</a>,
+      <a href="https://github.com/mafintosh/hyperbee">hyperbee</a>,
+      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>
+    </td>
+  </tr>
+</table>
+
+<p>
+  The centerpiece of our ecosystem is Hypercore, a secure append-only log data structure. One can think of a Hypercore as a “personal blockchain”, a self-owned list of binary blocks with an immutable history, secured by cryptographic proofs. 
+</p>
+
+<p>
+  Having an immutable history means one can always “check out” the state of a Hypercore at any previous point in time (e.g. when it had a length of 15).
+</p>
+
+<p>
+  Hypercores can be <b>stored</b> in a variety of different storage backends, so long as they adhere to the <a href="https://github.com/random-access-storage/random-access-storage">random-access-storage</a> pattern. There are random-access-* modules for local disk, memory-only, IndexedDB, S3, and more.
+</p>
+
+<p>
+Hypercores can be <b>shared</b> using their <code>replicate</code> method, which returns a Duplex stream that can be piped over arbitrary networking protocols. We typically combine Hypercore replication streams with Hyperswarm connections, described below. 
+</p>
+
+<h3>Hyperswarm</h3>
+<h3>Corestore</h3>
+
+<h2>Higher-Level Data Structures</h2>
+
+<h3>Hyperbee</h3>
+<h3>Hyperdrive</h3>
+
+<h2>Hyperspace</h2>
+
+<p>
+</p>
+
+<h2>Next Steps</h2>
+
+<p>
+</p>
+
+<p>
+  These developer docs will walk you through building Hypercore-based applications using two different approaches:
+  <ol>
+    <li><b>Freeform: </b>Using our low-level modules on their own.</li>
+    <li><b>Batteries-Included: </b>Using the Hyperspace server for a simpler out-of-the-box experience.</li>
+  </ol>
+</p>
+
