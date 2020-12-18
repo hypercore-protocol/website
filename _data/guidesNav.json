@@ -2,8 +2,6 @@
   ["guides/", "Introduction"],
   ["guides/faq/", "FAQ"],
   ["guides/hyp/", "Using the Hyp CLI", [
-    ["guides/hyp/beaming-files/", "Beaming Files"],
-    ["guides/hyp/sharing-hyperdrives/", "Sharing Hyperdrives"],
     ["guides/hyp/cheatsheet/", "Cheatsheet"]
   ]],
   ["guides/dev/", "Developers", [

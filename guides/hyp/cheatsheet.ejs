@@ -2,6 +2,189 @@
 layout: layouts/guides
 ---
 
-todo
+<%
+const reservedChars = /[^A-Za-z0-9]/g
+const continuousDashes = /(-[-]+)/g
+const endingDashes = /([-]+$)/g
+function slugify (str = '') {
+  return str.toLowerCase().replace(reservedChars, '-').replace(continuousDashes, '-').replace(endingDashes, '')
+}
 
-<%= page.url %>
+function header (str) {
+  let slug = slugify(str)
+  return `<h2 id="${slug}"><a href="#${slug}" title="${str}">${str}</a></h2>`
+}
+%>
+
+<style>
+  section {
+    border-top: 1px solid #000;
+  }
+</style>
+
+<h1>Hyp CLI Cheatsheet</h1>
+
+<p>
+  A collection of useful commands for quick reference.
+</p>
+
+<section>
+  <%- header('Syncing a folder into a hyperdrive') %>
+
+  <div class="bash">hyp sync {source} [target]</div>
+
+  <ul>
+    <li><strong>source</strong> The path of the folder to share.</li>
+    <li><strong>target</strong> Optional- the hyperdrive to sync the folder to.</li>
+  </ul>
+
+  <p>If no target is supplied, hyp will create a new hyperdrive for you.</p>
+
+  <div class="bash">hyp sync ./input-folder</div>
+
+  <p>The sync command will output the URL of your new hyperdrive, and it will now contain your folder's files.</p>
+
+  <p>To update the hyperdrive again, run:</p>
+
+  <div class="bash">hyp sync ./input-folder hyper://1234…af</div>
+
+  <p>Where hyper://1234…af is your hyperdrive's URL.</p>
+
+  <div class="info-aside">
+    If you include --watch the sync command will continuously sync the source to the target.
+  </div>
+</section>
+
+<section>
+  <%- header('Creating an empty hyperdrive') %>
+
+  <div class="bash">hyp create drive</div>
+
+  <p>This will output the URL of your new hyperdrive and you'll be ready to go.</p>
+</section>
+
+<section>
+  <%- header('Diffing hyperdrives and local folders') %>
+
+  <div class="bash">hyp diff {source} {target}</div>
+
+  <ul>
+    <li><strong>source</strong> A local folder path or hyperdrive URL.</li>
+    <li><strong>target</strong> A local folder path or hyperdrive URL.</li>
+  </ul>
+
+  <p>The command will output a list of all files that differ and explain how they differ.</p>
+
+  <p>You can sync the target so that it matches the source by adding the <code>--commit</code> switch:</p>
+
+  <div class="bash">hyp diff {source} {target} --commit</div>
+
+  <p>This will give you a chance to review the changes about to occur, then y/n the sync.</p>
+</section>
+
+<section>
+  <%- header('Downloading a folder from a hyperdrive') %>
+  <div class="bash">hyp sync {source} [target]</div>
+
+  <ul>
+    <li><strong>source</strong> The hyperdrive you want to download.</li>
+    <li><strong>target</strong> The path of the local folder you want to download to.</li>
+  </ul>
+
+  <p>Example:</p>
+
+  <div class="bash">hyp sync hyper://1234…af ./output-folder</div>
+
+  <p>You can re-run the command to update the target folder. It will cause the target folder to match the hyperdrive <em>exactly</em> so watch out for data loss.</p>
+
+  <div class="info-aside">
+    If you include --watch the sync command will continuously sync the source to the target.
+  </div>
+</section>
+
+<section>
+  <%- header('List your current seeds') %>
+
+  <div class="bash">hyp info [urls..]</div>
+
+  <p>The info command will tell you what you are currently seeding if given no arguments:</p>
+
+  <div class="bash">hyp info</div>
+
+  <p>If one (or more) URLs are supplied, it will give the current seeding state of that hyper:</p>
+
+  <div class="bash">hyp info hyper://1234…af</div>
+</section>
+
+<section>
+  <%- header('Reading a file from a hyperdrive') %>
+
+  <div class="bash">hyp cat {url}</div>
+
+  <p>To read the file, simply run <code>cat</code> on the file's URL:</p>
+
+  <div class="bash">hyp cat hyper://1234…af/hello.txt</div>
+
+  <p>You can save the file using pipes:</p>
+
+  <div class="bash">hyp cat hyper://1234…af/hello.txt &gt; ./hello.txt</div>
+</section>
+
+<section>
+  <%- header('Keeping hypers online (seeding)') %>
+
+  <div class="bash">hyp seed {url}</div>
+
+  <p>To sync the current data of a hyper and host its data for others to access, run the seed command on its URL:</p>
+
+  <div class="bash">hyp seed hyper://1234…af</div>
+
+  <p>You can stop seeding with the unseed command:</p>
+
+  <div class="bash">hyp unseed hyper://1234…af</div>
+
+  <p>You can list all currently-seeded hypers with the info command:</p>
+
+  <div class="bash">hyp info</div>
+
+</section>
+
+<section>
+  <%- header('Writing an individual file to hyperdrive') %>
+
+  <div class="bash">hyp put {url} [value]</div>
+
+  <p>You'll first need to <a href="/hypercore-protocol/cli/blob/master/docs/guides/creating-a-hyperdrive.md">create a hyperdrive</a>.</p>
+
+  <p>To write a file, run the <code>put</code> command on the URL and provide the content of the file:</p>
+
+  <div class="bash">hyp put hyper://1234…af/hello.txt "Hello, world!"</div>
+
+  <p>If you want to copy an existing file into the hyperdrive, use pipes instead of supplying the value in the arguments:</p>
+
+  <div class="bash">cat hello.txt | hyp put hyper://1234…af/hello.txt</div>
+
+</section>
+
+<section>
+  <%- header('Beaming data') %>
+  
+  <div class="bash">hyp beam [passphrase]</div>
+
+  <p>Ever wish you had a fast way to send files or data to a device? For instance...</p>
+
+  <ul>
+    <li>Send a <code>hyper://</code> URL to another device for syncing</li>
+    <li>Copy an individual file to a friend's device</li>
+    <li>Run a command and share the output with a team-mate to debug</li>
+  </ul>
+  
+  <p>That's what the "beam" command is for. It acts like a stream, so you can pipe data in and out of the command.</p>
+  
+  <div class="bash">cat my-file.txt | hyp beam</div>
+
+  <p>It will generate a passphrase for you, like "manager car factory". You use that phrase on the receiving device and pipe out the data:</p>
+  
+  <div class="bash">hyp beam "manager car factory" &gt; ./their-file.txt</div>
+
+</section>
