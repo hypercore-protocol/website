@@ -1,5 +1,6 @@
 ---
 title: Hypercore Protocol
+description: A fast, scalable, and secure peer-to-peer protocol for everyone.
 wideLayout: false
 ---
 
@@ -22,15 +23,15 @@ function footerLink (url, label) {
     <title><%= title %></title>
 
     <!-- SEO -->
-    <meta name="Description" content="A fast, scalable, and secure peer-to-peer protocol for everyone.">
+    <meta name="Description" content="<%= description %>">
     <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
 
     <!-- Social -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@HypercoreProto">
     <meta name="twitter:creator" content="@HypercoreProto">
-    <meta name="og:title" content="Hypercore Protocol">
-    <meta name="og:description" content="A fast, scalable, and secure peer-to-peer protocol for everyone.">
+    <meta name="og:title" content="<%= title %>">
+    <meta name="og:description" content="<%= description %>">
     <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
 
     <% if (typeof css !== 'undefined') { %>
