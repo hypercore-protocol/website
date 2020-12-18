@@ -1,0 +1,27 @@
+---
+layout: layouts/guides
+css: css/layouts/walkthroughs.css
+wideLayout: true
+---
+
+<%
+function renderWalkthroughHeader () {
+  return `<h2>Header here</h2>`
+}
+
+function renderWalkthroughFooter () {
+  return `<h2>Footer here</h2>`
+}
+%>
+
+<main>
+  <div class="walkthrough-header">
+    <%- renderWalkthroughHeader() %>
+  </div>
+  <div class="walkthrough-content">
+    <%- content %>
+  </div>
+  <div class="walkthrough-footer">
+    <%- renderWalkthroughFooter() %>
+  </div>
+</main>

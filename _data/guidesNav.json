@@ -7,11 +7,15 @@
   ["guides/dev/", "Developers", [
     ["guides/dev/apis/", "APIs"],
     ["guides/dev/walkthroughs/", "Walkthroughs", [
-      ["guides/dev/walkthroughs/video-streaming", "Streaming Videos with Hypercore"],
-      ["guides/dev/walkthroughs/hyperdrive", "Sharing Files with Hyperdrive"],
-      ["guides/dev/walkthroughs/hyperspace", "Getting Started with Hyperspace"]
+      ["guides/dev/walkthroughs/hypercore", "Hypercore"],
+      ["guides/dev/walkthroughs/hyperswarm", "Hyperswarm"],
+      ["guides/dev/walkthroughs/corestore", "Corestore"],
+      ["guides/dev/walkthroughs/hyperspace", "Hyperspace"],
+      ["guides/dev/walkthroughs/hyperdrive", "Hyperdrive"],
+      ["guides/dev/walkthroughs/hyperbee", "Hyperbee"]
     ]],
-    ["guides/dev/workshops/", "Workshops"]
+    ["guides/dev/workshops/", "Workshops"],
+    ["guides/dev/modules/", "Our Modules"]
   ]],
   ["protocol/", "Protocol Overview"]
 ]

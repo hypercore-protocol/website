@@ -171,10 +171,12 @@ section {
 
 .module-table {
   border-collapse: collapse;
+
   tr, td {
     padding: 0.8em;
     border: 1px solid black;
   }
+
   .row-name {
     font-weight: bold;
   }

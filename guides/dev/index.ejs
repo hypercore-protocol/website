@@ -19,128 +19,64 @@ layout: layouts/guides
   But exploring the space of options can be daunting, especially if you're new to the P2P world. If you're looking for an opinionated combination of modules that "just work", our Hyperspace server is the way to go.
 </p>
 
-<h2>Architectural Overview</h2>
-(TODO: Put an overview diagram here)
 
-<h2>Our Core Modules</h2>
+<h2>Walkthroughs</h2>
 
 <p>
-  To get a better sense of how the Hypercore Protocol modules fit together, here's a quick overview/categorization of the big ones.
-</p>
-
-<h3><a href="https://github.com/hypercore-protocol/Hypercore">Hypercore</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      <a href="https://github.com/random-access-storage">random-access-storage</a>
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/corestore">corestore</a>,
-      <a href="https://github.com/mafintosh/hyperbee">hyperbee</a>,
-      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>,
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>
-    </td>
-  </tr>
-</table>
-
-<p>
-  The centerpiece of our ecosystem is Hypercore, a secure append-only log data structure. One can think of a Hypercore as a “personal blockchain”, a self-owned list of binary blocks with an immutable history, secured by cryptographic proofs. 
+    Our first two walkthrough tracks will explore the two columns of the stack diagram above.
 </p>
 
 <p>
-  Having an immutable history means one can always “check out” the state of a Hypercore at any previous point in time (e.g. when it had a length of 15).
+    Either track will prepare you for working with Hyperdrives and Hyperbees
 </p>
+
+<h3>Low-Level Track</h3>
 
 <p>
-  Hypercores can be <b>stored</b> in a variety of different storage backends, so long as they adhere to the <a href="https://github.com/random-access-storage/random-access-storage">random-access-storage</a> pattern. There are random-access-* modules for local disk, memory-only, IndexedDB, S3, and more.
+    To learn how to use the low-level modules on their own:
 </p>
+
+<div class="linkboxes">
+  <a href="<%= rootPath %>guides/dev/walkthroughs/hypercore" title="Creating and Sharing Hypercores">
+    <img src="<%= rootPath %>images/icons8/command-line-50.png">
+    <div>Creating and Sharing Hypercores</div>
+  </a>
+  <a href="<%= rootPath %>guides/dev/walkthroughs/hyperswarm" title="P2P Networking with Hyperswarm">
+    <img src="<%= rootPath %>images/icons8/code-50.png">
+    <div>P2P Networking with Hyperswarm</div>
+  </a>
+  <a href="<%= rootPath %>guides/dev/walkthroughs/corestore" title="Managing Hypercores with Corestore">
+    <img src="<%= rootPath %>images/icons8/protocol-50.png">
+    <div>Managing Hypercores with Corestore</div>
+  </a>
+</div>
+
+<h3>Hyperspace Track</h3>
 
 <p>
-Hypercores can be <b>shared</b> using their <code>replicate</code> method, which returns a Duplex stream that can be piped over arbitrary networking protocols. We typically combine Hypercore replication streams with Hyperswarm connections, described below. 
+    To get set up with a batteries-included daemon:
 </p>
 
-<h3><a href="https://github.com/hyperswarm/hyperswarm">Hyperswarm</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      nothing
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
-      <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a>
-    </td>
-  </tr>
-</table>
+<div class="linkboxes">
+  <a href="<%= rootPath %>guides/dev/walkthroughs/hyperspace" title="Getting Started with Hyperspace">
+    <img src="<%= rootPath %>images/icons8/command-line-50.png">
+    <div>Getting Started with Hyperspace</div>
+  </a>
+</div>
+
+<h3>Data Structures Track</h3>
 
 <p>
-  While Hypercores can be replicated over any Node stream, most people want to use it in peer-to-peer systems. Hyperswarm is the DHT (distributed hash table) we developed for discovering and connecting to other peers, primarily for P2P Hypercore replication.
+    To start working with higher-level data structures:
 </p>
 
-<p>
-  It supports a distributed UDP hole-punching algorithm that makes it especially suitable for home networks.
-</p>
-
-<p>
-  Hyperswarm is often used to discover and share peers for Hypercore replication, but it can also be used for more general P2P applications. As an example, <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a> uses Hyperswarm to establish E2E-encrypted "pipes" between two peers.
-</p>
-
-<h3><a href="https://github.com/hypercore-protocol/corestore">Corestore</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hypercore">hypercore</a>
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
-      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>
-    </td>
-  </tr>
-</table>
-
-<p>
-  
-</p>
-
-<h2>Higher-Level Data Structures</h2>
-
-<p>
-  Hypercore, on its own, is a very simple data structure -- it's just a long list of blocks. As we'll see in these guides, a list of blocks is perfectly sufficient for many applications, such as video streaming. For other applications, you'll need more powerful data structures, like search trees.
-</p>
-
-<p>
-  To accomplish this, we use a pattern called <b>embedded indexing</b>. With embedded indexing, "pointers" are stored alongside data in Hypercore blocks, making it possible to quickly locate blocks of interest without downloading the complete log. 
-</p>
-
-<h3>Hyperbee</h3>
-<h3>Hyperdrive</h3>
-
-<h2>Hyperspace</h2>
-
-<p>
-</p>
-
-<h2>Next Steps</h2>
-
-<p>
-</p>
-
-<p>
-  These developer docs will walk you through building Hypercore-based applications using two different approaches:
-  <ol>
-    <li><b>Freeform: </b>Using our low-level modules on their own.</li>
-    <li><b>Batteries-Included: </b>Using the Hyperspace server for a simpler out-of-the-box experience.</li>
-  </ol>
-</p>
-
+<div class="linkboxes">
+  <a href="<%= rootPath %>guides/dev/walkthroughs/hyperdrive" title="Sharing Files with Hyperdrive">
+    <img src="<%= rootPath %>images/icons8/command-line-50.png">
+    <div>Sharing Files with Hyperdrive</div>
+  </a>
+  <a href="<%= rootPath %>guides/dev/walkthroughs/hyperbee" title="P2P Indexing with Hyperbee">
+    <img src="<%= rootPath %>images/icons8/code-50.png">
+    <div>P2P Indexing with Hyperbee</div>
+  </a>
+</div>
