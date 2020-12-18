@@ -6,6 +6,11 @@
   ]],
   ["guides/dev/", "Developers", [
     ["guides/dev/apis/", "APIs"],
+    ["guides/dev/walkthroughs/", "Walkthroughs", [
+      ["guides/dev/walkthroughs/video-streaming", "Streaming Videos with Hypercore"],
+      ["guides/dev/walkthroughs/hyperdrive", "Sharing Files with Hyperdrive"],
+      ["guides/dev/walkthroughs/hyperspace", "Getting Started with Hyperspace"]
+    ]],
     ["guides/dev/workshops/", "Workshops"]
   ]],
   ["protocol/", "Protocol Overview"]
