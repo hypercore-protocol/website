@@ -28,9 +28,16 @@
   }
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  max-width: 2rem;
+  margin: 3rem auto;
+}
+
 section {
   max-width: 600px;
-  margin: 0 auto 6rem;
+  margin: 6rem auto 6rem;
   padding: 0 1rem;
   text-align: center;
   font-size: 18px;
@@ -51,10 +58,7 @@ section {
   }
 
   &.cta {
-    max-width: none;
-    margin: 3rem 0;
-    padding: 3rem 0;
-    background: #eee;
+    margin: 6rem auto 12rem;
 
     .btns {
       margin: 2em 0 1.5rem;
