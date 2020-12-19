@@ -4,6 +4,17 @@ title: "Using the Hyp CLI | Hypercore Protocol"
 description: "The Hyp command-line provides a convenient set of tools for accessing the Hypercore network."
 ---
 
+<style>
+  h2 img {
+    width: 30px;
+    position: relative;
+    top: 5px;
+    margin-right: 2px;
+  }
+  .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+  .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+
 <h1>Using the Hyp CLI</h1>
 
 <p>
@@ -15,15 +26,19 @@ description: "The Hyp command-line provides a convenient set of tools for access
   <a class="btn white" href="https://github.com/hypercore-protocol/cli" title="Github Repo">Github Repo</a>
 </p>
 
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/SVk1uIQxOO8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 <section>
-  <h2>Sharing Hyperdrives</h2>
+  <h2><img src="<%= rootPath %>images/icons8/shared-folder-50.png"> Sharing Folders</h2>
 
   <p>
-    Hyp's main use-case is sharing Hyperdrives.
+    Hyp's main use-case is sharing folders using something called a "Hyperdrive."
   </p>
 
   <div class="info-aside">
-    Hyperdrives are peer-to-peer folders which you can "seed" from one or more device.
+    "Hyperdrives" are peer-to-peer folders which you can "seed" from one or more device.
     Think of them as virtual networked folders, similar to Torrents.
     Hyp gives you convenient tools for creating, syncing, and seeding hyperdrives.
   </div>
@@ -53,6 +68,10 @@ description: "The Hyp command-line provides a convenient set of tools for access
   </p>
 
   <div class="bash">hyp sync ./input-folder hyper://1234…af</div>
+</section>
+
+<section>
+  <h2><img src="<%= rootPath %>images/icons8/connect-50.png"> Seeding Data</h2>
 
   <p>
     When you create a hyperdrive, it will automatically start seeding in the background.
@@ -82,7 +101,7 @@ description: "The Hyp command-line provides a convenient set of tools for access
 </section>
 
 <section>
-  <h2>Beaming Files</h2>
+  <h2><img src="<%= rootPath %>images/icons8/laser-beam-50.png"> Beaming Files</h2>
 
   <p>
     One of Hyp's most convenient tools is the "beam" command.
