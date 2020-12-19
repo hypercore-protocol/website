@@ -47,9 +47,14 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: left;
 
     img {
       margin-right: 1rem;
+
+      &.smaller {
+        width: 30px;
+      }
     }
   }
 
@@ -94,6 +99,18 @@ section {
 
     img {
       height: 130px;
+    }
+  }
+
+  section h2 {
+    font-size: 19px;
+
+    img {
+      width: 30px;
+
+      &.smaller {
+        width: 20px;
+      }
     }
   }
 }
