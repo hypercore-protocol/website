@@ -33,7 +33,7 @@ function renderGuidesNavItem ([url, label, children]) {
 }
 
 function renderBreadcrumbs () {
-  let path = [[`${rootPath}guides/`, 'Guides']].concat(findBreadcrumbPath())
+  let path = [[`guides/`, 'Guides']].concat(findBreadcrumbPath())
   return path.map(([url, title]) => `
     <a href="${rootPath}${url}" title="${title}">${title}</a>
   `).join('<span>&rsaquo;</span>')
