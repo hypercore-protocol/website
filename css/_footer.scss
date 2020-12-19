@@ -8,15 +8,16 @@ footer {
   .footer-inner {
     max-width: $max-width-footer;
     margin: 0 auto;
-    color: #666;
+    color: #444;
 
-    .linklists {
+    .footer-linklists {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      line-height: 1.8;
+      line-height: 2;
 
       h5 {
         margin: 0;
+        color: #222;
       }
 
       a {
@@ -44,11 +45,12 @@ footer {
 }
 
 @media only screen and (max-width: 480px) {
-  footer .footer-inner .linklists {
+  footer .footer-inner .footer-linklists {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     grid-gap: 1rem;
+    text-align: left;
 
     a {
       display: block;
