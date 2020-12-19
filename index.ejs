@@ -15,69 +15,117 @@ css: css/pages/index.css
   </div>
 
   <section>
-    <h2>Watch the demo</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/SVk1uIQxOO8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="feature-grid">
+      <div>
+        <img src="<%= rootPath %>images/icons8/connect-50.png">
+        <h3>Automatic connectivity</h3>
+        <p>
+          The Hyperswarm DHT arranges connections between devices using cryptographic-key addresses. Hole-punching included!
+        </p>
+      </div>
+      <div>
+        <img src="<%= rootPath %>images/icons8/secure-50.png">
+        <h3>End-to-end privacy</h3>
+        <p>
+          Encrypted connections between devices ensure that users only share with the people they intend to reach.
+        </p>
+      </div>
+      <div>
+        <img src="<%= rootPath %>images/icons8/module-50.png">
+        <h3>Highly modular</h3>
+        <p>
+          Build on top of the batteries-included "Hyperspace" daemon or build with the individual modules as you need.
+        </p>
+      </div>
     </div>
   </section>
 
-  <hr>
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Connect to peers</h3>
+        <p>
+          Using "topic" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
+        </p>
+      </div>
+      <div class="code"><span class="comment">// look for peers listed under this topic</span>
+<span class="keyword">const</span> topic = sha256(<span class="string">'my-hyperswarm-topic'</span>)
+swarm.join(topic, {lookup: <span class="literal">true</span>, announce: <span class="literal">true</span>})
 
-  <section>
-    <h2><img src="<%= rootPath %>images/icons8/shared-folder-50.png"> <a href="<%= rootPath %>guides/" title="Guides">Share from any device</a></h2>
+swarm.on(<span class="string">'connection'</span>, (socket, details) => {
+  console.log(<span class="string">'new connection!'</span>, details)
+
+  <span class="comment">// you can now use the socket as a stream, eg:</span>
+  process.stdin.pipe(socket).pipe(process.stdout)
+})</div>
+    </div>
+  </section>
+
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Build on a secure log</h3>
+        <p>
+          Hypercores are signed, append-only logs.
+          They're like light-weight blockchains without the consensus algorithm.
+        </p>
+      </div>
+      <div class="code"><span class="keyword">const</span> feed = hypercore(<span class="string">'./my-first-hypercore'</span>, {
+  valueEncoding: <span class="string">'utf-8'</span>
+})
+
+feed.append(<span class="string">'hello'</span>)
+feed.append(<span class="string">'world'</span>, err => {
+  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err
+  feed.get(<span class="literal">0</span>, console.log) <span class="comment">// prints hello</span>
+  feed.get(<span class="literal">1</span>, console.log) <span class="comment">// prints world</span>
+})</div>
+    </div>
+  </section>
+
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Replicate datasets</h3>
+        <p>
+          Like BitTorrent, as more people "seed" a dataset it will increase the available bandwidth.
+        </p>
+      </div>
+      <div class="code"><span class="keyword">const</span> drive = hyperdrive(<span class="string">'./my-first-hyperdrive'</span>)
+
+<span class="keyword">await</span> drive.promises.writeFile(<span class="string">'/hello.txt'</span>, <span class="string">'world'</span>)
+<span class="keyword">await</span> drive.promises.readdir(<span class="string">'/'</span>) <span class="comment">// => ['hello.txt']</span>
+<span class="keyword">await</span> drive.promises.readFile(<span class="string">'/hello.txt'</span>) <span class="comment">// => 'world'</span>
+
+<span class="comment">// replicate over any stream-based transport layer</span>
+swarm.on(<span class="string">'connection'</span>, (socket, details) => {
+  socket.pipe(drive.replicate()).pipe(socket)
+})</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2><img src="<%= rootPath %>images/icons8/command-line-50.png"> <a href="<%= rootPath %>guides/" title="Guides">Start quickly with Hyp</a></h2>
     <p>
-      Hypercore securely shares files and databases.
-      Like BitTorrent, as more people "seed" a dataset it will download faster.
-      <a href="<%= rootPath %>guides/" title="Guides">Learn more</a>.
+      The Hyp CLI makes it easy to manage Hypercore's daemon and work with datasets.
+      <a href="<%= rootPath %>install/" title="Install">Install now</a>.
     </p>
     <div class="shell-video">
       <video src="<%= rootPath %>videos/demo-hyp-info.mp4" autoplay loop></video>
     </div>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2><img src="<%= rootPath %>images/icons8/secure-50.png"> End-to-end privacy</h2>
-    <p>
-      Encrypted connections between devices ensure that you only share with the people you intend to reach.
-    </p>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2><img src="<%= rootPath %>images/icons8/curly-brackets-50.png" class="smaller"> <a href="<%= rootPath %>guides/dev/" title="Develoer Guides">Built for developers</a></h2>
-    <p>
-      A suite of Javascript APIs make it easy to build new peer-to-peer applications.
-      <a href="<%= rootPath %>guides/dev/" title="Develoer Guides">Learn more</a>.
-    </p>
-    <div class="code"><span class="comment">// connect to the daemon</span>
-<span class="keyword">const</span> client = <span class="keyword">new</span> HyperspaceClient()
-<span class="keyword">await</span> client.ready()
-
-<span class="comment">// create a hyperdrive p2p folder</span>
-<span class="keyword">const</span> drive = hyperdrive(client.corestore())
-<span class="keyword">await</span> drive.promises.ready()
-<span class="keyword">await</span> drive.promises.writeFile(<span class="string">'/hello.txt'</span>, <span class="string">'Hello World!'</span>)
-
-<span class="comment">// announce to the network</span>
-client.network.configure(drive.discoveryKey, {
-  lookup: <span class="literal">true</span>,
-  announce: <span class="literal">true</span>
-})</div>
-  </section>
-
-  <hr>
-
-  <section class="cta">
-    <h2>Get started</h2>
-    <p>
-      Install the Hyp CLI or read the guides to get started.
-    </p>
     <div class="btns">
       <a class="btn black" title="Install" href="<%= rootPath %>install/">Install</a>
       <a class="btn white" title="Guides" href="<%= rootPath %>guides/">Guides</a>
+    </div>
+  </section>
+
+  <section class="license">
+    <img src="<%= rootPath %>images/icons8/software-license-50.png">
+    <div>
+      <h3>MIT Licensed</h3>
+      <p>
+        Hypercore Protocol is Free and Open-Source Software.
+      </p>
     </div>
   </section>
 </main>

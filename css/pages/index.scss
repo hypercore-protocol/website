@@ -2,7 +2,7 @@
 
 .hero {
   text-align: center;
-  margin: 25vh 0;
+  margin: 15vh 0;
   font-size: 21px;
 
   h1 {
@@ -36,7 +36,6 @@ hr {
 }
 
 section {
-  max-width: 600px;
   margin: 6rem auto 6rem;
   padding: 0 1rem;
   text-align: center;
@@ -62,12 +61,47 @@ section {
     line-height: 1.6;
   }
 
-  &.cta {
-    margin: 6rem auto 12rem;
+  &.code-example {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
-    .btns {
-      margin: 2em 0 1.5rem;
+    .columns {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+
+      .description {
+        background: #eee;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        text-align: left;
+        padding: 0.2rem 2rem;
+      }
+
+      .code {
+        margin: 0;
+      }
     }
+  }
+
+  &.license {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    max-width: 530px;
+
+    img {
+      margin-right: 2rem;
+    }
+
+    h3, p {
+      margin: 0;
+    }
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
   }
 
   .shell-video {
@@ -75,7 +109,7 @@ section {
     background: #000;
     padding: 0.75rem 1rem 0.25rem;
     border-radius: 4px;
-    margin-top: 1em;
+    margin: 1em 0;
 
     video {
       max-width: 85vw;
@@ -88,6 +122,23 @@ section {
     border-radius: 4px;
     text-align: left;
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  section {
+    &.code-example .columns {
+      grid-template-columns: 1fr;
+      .description {
+        border-radius: 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
