@@ -41,6 +41,7 @@ h1 a, h2 a, h3 a, h4 a, h4 a {
   &:hover {text-decoration: underline;}
 }
 
+.code,
 .bash {
   background: #111;
   color: #fff;
@@ -48,10 +49,12 @@ h1 a, h2 a, h3 a, h4 a, h4 a {
   margin: 1em 0;
   font-family: $font-mono;
   white-space: pre;
+  overflow: auto;
 
-  .comment {
-    color: #bbb;
-  }
+  .comment { color: #bbb; }
+  .keyword { color: #ff0060; }
+  .literal { color: #ffbf00; }
+  .string { color: #68ff00; }
 }
 
 .info-cta,

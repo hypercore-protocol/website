@@ -9,9 +9,61 @@ css: css/pages/index.css
     <h1>Hypercore Protocol</h1>
     <p>The peer-to-peer network</p>
     <div class="btns">
-      <a class="btn black" title="Install" href="<%= rootPath %>install">Install</a>
-      <a class="btn white" title="Guides" href="<%= rootPath %>guides">Guides</a>
+      <a class="btn black" title="Install" href="<%= rootPath %>install/">Install</a>
+      <a class="btn white" title="Guides" href="<%= rootPath %>guides/">Guides</a>
     </div>
   </div>
+
+  <section>
+    <h2><img src="<%= rootPath %>images/icons8/shared-folder-50.png"> <a href="<%= rootPath %>guides/" title="Guides">Share from any device</a></h2>
+    <p>
+      Hypercore securely shares files and databases.
+      Like BitTorrent, as more people "seed" a dataset it will download faster.
+      <a href="<%= rootPath %>guides/" title="Guides">Learn more</a>.
+    </p>
+    <div class="shell-video">
+      <video src="<%= rootPath %>videos/demo-hyp-info.mp4" autoplay loop></video>
+    </div>
+  </section>
+
+  <section>
+    <h2><img src="<%= rootPath %>images/icons8/secure-50.png"> End-to-end privacy</h2>
+    <p>
+      Encrypted connections between devices ensure that you only share with the people you intend to reach.
+    </p>
+  </section>
+
+  <section>
+    <h2><img src="<%= rootPath %>images/icons8/curly-brackets-50.png" style="width: 30px"> <a href="<%= rootPath %>guides/dev/" title="Develoer Guides">Built for developers</a></h2>
+    <p>
+      A suite of Javascript APIs make it easy to build new peer-to-peer applications.
+      <a href="<%= rootPath %>guides/dev/" title="Develoer Guides">Learn more</a>.
+    </p>
+    <div class="code"><span class="comment">// connect to the daemon</span>
+<span class="keyword">const</span> client = <span class="keyword">new</span> HyperspaceClient()
+<span class="keyword">await</span> client.ready()
+
+<span class="comment">// create a hyperdrive p2p folder</span>
+<span class="keyword">const</span> drive = hyperdrive(client.corestore())
+<span class="keyword">await</span> drive.promises.ready()
+<span class="keyword">await</span> drive.promises.writeFile(<span class="string">'/hello.txt'</span>, <span class="string">'Hello World!'</span>)
+
+<span class="comment">// announce to the network</span>
+client.network.configure(drive.discoveryKey, {
+  lookup: <span class="literal">true</span>,
+  announce: <span class="literal">true</span>
+})</div>
+  </section>
 </main>
 
+
+<section class="cta">
+  <h2>Get started</h2>
+  <p>
+    Install the Hyp CLI or read the guides to get started.
+  </p>
+  <div class="btns">
+    <a class="btn black" title="Install" href="<%= rootPath %>install/">Install</a>
+    <a class="btn white" title="Guides" href="<%= rootPath %>guides/">Guides</a>
+  </div>
+</section>
