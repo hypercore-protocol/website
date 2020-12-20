@@ -6,7 +6,16 @@
   ]],
   ["guides/dev/", "Developers", [
     ["guides/dev/apis/", "APIs"],
-    ["guides/dev/workshops/", "Workshops"]
+    ["guides/dev/walkthroughs/", "Walkthroughs", [
+      ["guides/dev/walkthroughs/hypercore", "Hypercore"],
+      ["guides/dev/walkthroughs/hyperswarm", "Hyperswarm"],
+      ["guides/dev/walkthroughs/corestore", "Corestore"],
+      ["guides/dev/walkthroughs/hyperspace", "Hyperspace"],
+      ["guides/dev/walkthroughs/hyperdrive", "Hyperdrive"],
+      ["guides/dev/walkthroughs/hyperbee", "Hyperbee"]
+    ]],
+    ["guides/dev/workshops/", "Workshops"],
+    ["guides/dev/modules/", "Our Modules"]
   ]],
   ["protocol/", "Protocol Overview"]
 ]
