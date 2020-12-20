@@ -1,3 +1,39 @@
 ---
 layout: layouts/walkthroughs
+title: Creating and Sharing Hypercores
+exampleLink: https://github.com/andrewosh/hypercore-protocol-walkthroughs/tree/main/hypercore
 ---
+
+<p>
+  Hypercore is the bread-and-butter of the Hypercore Protocol. It's a lightweight, secure append-only log that can be replicated over any Node.js stream.
+</p>
+
+<h2>Installation</h2>
+
+<p>
+  For this walkthrough, we'll install two modules:
+  <ol>
+    <li><code>hypercore</code>: Our primary module</li>
+    <li><code>hypercore-promisifier</code>: A Promises interface for Hypercore</li>
+</p>
+
+<section class="code-example">
+    <div class="columns">
+        <div class="description">
+            <p>
+                Using "topic" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
+            </p>
+        </div>
+    <div class="code"><span class="comment">// look for peers listed under this topic</span>
+<span class="keyword">const</span> topic = sha256(<span class="string">'my-hyperswarm-topic'</span>)
+    swarm.join(topic, {lookup: <span class="literal">true</span>, announce: <span class="literal">true</span>})
+
+    swarm.on(<span class="string">'connection'</span>, (socket, details) => {
+    console.log(<span class="string">'new connection!'</span>, details)
+
+    <span class="comment">// you can now use the socket as a stream, eg:</span>
+    process.stdin.pipe(socket).pipe(process.stdout)
+})
+    </div>
+    </div>
+</section>
