@@ -1,0 +1,40 @@
+---
+layout: layouts/guides
+title: Hyp CLI Commands Reference | Hypercore Protocol
+description: The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.
+---
+
+<h1>Hyp CLI Commands</h1>
+
+<% const link = (url, title) => `<a href="${url}" title="${title}">${title}</a>` %>
+
+<div class="linklists">
+  <div class="linklist">
+    <h4>General Commands</h4>
+    <%- link(rootPath + 'guides/hyp/commands/info/', '<code>hyp info</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/seed/', '<code>hyp seed</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/unseed/', '<code>hyp unseed</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/create/', '<code>hyp create</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/daemon-status/', '<code>hyp daemon status</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/daemon-stop/', '<code>hyp daemon stop</code>') %>
+  </div>
+  <div class="linklist">
+    <h4>Hyperdrive Commands</h4>
+    <%- link(rootPath + 'guides/hyp/commands/drive-ls/', '<code>hyp drive ls</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-mkdir/', '<code>hyp drive mkdir</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-rmdir/', '<code>hyp drive rmdir</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-cat/', '<code>hyp drive cat</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-put/', '<code>hyp drive put</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-rm/', '<code>hyp drive rm</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-diff/', '<code>hyp drive diff</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-sync/', '<code>hyp drive sync</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/drive-http/', '<code>hyp drive http</code>') %>
+  </div>
+  <div class="linklist">
+    <h4>Hyperbee Commands</h4>
+    <%- link(rootPath + 'guides/hyp/commands/bee-ls/', '<code>hyp bee ls</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/bee-get/', '<code>hyp bee get</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/bee-put/', '<code>hyp bee put</code>') %>
+    <%- link(rootPath + 'guides/hyp/commands/bee-del/', '<code>hyp bee del</code>') %>
+  </div>
+</div>

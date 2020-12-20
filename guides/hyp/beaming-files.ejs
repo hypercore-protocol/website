@@ -1,0 +1,28 @@
+---
+layout: layouts/guides
+title: "Beaming Files | Hypercore Protocol"
+description: "The Hyp command-line provides a convenient set of tools for accessing the Hypercore network."
+---
+
+<h1><img src="<%= rootPath %>images/icons8/laser-beam-50.png"> Beaming Files</h1>
+
+<p>
+  One of Hyp's most convenient tools is the "beam" command.
+  It provides an easy flow for piping data from one device to another with an encrypted connection.
+</p>
+
+<p>
+  Pipe the data you want to share using the beam command:
+</p>
+
+<div class="bash">cat ./my-file.txt | hyp beam</div>
+
+<p>
+  This will generate a pass-phrase which you can enter on the receiving device to connect and output the data:
+</p>
+
+<div class="bash">hyp beam "the generated phrase" > ./my-file.txt</div>
+
+<p>
+  The beam is only valid for 30-60 minutes and will close as soon as the data has been sent.
+</p>

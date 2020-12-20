@@ -1,21 +1,52 @@
 [
-  ["guides/", "Introduction"],
-  ["guides/faq/", "FAQ"],
-  ["guides/hyp/", "Using the Hyp CLI", [
-    ["guides/hyp/cheatsheet/", "Cheatsheet"]
+  ["guides/getting-started/", "Getting Started", [
+    ["guides/getting-started/hyperspace/", "Using Hyperspace"],
+    ["guides/getting-started/standalone-modules/", "Using Standalone Modules"]
   ]],
-  ["guides/dev/", "Developers", [
-    ["guides/dev/apis/", "APIs"],
-    ["guides/dev/walkthroughs/", "Walkthroughs", [
-      ["guides/dev/walkthroughs/hypercore", "Hypercore"],
-      ["guides/dev/walkthroughs/hyperswarm", "Hyperswarm"],
-      ["guides/dev/walkthroughs/corestore", "Corestore"],
-      ["guides/dev/walkthroughs/hyperspace", "Hyperspace"],
-      ["guides/dev/walkthroughs/hyperdrive", "Hyperdrive"],
-      ["guides/dev/walkthroughs/hyperbee", "Hyperbee"]
-    ]],
-    ["guides/dev/workshops/", "Workshops"],
-    ["guides/dev/modules/", "Our Modules"]
+  ["guides/hyp/", "Hyp CLI", [
+    ["guides/hyp/sharing-folders/", "Sharing Folders"],
+    ["guides/hyp/seeding-data/", "Seeding Data"],
+    ["guides/hyp/beaming-files/", "Beaming Files"],
+    ["guides/hyp/commands/", "Commands", [
+    ["guides/hyp/commands/info/", "hyp info"],
+    ["guides/hyp/commands/seed/", "hyp seed"],
+    ["guides/hyp/commands/unseed/", "hyp unseed"],
+    ["guides/hyp/commands/create/", "hyp create"],
+    ["guides/hyp/commands/daemon-status/", "hyp daemon status"],
+    ["guides/hyp/commands/daemon-stop/", "hyp daemon stop"],
+    ["guides/hyp/commands/drive-ls/", "hyp drive ls"],
+    ["guides/hyp/commands/drive-mkdir/", "hyp drive mkdir"],
+    ["guides/hyp/commands/drive-rmdir/", "hyp drive rmdir"],
+    ["guides/hyp/commands/drive-cat/", "hyp drive cat"],
+    ["guides/hyp/commands/drive-put/", "hyp drive put"],
+    ["guides/hyp/commands/drive-rm/", "hyp drive rm"],
+    ["guides/hyp/commands/drive-diff/", "hyp drive diff"],
+    ["guides/hyp/commands/drive-sync/", "hyp drive sync"],
+    ["guides/hyp/commands/drive-http/", "hyp drive http"],
+    ["guides/hyp/commands/bee-ls/", "hyp bee ls"],
+    ["guides/hyp/commands/bee-get/", "hyp bee get"],
+    ["guides/hyp/commands/bee-put/", "hyp bee put"],
+    ["guides/hyp/commands/bee-del/", "hyp bee del"]
+    ]]
   ]],
-  ["protocol/", "Protocol Overview"]
+  ["guides/hyperspace/", "Hyperspace API", [
+    ["guides/hyperspace/corestore/", "Corestore"],
+    ["guides/hyperspace/networker/", "Networker"],
+    ["guides/hyperspace/hypercore/", "Hypercore"]
+  ]],
+  ["guides/modules/", "Modules", [
+    ["guides/modules/corestore/", "Corestore"],
+    ["guides/modules/hypercore/", "Hypercore"],
+    ["guides/modules/hyperswarm/", "Hyperswarm"],
+    ["guides/modules/hyperdrive/", "Hyperdrive"],
+    ["guides/modules/hyperbee/", "Hyperbee"]
+  ]],
+  ["guides/walkthroughs/", "Walkthroughs", [
+    ["guides/walkthroughs/creating-and-sharing-hypercores/", "Hypercore"],
+    ["guides/walkthroughs/p2p-networking-with-hyperswarm/", "Hyperswarm"],
+    ["guides/walkthroughs/sharing-files-with-hyperdrive/", "Hyperdrive"],
+    ["guides/walkthroughs/p2p-indexing-with-hyperbee/", "Hyperbee"]
+  ]],
+  ["guides/workshops/", "Workshops"],
+  ["guides/faq/", "FAQ"]
 ]

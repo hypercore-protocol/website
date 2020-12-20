@@ -1,0 +1,29 @@
+---
+layout: layouts/guides
+title: "Using the Hyp CLI | Hypercore Protocol"
+description: "The Hyp command-line provides a convenient set of tools for accessing the Hypercore network."
+---
+
+<h1>Using the Hyp CLI</h1>
+
+<p>
+  The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.
+  <a href="https://www.youtube.com/watch?v=SVk1uIQxOO8" title="Demo Video" target="_blank">Demo Video</a>.
+</p>
+
+<p>
+  <a class="btn black" href="<%= rootPath %>install/" title="Install Here">Install Here</a>
+  <a class="btn white" href="https://github.com/hypercore-protocol/cli" title="Github Repo">Github Repo</a>
+</p>
+
+<% const link = (url, title) => `<a href="${url}" title="${title}">${title}</a>` %>
+
+<div class="linklists">
+  <div class="linklist">
+    <h4>Guides:</h4>
+    <%- link(rootPath + 'guides/hyp/sharing-folders/', 'Sharing Folders') %>
+    <%- link(rootPath + 'guides/hyp/seeding-data/', 'Seeding Data') %>
+    <%- link(rootPath + 'guides/hyp/beaming-files/', 'Beaming Files') %>
+    <%- link(rootPath + 'guides/hyp/commands/', 'Commands Reference') %>
+  </div>
+</div>
