@@ -3,7 +3,30 @@
 footer {
   background: $bg-footer;
   margin-top: 3rem;
-  padding: 2rem 0;
+  padding: 0 0 2rem;
+
+  .patreon-cta {
+    background: #000;
+    color: #fff;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: inline-block;
+      width: 12px;
+    }
+
+    .patreon-cta-inner {
+      max-width: $max-width-footer;
+      margin: 0 auto;
+      padding: 0 1em;
+    }
+  }
 
   .footer-inner {
     max-width: $max-width-footer;
