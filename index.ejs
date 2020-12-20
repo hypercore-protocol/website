@@ -49,7 +49,7 @@ css: css/pages/index.css
         </p>
       </div>
       <div class="code"><span class="comment">// look for peers listed under this topic</span>
-<span class="keyword">const</span> topic = sha256(<span class="string">'my-hyperswarm-topic'</span>)
+<span class="keyword">const</span> topic = blake2s(<span class="string">'my-hyperswarm-topic'</span>)
 swarm.join(topic, {lookup: <span class="literal">true</span>, announce: <span class="literal">true</span>})
 
 swarm.on(<span class="string">'connection'</span>, (socket, details) => {
