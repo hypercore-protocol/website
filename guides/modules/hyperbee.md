@@ -7,7 +7,7 @@ layout: layouts/guides
 <table class="module-table">
   <tr>
     <td class="row-name">Repo</td>
-    <td><a href="https://github.com/mafintosh/hyperbee" class="external">https://github.com/mafintosh/hyperbee</a></td>
+    <td><a href="https://github.com/hypercore-protocol/hyperbee" class="external">https://github.com/hypercore-protocol/hyperbee</a></td>
   </tr>
   <tr>
     <td class="row-name">Depends On</td>
