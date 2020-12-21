@@ -1,6 +1,6 @@
 <%
 const link = (href, title, desc) => `
-  <a href="${href}" title="${title}">
+  <a href="${rootPath}${href}" title="${title}">
     <span class="title">${title}</span>
     <span class="description">${desc}</span>
   </a>`
@@ -10,30 +10,30 @@ const link = (href, title, desc) => `
   <div class="high-level-structures">
     <h5>High-level Data Structures</h5>
     <div class="items">
-      <%- link('#', 'Hyperdrive', 'A files archive') %>
-      <%- link('#', 'Hyperbee', 'A key-value database') %>
+      <%- link('guides/modules/hyperdrive/', 'Hyperdrive', 'A files archive') %>
+      <%- link('guides/modules/hyperbee/', 'Hyperbee', 'A key-value database') %>
     </div>
   </div>
   <div class="daemon">
     <h5>Daemon</h5>
     <div class="items">
-      <%- link('#', 'Hyperspace', 'A daemon program which wraps Hypercore, Corestore, and Hyperswarm') %>
+      <%- link('guides/hyperspace/', 'Hyperspace', 'A daemon program which wraps Hypercore, Corestore, and Hyperswarm') %>
       <div class="daemon-modules">
         <div class="low-level-structures">
           <h5>Low-level Data Structures</h5>
           <div class="items">
-            <%- link('#', 'Hypercore', 'An append-only log') %>
+            <%- link('guides/modules/hypercore/', 'Hypercore', 'An append-only log') %>
           </div>
         </div>
         <div class="storage">
           <h5>Storage</h5>
           <div class="items">
-            <%- link('#', 'Corestore', 'A disk-storage manager for Hypercores') %>
+            <%- link('guides/modules/corestore/', 'Corestore', 'A disk-storage manager for Hypercores') %>
           </div>
         </div>
         <div class="networking">
           <h5>Networking</h5>
-          <%- link('#', 'Hyperswarm', 'A DHT for arranging connections') %>
+          <%- link('guides/modules/hyperswarm/', 'Hyperswarm', 'A DHT for arranging connections') %>
         </div>
       </div>
     </div>

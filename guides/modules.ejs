@@ -8,105 +8,47 @@ layout: layouts/guides
   To get a better sense of how the Hypercore Protocol modules fit together, here's a quick overview/categorization of the big ones.
 </p>
 
-<h3><a href="https://github.com/hypercore-protocol/Hypercore">Hypercore</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      <a href="https://github.com/random-access-storage">random-access-storage</a>
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/corestore">corestore</a>,
-      <a href="https://github.com/mafintosh/hyperbee">hyperbee</a>,
-      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>,
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>
-    </td>
-  </tr>
-</table>
+<% include /stack-diagram %>
+
+<h2>Daemon and Core Modules</h2>
 
 <p>
-  The centerpiece of our ecosystem is Hypercore, a secure append-only log data structure. One can think of a Hypercore as a “personal blockchain”, a self-owned list of binary blocks with an immutable history, secured by cryptographic proofs. 
+  The <a href="<%= rootPath %>guides/hyperspace/"" title="Hyperspace Daemon">Hyperspace Daemon</a> wraps the low-level modules to provide a batteries-included toolset for Hypercore.
+  Using Hyperspace is the easiest way to get started.
 </p>
 
 <p>
-  Having an immutable history means one can always “check out” the state of a Hypercore at any previous point in time (e.g. when it had a length of 15).
+  The modules wrapped by the daemon are:
 </p>
 
-<p>
-  Hypercores can be <b>stored</b> in a variety of different storage backends, so long as they adhere to the <a href="https://github.com/random-access-storage/random-access-storage">random-access-storage</a> pattern. There are random-access-* modules for local disk, memory-only, IndexedDB, S3, and more.
-</p>
+<ul>
+  <li><a href="<%= rootPath %>guides/modules/hypercore/" title="Hypercore">Hypercore</a> - A secure append-only log data structure.</li>
+  <li><a href="<%= rootPath %>guides/modules/corestore/" title="Corestore">Corestore</a> - A Hypercore storage manager.</li>
+  <li><a href="<%= rootPath %>guides/modules/hyperswarm/" title="Hyperswarm">Hyperswarm</a> - A DHT for arranging connections.</li>
+</ul>
 
 <p>
-Hypercores can be <b>shared</b> using their <code>replicate</code> method, which returns a Duplex stream that can be piped over arbitrary networking protocols. We typically combine Hypercore replication streams with Hyperswarm connections, described below. 
-</p>
-
-<h3><a href="https://github.com/hyperswarm/hyperswarm">Hyperswarm</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      nothing
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
-      <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a>
-    </td>
-  </tr>
-</table>
-
-<p>
-  While Hypercores can be replicated over any Node stream, most people want to use it in peer-to-peer systems. Hyperswarm is the DHT (distributed hash table) we developed for discovering and connecting to other peers, primarily for P2P Hypercore replication.
-</p>
-
-<p>
-  It supports a distributed UDP hole-punching algorithm that makes it especially suitable for home networks.
-</p>
-
-<p>
-  Hyperswarm is often used to discover and share peers for Hypercore replication, but it can also be used for more general P2P applications. As an example, <a href="https://github.com/mafintosh/hyperbeam">hyperbeam</a> uses Hyperswarm to establish E2E-encrypted "pipes" between two peers.
-</p>
-
-<h3><a href="https://github.com/hypercore-protocol/corestore">Corestore</a></h3>
-<table class="module-table">
-  <tr>
-    <td class="row-name">Depends On</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hypercore">hypercore</a>
-    </td>
-  </tr>
-  <tr>
-    <td class="row-name">Used By</td>
-    <td>
-      <a href="https://github.com/hypercore-protocol/hyperspace">hyperspace</a>,
-      <a href="https://github.com/hypercore-protocol/hyperdrive">hyperdrive</a>
-    </td>
-  </tr>
-</table>
-
-<p>
-  
+  You can use these modules individually (<a href="<%= rootPath %>guides/getting-started/standalone-modules/" title="Using Standalone Modules">guide</a>) or let hyperspace manage them for you (<a href="<%= rootPath %>guides/getting-started/hyperspace/" title="Using Hyperspace">guide</a>).
 </p>
 
 <h2>Higher-Level Data Structures</h2>
 
 <p>
-  Hypercore, on its own, is a very simple data structure -- it's just a long list of blocks. As we'll see in these guides, a list of blocks is perfectly sufficient for many applications, such as video streaming. For other applications, you'll need more powerful data structures, like search trees.
+  Hypercore, on its own, is a very simple data structure &mdash; it's just a long list of blocks.
+  As we'll see in these guides, a list of blocks is perfectly sufficient for many applications, such as video streaming.
+  For other applications, you'll need more powerful data structures, like search trees.
 </p>
 
 <p>
-  To accomplish this, we use a pattern called <b>embedded indexing</b>. With embedded indexing, "pointers" are stored alongside data in Hypercore blocks, making it possible to quickly locate blocks of interest without downloading the complete log. 
+  To accomplish this, we use a pattern called <b>embedded indexing</b>.
+  With embedded indexing, "pointers" are stored alongside data in Hypercore blocks, making it possible to quickly locate blocks of interest without downloading the complete log. 
 </p>
-
-<h3>Hyperbee</h3>
-<h3>Hyperdrive</h3>
-
-<h2>Hyperspace</h2>
 
 <p>
+  The higher-level data structure modules are:
 </p>
+
+<ul>
+  <li><a href="<%= rootPath %>guides/modules/hyperdrive/" title="Hyperdrive">Hyperdrive</a> - A files archive.</li>
+  <li><a href="<%= rootPath %>guides/modules/hyperbee/" title="Hyperbee">Hyperbee</a> - A key-value database.</li>
+</ul>
