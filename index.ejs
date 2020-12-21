@@ -48,18 +48,19 @@ css: css/pages/index.css
           Using "topic" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
         </p>
       </div>
-      <div class="code"><span class="comment">// look for peers listed under this topic</span>
-<span class="keyword">const</span> topic = blake2s(<span class="string">'my-hyperswarm-topic'</span>)
-swarm.join(topic, {lookup: <span class="literal">true</span>, announce: <span class="literal">true</span>})
+      <%- syntaxHighlight('javascript', `// look for peers listed under this topic
+const topic = blake2s('my-hyperswarm-topic')
+swarm.join(topic, {lookup: true, announce: true})
 
-swarm.on(<span class="string">'connection'</span>, (socket, details) => {
-  console.log(<span class="string">'new connection!'</span>, details)
+swarm.on('connection', (socket, details) => {
+  console.log('new connection!', details)
 
-  <span class="comment">// you can now use the socket as a stream, eg:</span>
+  // you can now use the socket as a stream, eg:
   process.stdin.pipe(socket).pipe(process.stdout)
-})</div>
+})`) %>
     </div>
   </section>
+
 
   <section class="code-example">
     <div class="columns">
@@ -70,16 +71,16 @@ swarm.on(<span class="string">'connection'</span>, (socket, details) => {
           They're like light-weight blockchains without the consensus algorithm.
         </p>
       </div>
-      <div class="code"><span class="keyword">const</span> feed = hypercore(<span class="string">'./my-first-hypercore'</span>, {
-  valueEncoding: <span class="string">'utf-8'</span>
+      <%- syntaxHighlight('javascript', `const feed = hypercore('./my-first-hypercore', {
+  valueEncoding: 'utf-8'
 })
 
-feed.append(<span class="string">'hello'</span>)
-feed.append(<span class="string">'world'</span>, err => {
-  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err
-  feed.get(<span class="literal">0</span>, console.log) <span class="comment">// prints hello</span>
-  feed.get(<span class="literal">1</span>, console.log) <span class="comment">// prints world</span>
-})</div>
+feed.append('hello')
+feed.append('world', err => {
+  if (err) throw err
+  feed.get(0, console.log) // prints hello
+  feed.get(1, console.log) // prints world
+})`) %>
     </div>
   </section>
 
@@ -91,17 +92,16 @@ feed.append(<span class="string">'world'</span>, err => {
           Like BitTorrent, as more people "seed" a dataset it will increase the available bandwidth.
         </p>
       </div>
-      <div class="code"><span class="keyword">const</span> drive = hyperdrive(<span class="string">'./my-first-hyperdrive'</span>)
+      <%- syntaxHighlight('javascript', `const drive = hyperdrive('./my-first-hyperdrive')
 
-<span class="keyword">await</span> drive.promises.writeFile(<span class="string">'/hello.txt'</span>, <span class="string">'world'</span>)
-<span class="keyword">await</span> drive.promises.readdir(<span class="string">'/'</span>) <span class="comment">// => ['hello.txt']</span>
-<span class="keyword">await</span> drive.promises.readFile(<span class="string">'/hello.txt'</span>) <span class="comment">// => 'world'</span>
+await drive.promises.writeFile('/hello.txt', 'world')
+await drive.promises.readdir('/') // => ['hello.txt']
+await drive.promises.readFile('/hello.txt') // => 'world'
 
-<span class="comment">// replicate over any stream-based transport layer</span>
-swarm.on(<span class="string">'connection'</span>, (socket, details) => {
+// replicate over any stream-based transport layer
+swarm.on('connection', (socket, details) => {
   socket.pipe(drive.replicate()).pipe(socket)
-})</div>
-    </div>
+})`) %>
   </section>
 
   <section class="cta">

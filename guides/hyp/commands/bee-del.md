@@ -6,3 +6,8 @@ description: Delete an entry of the given hyperbee URL.
 ---
 
 todo
+
+
+```bash
+test
+```
