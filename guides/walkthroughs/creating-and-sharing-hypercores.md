@@ -89,7 +89,7 @@ const clone = toPromises(hypercore('./clone', core.key, {
 ```
 
 This time, we pass a `key` parameter into the constructor to indicate that we're loading an existing hypercore rather than creating a new one.
-Since this clone is going to be downloading data from the original core, we've specified a few additional options, `sparse` and `eagerUpdate`, described below.
+Since this clone is going to be downloading data from the original core, we've specified `sparse: true`, described below.
 
 <div class="info-aside" markdown="1">
 
