@@ -45,12 +45,12 @@ css: css/pages/index.css
       <div class="description">
         <h3>Connect to peers</h3>
         <p>
-          Using "topic" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
+          Using "discovery" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
         </p>
       </div>
-      <%- syntaxHighlight('javascript', `// look for peers listed under this topic
-const topic = blake2s('my-hyperswarm-topic')
-swarm.join(topic, {lookup: true, announce: true})
+      <%- syntaxHighlight('javascript', `// look for peers listed under this dkey
+const discoveryKey = blake2s('my-hyperswarm-dkey')
+swarm.join(discoveryKey, {lookup: true, announce: true})
 
 swarm.on('connection', (socket, details) => {
   console.log('new connection!', details)
