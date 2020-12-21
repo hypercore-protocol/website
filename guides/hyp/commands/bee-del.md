@@ -5,9 +5,9 @@ usage: bee del {url}
 description: Delete an entry of the given hyperbee URL.
 ---
 
-todo
-
+Examples:
 
 ```bash
-test
+hyp bee del hyper://1234…af/foo
+hyp bee del hyper://1234…af/foo/bar
 ```

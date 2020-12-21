@@ -5,4 +5,9 @@ usage: unseed {urls...}
 description: Stop making hyper data available to the network.
 ---
 
-todo
+Examples:
+
+```bash
+hyp unseed hyper://1234…af/
+hyp unseed hyper://1234…af/ hyper:://fedc…21/
+```

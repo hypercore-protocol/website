@@ -16,14 +16,21 @@ description: "The Hyp command-line provides a convenient set of tools for access
   <a class="btn white" href="https://github.com/hypercore-protocol/cli" title="Github Repo">Github Repo</a>
 </p>
 
-<% const link = (url, title) => `<a href="${url}" title="${title}">${title}</a>` %>
+<h2>Guides</h2>
 
-<div class="linklists">
-  <div class="linklist">
-    <h4>Guides:</h4>
-    <%- link(rootPath + 'guides/hyp/sharing-folders/', 'Sharing Folders') %>
-    <%- link(rootPath + 'guides/hyp/seeding-data/', 'Seeding Data') %>
-    <%- link(rootPath + 'guides/hyp/beaming-files/', 'Beaming Files') %>
-    <%- link(rootPath + 'guides/hyp/commands/', 'Commands Reference') %>
-  </div>
+<div class="linkboxes light">
+  <a href="<%= rootPath %>guides/hyp/sharing-folders/" title="Sharing Folders">
+    <img src="<%= rootPath %>images/icons8/shared-folder-50.png">
+    <div>Sharing Folders</div>
+  </a>
+  <a href="<%= rootPath %>guides/hyp/seeding-data/" title="Seeding Data">
+    <img src="<%= rootPath %>images/icons8/connect-50.png">
+    <div>Seeding Data</div>
+  </a>
+  <a href="<%= rootPath %>guides/hyp/beaming-files/" title="Beaming Files">
+    <img src="<%= rootPath %>images/icons8/laser-beam-50.png">
+    <div>Beaming Files</div>
+  </a>
 </div>
+
+<% include /guides/linklists-cli-cmds %>

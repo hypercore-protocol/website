@@ -5,4 +5,8 @@ usage: daemon stop
 description: Stop the hyperspace and mirroring daemons if active.
 ---
 
-todo
+Examples:
+
+```bash
+hyp daemon stop
+```

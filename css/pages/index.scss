@@ -77,7 +77,7 @@ section {
         padding: 0.2rem 2rem;
       }
 
-      .code, pre {
+      pre {
         margin: 0;
         border-radius: 4px;
       }
@@ -115,14 +115,6 @@ section {
     video {
       max-width: 85vw;
     }
-  }
-
-  .code {
-    padding: 0.75rem 1rem;
-    margin-top: 2em;
-    border-radius: 4px;
-    text-align: left;
-    font-size: 14px;
   }
 }
 

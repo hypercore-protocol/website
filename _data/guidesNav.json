@@ -12,6 +12,7 @@
     ["guides/hyp/commands/seed/", "hyp seed"],
     ["guides/hyp/commands/unseed/", "hyp unseed"],
     ["guides/hyp/commands/create/", "hyp create"],
+    ["guides/hyp/commands/beam/", "hyp beam"],
     ["guides/hyp/commands/daemon-status/", "hyp daemon status"],
     ["guides/hyp/commands/daemon-stop/", "hyp daemon stop"],
     ["guides/hyp/commands/drive-ls/", "hyp drive ls"],

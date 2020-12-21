@@ -5,4 +5,8 @@ usage: daemon status
 description: Check the status of the hyperspace daemon.
 ---
 
-todo
+Examples:
+
+```bash
+hyp daemon status
+```
