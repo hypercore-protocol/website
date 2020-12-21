@@ -115,6 +115,10 @@ section {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem 0.5rem;
 
+  &.two {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .linklist {
     h5 {
       margin-top: 0;
@@ -206,7 +210,7 @@ section {
   }
 
   .linklists {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     grid-template-rows: auto auto auto;
     grid-gap: 2rem;
     margin-bottom: 2em;
