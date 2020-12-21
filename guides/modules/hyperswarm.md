@@ -6,7 +6,7 @@ layout: layouts/guides
 
 <table class="module-table">
   <tr>
-    <td class="row-name">Repo</td>
+    <td class="row-name">API Docs</td>
     <td><a href="https://github.com/hyperswarm/hyperswarm" class="external">https://github.com/hyperswarm/hyperswarm</a></td>
   </tr>
   <tr>
