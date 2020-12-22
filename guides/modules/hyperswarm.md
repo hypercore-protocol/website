@@ -28,4 +28,29 @@ While Hypercores can be replicated over any Node stream, most people want to use
 
 It supports a distributed UDP hole-punching algorithm that makes it especially suitable for home networks.
 
+```js
+const hyperswarm = require('hyperswarm')
+
+const swarm = hyperswarm()
+swarm.join(blake2s('my-hyperswarm-dkey'), {
+  lookup: true, // find & connect to peers
+  announce: true // optional- announce self as a connection target
+})
+
+swarm.on('connection', (socket, details) => {
+  console.log('new connection!', details)
+
+  // you can now use the socket as a stream, eg:
+  // process.stdin.pipe(socket).pipe(process.stdout)
+})
+```
+
 Hyperswarm is often used to discover and share peers for Hypercore replication, but it can also be used for more general P2P applications. As an example, <a href="https://github.com/mafintosh/hyperbeam" class="external">hyperbeam</a> uses Hyperswarm to establish E2E-encrypted "pipes" between two peers.
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../getting-started/standalone-modules/">Getting Started with Standalone Modules</a>
+    <a href="../../walkthroughs/p2p-networking-with-hyperswarm/">P2P Networking with Hyperswarm</a>
+  </div>
+</div>

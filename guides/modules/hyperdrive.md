@@ -17,4 +17,25 @@ layout: layouts/guides
   </tr>
 </table>
 
-todo
+Hyperdrive is a secure, real-time distributed file system designed for easy P2P file sharing.
+
+```js
+var hyperdrive = require('hyperdrive')
+var drive = hyperdrive('./my-first-hyperdrive') // content will be stored in this folder
+
+await drive.promises.writeFile('/hello.txt', 'world')
+
+const list = await drive.promises.readdir('/')
+console.log(list) // prints ['hello.txt']
+
+const data = await drive.promises.readFile('/hello.txt', 'utf-8')
+console.log(data) // prints 'world'
+```
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../getting-started/standalone-modules/">Getting Started with Standalone Modules</a>
+    <a href="../../walkthroughs/sharing-files-with-hyperdrive/">Sharing Files with Hyperdrive</a>
+  </div>
+</div>

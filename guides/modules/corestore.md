@@ -24,4 +24,26 @@ layout: layouts/guides
   </tr>
 </table>
 
-todo
+A Hypercore factory and a set of associated functions for managing generated Hypercores.
+
+```js
+const Corestore = require('corestore')
+const ram = require('random-access-memory')
+const store = new Corestore(ram)
+await store.ready()
+
+// create a hypercore
+const core1 = store.get()
+
+// load an existing hypercore
+const core2 = store.get({ key: Buffer(...) })
+```
+
+A corestore is designed to efficiently store and replicate multiple sets of interlinked Hypercores, such as those used by [Hyperdrive](../hyperdrive) and <a href="https://github.com/andrewosh/hypertrie" class="external">mountable-hypertrie</a>, removing the responsibility of managing custom storage/replication code from these higher-level modules.
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../getting-started/standalone-modules/">Getting Started with Standalone Modules</a>
+  </div>
+</div>
