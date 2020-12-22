@@ -31,9 +31,9 @@
     ]]
   ]],
   ["guides/hyperspace/", "Hyperspace API", [
-    ["guides/hyperspace/corestore/", "Corestore"],
-    ["guides/hyperspace/networker/", "Networker"],
-    ["guides/hyperspace/hypercore/", "Hypercore"]
+    ["guides/hyperspace/corestore/", "RemoteCorestore"],
+    ["guides/hyperspace/networker/", "RemoteNetworker"],
+    ["guides/hyperspace/hypercore/", "RemoteHypercore"]
   ]],
   ["guides/modules/", "Modules", [
     ["guides/modules/corestore/", "Corestore"],

@@ -1,0 +1,36 @@
+---
+layout: layouts/guides
+---
+
+<h1>Hyperspace Client API</h1>
+
+<table class="module-table">
+  <tr>
+    <td class="row-name">API Docs</td>
+    <td><a href="https://github.com/hypercore-protocol/hyperspace-client" class="external">https://github.com/hypercore-protocol/hyperspace-client</a></td>
+  </tr>
+</table>
+
+<p>
+  The API for the Hyperspace daemon.
+</p>
+
+<%- syntaxHighlight('js', `const { Client: HyperspaceClient } = require('@hyperspace')
+
+const client = new HyperspaceClient() // connect to the Hyperspace server
+const corestore = client.corestore() // make a corestore
+const feed = corestore.get(someHypercoreKey) // make a hypercore
+await feed.get(42) // get some data from the hypercore`) %>
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="<%= rootPath %>guides/getting-started/hyperspace/">Getting Started with Hyperspace</a>
+  </div>
+  <div class="linklist">
+    <h4>Individual APIs</h4>
+    <a href="<%= rootPath %>guides/hyperspace/corestore/">RemoteCorestore</a>
+    <a href="<%= rootPath %>guides/hyperspace/networker/">RemoteNetworker</a>
+    <a href="<%= rootPath %>guides/hyperspace/hypercore/">RemoteHypercore</a>
+  </div>
+</div>
