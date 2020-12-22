@@ -34,8 +34,8 @@ In this walkthrough, we'll create two Hypercores: one writable and one that's a 
 If you want to follow along with the code, setup the walkthrough repo:
 
 ```bash
-git clone https://github.com/andrewosh/hypercore-protocol-walkthroughs.git
-cd hypercore-protocol-walkthroughs/hypercore
+git clone https://github.com/hypercore-protocol/walkthroughs.git
+cd walkthroughs/hypercore
 npm install
 ```
 
@@ -70,7 +70,7 @@ We can append two new blocks to our core using the `append` method, which accept
 await core.append(['hello', 'world'])
 ```
 
-Run this step (<a href="https://github.com/hypercore-protocol/hypercore-protocol-walkthroughs/blob/main/hypercore/step-1.js" class="external" title="full code">full code</a>):
+Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hypercore/step-1.js" class="external" title="full code">full code</a>):
 
 ```bash
 node step-1.js
@@ -140,7 +140,7 @@ await clone.update()
 await clone.get(clone.length - 1) // New Block 99
 ```
 
-Run this step (<a href="https://github.com/hypercore-protocol/hypercore-protocol-walkthroughs/blob/main/hypercore/step-2.js" class="external" title="full code">full code</a>):
+Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hypercore/step-2.js" class="external" title="full code">full code</a>):
 
 ```bash
 node step-2.js

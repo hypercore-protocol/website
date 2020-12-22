@@ -148,8 +148,8 @@ Let's do a quick walkthrough to illustrate using Hyperspace a little more.
 If you want to follow along with the code, setup the walkthrough repo:
 
 ```bash
-git clone https://github.com/hypercore-protocol/hypercore-protocol-walkthroughs.git
-cd hypercore-protocol-walkthroughs/hyperspace
+git clone https://github.com/hypercore-protocol/walkthroughs.git
+cd walkthroughs/hyperspace
 npm install
 ```
 
@@ -187,7 +187,7 @@ localServer.on('client-close', () => {
 })
 ```
 
-Run this step (<a href="https://github.com/hypercore-protocol/hypercore-protocol-walkthroughs/blob/main/hyperspace/1-start-servers.js" class="external" title="full code">full code</a>):
+Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperspace/1-start-servers.js" class="external" title="full code">full code</a>):
 
 ```bash
 node 1-start-servers.js
@@ -287,7 +287,7 @@ console.log(chalk.green('First two blocks of the clone:', [
 ]))
 ```
 
-Run this step (<a href="https://github.com/hypercore-protocol/hypercore-protocol-walkthroughs/blob/main/hyperspace/2-replicate-hypercores.js" class="external" title="full code">full code</a>):
+Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperspace/2-replicate-hypercores.js" class="external" title="full code">full code</a>):
 
 ```bash
 node 2-replicate-hypercores.js
