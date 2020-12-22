@@ -15,6 +15,10 @@ body {
   font-size: 16px;
 }
 
+.nobreak {
+  white-space: nowrap;
+}
+
 a {
   color: $color-link;
 }

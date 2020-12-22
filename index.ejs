@@ -7,12 +7,74 @@ css: css/pages/index.css
   <div class="hero">
     <img src="<%= rootPath %>images/hypercore-protocol.png" id="logo">
     <h1>Hypercore Protocol</h1>
-    <p>The peer-to-peer network</p>
+    <p>Peer-to-peer data sharing</p>
     <div class="btns">
       <a class="btn black" title="Install" href="<%= rootPath %>install/">Install</a>
       <a class="btn white" title="Guides" href="<%= rootPath %>guides/">Guides</a>
     </div>
   </div>
+
+  <section class="intro">
+    <% include /seeding-anim %>
+    <h2>A world of distributed data structures</h2>
+    <p>
+      Hypercore Protocol is a <span class="nobreak">peer-to-peer</span> data network built on the Hypercore logs.
+      Hypercores are signed, <span class="nobreak">append-only</span> logs.
+      They're like <span class="nobreak">light-weight</span> blockchains without the consensus algorithm.
+      As with BitTorrent, as more people "seed" a dataset it will increase the available bandwidth.
+    </p>
+  </section>
+
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Hyperdrives</h3>
+        <p>
+          Peer-to-peer file archives with a POSIX-like API.
+        </p>
+      </div>
+      <%- syntaxHighlight('javascript', `const drive = hyperdrive(hyp.corestore()).promises
+
+await drive.writeFile('/hello.txt', 'world')
+await drive.readdir('/') // => ['hello.txt']
+
+hyp.replicate(drive) // seed on the network`) %>
+    </div>
+  </section>
+
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Hyperbees</h3>
+        <p>
+          Peer-to-peer key/value database built on distributed B-Trees.
+        </p>
+      </div>
+      <%- syntaxHighlight('javascript', `const db = hyperbee(hyp.corestore().get())
+
+await db.put('key', 'value')
+await db.get('key') // { key: 'key', value: 'value' }
+
+db.createReadStream({ gt: 'a', lt: 'd' }) // anything >a and <d`) %>
+  </section>
+
+  <section class="code-example">
+    <div class="columns">
+      <div class="description">
+        <h3>Hypercores</h3>
+        <p>
+          Append-only logs for building a variety of data structures.
+        </p>
+      </div>
+      <%- syntaxHighlight('javascript', `const feed = hyp.corestore().get()
+
+await feed.append('hello')
+await feed.append('world')
+
+console.log(await feed.get(0)) // => 'hello'
+console.log(await feed.get(1)) // => 'world'`) %>
+    </div>
+  </section>
 
   <section>
     <div class="feature-grid">
@@ -38,70 +100,6 @@ css: css/pages/index.css
         </p>
       </div>
     </div>
-  </section>
-
-  <section class="code-example">
-    <div class="columns">
-      <div class="description">
-        <h3>Connect to peers</h3>
-        <p>
-          Using "discovery" keys, devices discover each other and arrange a connection through a DHT hole-punching protocol.
-        </p>
-      </div>
-      <%- syntaxHighlight('javascript', `// look for peers listed under this dkey
-const discoveryKey = blake2s('my-hyperswarm-dkey')
-swarm.join(discoveryKey, {lookup: true, announce: true})
-
-swarm.on('connection', (socket, details) => {
-  console.log('new connection!', details)
-
-  // you can now use the socket as a stream, eg:
-  process.stdin.pipe(socket).pipe(process.stdout)
-})`) %>
-    </div>
-  </section>
-
-
-  <section class="code-example">
-    <div class="columns">
-      <div class="description">
-        <h3>Build on a secure log</h3>
-        <p>
-          Hypercores are signed, append-only logs.
-          They're like light-weight blockchains without the consensus algorithm.
-        </p>
-      </div>
-      <%- syntaxHighlight('javascript', `const feed = hypercore('./my-first-hypercore', {
-  valueEncoding: 'utf-8'
-})
-
-feed.append('hello')
-feed.append('world', err => {
-  if (err) throw err
-  feed.get(0, console.log) // prints hello
-  feed.get(1, console.log) // prints world
-})`) %>
-    </div>
-  </section>
-
-  <section class="code-example">
-    <div class="columns">
-      <div class="description">
-        <h3>Replicate datasets</h3>
-        <p>
-          Like BitTorrent, as more people "seed" a dataset it will increase the available bandwidth.
-        </p>
-      </div>
-      <%- syntaxHighlight('javascript', `const drive = hyperdrive('./my-first-hyperdrive')
-
-await drive.promises.writeFile('/hello.txt', 'world')
-await drive.promises.readdir('/') // => ['hello.txt']
-await drive.promises.readFile('/hello.txt') // => 'world'
-
-// replicate over any stream-based transport layer
-swarm.on('connection', (socket, details) => {
-  socket.pipe(drive.replicate()).pipe(socket)
-})`) %>
   </section>
 
   <section class="cta">

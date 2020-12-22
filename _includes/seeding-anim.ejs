@@ -1,0 +1,23 @@
+<%
+const NUM_BITS = 50
+const DURATION = 2000
+
+function bits () {
+  var arr = []
+  for (let i = 0; i < NUM_BITS; i++) {
+    let delay = Math.round(Math.random() * DURATION)
+    let n = Math.floor(delay / 1000)
+    let m = delay % 1000
+    arr.push(`<div class="bit" style="animation-delay: ${n}.${m}s;"></div>`)
+  }
+  return arr.join('')
+}
+%>
+
+<div class="seeding-anim">
+  <div class="node one" data-label="Peer_1"></div>
+  <div class="stream one"><%- bits() %></div>
+  <div class="node two" data-label="My_Device"></div>
+  <div class="stream two"><%- bits() %></div>
+  <div class="node three" data-label="Peer_2"></div>
+</div>
