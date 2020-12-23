@@ -153,6 +153,10 @@ section {
 
 // tighten the spacing of the nav/content
 @media only screen and (max-width: 1060px) {
+  .guides-overview {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   .guides-layout {
     nav {
       flex: 0 0 200px;
@@ -199,16 +203,18 @@ section {
 
   .guides-breadcrumbs {
     position: fixed;
+    z-index: 1;
+    white-space: nowrap;
+
+    :nth-last-child(1),
+    :nth-last-child(2) {
+      display: none;
+    }
   }
 }
 
 // change columnar UI elements into rows
 @media only screen and (max-width: 620px) {
-  .linkboxes {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
-
   .linklists {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto auto auto;
