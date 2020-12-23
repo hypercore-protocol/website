@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Corestore | Hypercore Protocol
+description: API overview for the Corestore module.
 ---
 
 # Corestore

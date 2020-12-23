@@ -1,6 +1,7 @@
 ---
 layout: layouts/guides
-title: Creating and Sharing Hypercores
+title: Creating and Sharing Hypercores | Hypercore Protocol
+description: Walk through the basics of using Hypercore as a standalone module. 
 ---
 
 # Creating and Sharing Hypercores

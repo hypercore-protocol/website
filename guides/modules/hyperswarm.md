@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Hyperswarm | Hypercore Protocol
+description: API overview for the Hyperswarm module.
 ---
 
 # Hyperswarm

@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Hypercore | Hypercore Protocol
+description: API overview for the Hypercore module.
 ---
 
 # Hypercore

@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Hyperdrive | Hypercore Protocol
+description: API overview for the Hyperdrive module.
 ---
 
 # Hyperdrive

@@ -1,6 +1,7 @@
 ---
 layout: layouts/guides
-title: Sharing Files with Hyperdrive
+title: Sharing Files with Hyperdrive | Hypercore Protocol
+description: Walk through the basics of using Hyperdrive.
 ---
 
 # Sharing Files with Hyperdrive

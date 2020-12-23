@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: RemoteCorestore | Hypercore Protocol
+description: API overview for the Hyperspace Corestore API.
 ---
 
 # RemoteCorestore

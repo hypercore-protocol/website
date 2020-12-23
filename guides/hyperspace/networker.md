@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: RemoteNetworker | Hypercore Protocol
+description: API overview for the Hyperspace Networker API.
 ---
 
 # RemoteNetworker

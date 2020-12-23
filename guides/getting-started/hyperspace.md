@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Getting Started With Hyperspace | Hypercore Protocol
+description: Hyperspace is a server that bundles together many of Hypercore's modules, handling many low-level details for you.
 ---
 
 # <img src="../../../images/icons8/program-50.png"> Getting Started With Hyperspace

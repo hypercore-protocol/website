@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Getting Started With Standalone Modules | Hypercore Protocol
+description: A guide to using Hypercore Protocol's modules without the Hyperspace daemon.
 ---
 
 # <img src="../../../images/icons8/module-50.png"> Getting Started With Standalone Modules

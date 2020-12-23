@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: RemoteHypercore | Hypercore Protocol
+description: API overview for the Hyperspace Hypercore API.
 ---
 
 # RemoteHypercore

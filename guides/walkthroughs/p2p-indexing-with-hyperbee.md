@@ -1,6 +1,7 @@
 ---
 layout: layouts/guides
-title: P2P Indexing with Hyperbee
+title: P2P Indexing with Hyperbee | Hypercore Protocol
+description: Walk through the basics of using Hyperbee.
 ---
 
 # P2P Indexing with Hyperbee

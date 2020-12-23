@@ -1,5 +1,7 @@
 ---
 layout: layouts/guides
+title: Hyperbee | Hypercore Protocol
+description: API overview for the Hyperbee module.
 ---
 
 # Hyperbee
