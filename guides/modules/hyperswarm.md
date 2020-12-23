@@ -24,7 +24,8 @@ layout: layouts/guides
   </tr>
 </table>
 
-While Hypercores can be replicated over any Node stream, most people want to use it in peer-to-peer systems. Hyperswarm is the DHT (distributed hash table) we developed for discovering and connecting to other peers, primarily for P2P Hypercore replication.
+While Hypercores can be replicated over *any* Node stream, most people want to share them over a peer-to-peer network.
+Hyperswarm is the DHT (<a href="https://en.wikipedia.org/wiki/Distributed_hash_table" class="external" title="Distributed Hash Table">Distributed Hash Table</a>) we developed for discovering and connecting to other peers, primarily for P2P Hypercore replication.
 
 It supports a distributed UDP hole-punching algorithm that makes it especially suitable for home networks.
 
