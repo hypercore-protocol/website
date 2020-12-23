@@ -44,7 +44,6 @@
   ]],
   ["guides/walkthroughs/", "Walkthroughs", [
     ["guides/walkthroughs/creating-and-sharing-hypercores/", "Hypercore"],
-    ["guides/walkthroughs/p2p-networking-with-hyperswarm/", "Hyperswarm"],
     ["guides/walkthroughs/sharing-files-with-hyperdrive/", "Hyperdrive"],
     ["guides/walkthroughs/p2p-indexing-with-hyperbee/", "Hyperbee"]
   ]],

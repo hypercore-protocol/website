@@ -52,6 +52,5 @@ Hyperswarm is often used to discover and share peers for Hypercore replication, 
   <div class="linklist">
     <h4>Walkthroughs</h4>
     <a href="../../getting-started/standalone-modules/">Getting Started with Standalone Modules</a>
-    <a href="../../walkthroughs/p2p-networking-with-hyperswarm/">P2P Networking with Hyperswarm</a>
   </div>
 </div>
