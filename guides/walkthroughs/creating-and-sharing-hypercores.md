@@ -10,6 +10,7 @@ This walkthrough will go through the basics of using Hypercore as a standalone m
 <div class="info-aside" markdown="1">
 
 Hypercore gives you many knobs to tweak, so if you'd like something with more "batteries included", head on over to the [Hyperspace Walkthrough](../../getting-started/hyperspace/).
+When using Hyperspace, you create/load Hypercores using the `RemoteCorestore` interface.
 
 </div>
 
