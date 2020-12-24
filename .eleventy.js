@@ -24,6 +24,7 @@ module.exports = (eleventyConfig) => {
   // copy the following items to _site
   eleventyConfig.setTemplateFormats(['md', 'html', 'css', 'ejs'])
   eleventyConfig.addPassthroughCopy('favicon.ico')
+  eleventyConfig.addPassthroughCopy('CNAME')
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('videos')
   eleventyConfig.addPassthroughCopy('fonts')
