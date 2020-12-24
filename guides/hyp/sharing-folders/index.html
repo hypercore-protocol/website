@@ -1,0 +1,247 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sharing Folders | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Sharing Folders | Hypercore Protocol">
+    <meta name="og:description" content="The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyp/sharing-folders/" title="Sharing Folders">Sharing Folders</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="child-current" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    <ul>
+      
+    <li>
+      <a class="current" href="../../../guides/hyp/sharing-folders/" title="Sharing Folders">Sharing Folders</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/seeding-data/" title="Seeding Data">Seeding Data</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/beaming-files/" title="Beaming Files">Beaming Files</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/" title="Commands">Commands</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      
+<h1><img src="../../../images/icons8/shared-folder-50.png"> Sharing Folders</h1>
+
+<p>
+  Hyp's main use-case is sharing folders using something called a "Hyperdrive."
+</p>
+
+<div class="info-aside">
+  "Hyperdrives" are peer-to-peer folders which you can "seed" from one or more device.
+  Think of them as virtual networked folders, similar to Torrents.
+  Hyp gives you convenient tools for creating, syncing, and seeding hyperdrives.
+</div>
+
+<p>
+  The simplest way to create a hyperdrive is by "syncing" one from a folder:
+</p>
+
+<div class="bash">hyp sync ./input-folder</div>
+
+<p>
+  The sync command will output the URL of your new hyperdrive, and it will now contain your folder's files.
+</p>
+
+<p>
+  You can then sync the hyperdrive to another device using the same command:
+</p>
+
+<div class="bash">hyp sync hyper://1234…af ./output-folder</div>
+
+<p>
+  Where <code>hyper://1234…af</code> is your hyperdrive's URL.
+</p>
+
+<p>
+  If you want to update your hyperdrive, resync it with the input folder by running the command again, this time with the URL as the target:
+</p>
+
+<div class="bash">hyp sync ./input-folder hyper://1234…af</div>
+
+<p>Relevant commands:</p>
+
+<ul>
+  <li><a href="../../../guides/hyp/commands/sync/" title="hyp sync"><code>hyp sync</code></a></li>
+</ul>
+
+<style>
+  h1 img {
+    width: 40px;
+    position: relative;
+    top: 6px;
+    margin-right: 4px;
+  }
+</style>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

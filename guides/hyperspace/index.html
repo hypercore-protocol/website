@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hyperspace | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="Overview of the Hyperspace Daemon.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Hyperspace | Hypercore Protocol">
+    <meta name="og:description" content="Overview of the Hyperspace Daemon.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../" title="Home"><img class="logo" src="../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../guides" title="Guides">Guides</a>
+        <a class="" href="../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../install" title="Install">Install</a>
+        <a class="" href="../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../" title="Home"><img class="logo" src="../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../" title="Home">Home</a>
+      <a class="current" href="../../guides" title="Guides">Guides</a>
+      <a class="" href="../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../install" title="Install">Install</a>
+      <a class="" href="../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../guides/hyperspace/corestore/" title="RemoteCorestore">RemoteCorestore</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/hyperspace/networker/" title="RemoteNetworker">RemoteNetworker</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/hyperspace/hypercore/" title="RemoteHypercore">RemoteHypercore</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      
+<h1>Hyperspace Client API</h1>
+
+<table class="module-table">
+  <tr>
+    <td class="row-name">API Docs</td>
+    <td><a href="https://github.com/hypercore-protocol/hyperspace-client" class="external">https://github.com/hypercore-protocol/hyperspace-client</a></td>
+  </tr>
+</table>
+
+<p>
+  The API for the Hyperspace daemon.
+  If you're trying to figure out how to start and what to use, see the <a href="../../guides/getting-started/">Getting Started Guide</a>.
+</p>
+
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> Client<span class="token operator">:</span> HyperspaceClient <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@hyperspace'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// connect to the Hyperspace server</span>
+<span class="token keyword">const</span> corestore <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// make a corestore</span>
+<span class="token keyword">const</span> feed <span class="token operator">=</span> corestore<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>someHypercoreKey<span class="token punctuation">)</span> <span class="token comment">// make a hypercore</span>
+<span class="token keyword">await</span> feed<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span> <span class="token comment">// get some data from the hypercore</span></code></pre>
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../guides/getting-started/hyperspace/">Getting Started with Hyperspace</a>
+  </div>
+  <div class="linklist">
+    <h4>Individual APIs</h4>
+    <a href="../../guides/hyperspace/corestore/">RemoteCorestore</a>
+    <a href="../../guides/hyperspace/networker/">RemoteNetworker</a>
+    <a href="../../guides/hyperspace/hypercore/">RemoteHypercore</a>
+  </div>
+</div>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../" title="Home">Home</a></div>
+            <div><a href="../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>P2P Indexing with Hyperbee | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="Walk through the basics of using Hyperbee.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="P2P Indexing with Hyperbee | Hypercore Protocol">
+    <meta name="og:description" content="Walk through the basics of using Hyperbee.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/walkthroughs/p2p-indexing-with-hyperbee/" title="Hyperbee">Hyperbee</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="child-current" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/walkthroughs/creating-and-sharing-hypercores/" title="Hypercore">Hypercore</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/sharing-files-with-hyperdrive/" title="Hyperdrive">Hyperdrive</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../../guides/walkthroughs/p2p-indexing-with-hyperbee/" title="Hyperbee">Hyperbee</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      <h1>P2P Indexing with Hyperbee</h1>
+<p>Hyperbee is an append-only B-Tree that can be used to build P2P databases. This walkthrough will dive into Hyperbee, showing you how to use it either as a standalone module or with Hyperspace.</p>
+<p>If you aren't already familiar with the basics of Hypercore and Hyperspace, we recommend you first look at our Getting Started guides:</p>
+<ul>
+<li><a href="../../getting-started/hyperspace">Getting Started with Hyperspace</a></li>
+<li><a href="../../getting-started/standalone-modules">Getting Started with Standalone Modules</a></li>
+</ul>
+<h2>Introduction</h2>
+<p>Hyperbee provides a key/value-store API, with methods for getting and inserting key/value pairs, atomically batching insertions, and creating sorted iterators. It uses a single Hypercore for storage, using a technique called embedded indexing.</p>
+<p>If you're curious about the details of Hyperbee's design, our workshop called <a class="external" title="P2P Indexing and Search" href="https://github.com/hypercore-protocol/p2p-indexing-and-search">P2P Indexing and Search</a> covers all the guts.</p>
+<p>Much of Hyperbee's API mirrors the <a class="external" title="LevelUP" href="https://github.com/Level/levelup">LevelUP</a> interface, so if you're already comfortable with the Level ecosystem parts of this walkthrough will feel familiar.</p>
+<p>Hyperbee inherits and takes advantage of many Hypercore features:</p>
+<ul>
+<li><strong>Sparse Downloading</strong>: When a reader performs a query, only the Hypercore blocks containing the relevant parts of the index are downloaded.</li>
+<li><strong>Sorted Iteration</strong>: Using the embedded index, Hyperbee can satisfy range queries without needing to do a full scan.</li>
+<li><strong>Version Controlled</strong>: The complete database history is preserved, and you can &quot;check out&quot; snapshots of previous versions.</li>
+<li><strong>Efficient Diffing</strong>: Given two database snapshots, Hyperbee can efficiently detect where they differ.</li>
+<li><strong>Cache-Warmup Extension</strong>: Hyperbee lookups are <code>O(log(n))</code>, but using the built-in warmup extension, remote peers can &quot;stream&quot; query results to readers with no loss of trust, dramatically reducing read latency.</li>
+</ul>
+<p>As with Hypercores, a Hyperbee can only have a <strong>single writer on a single machine</strong>; the creator of the Hyperdrive is the only person who can modify to it, because they're the only one with the private key. That said, the writer can replicate to <strong>many readers</strong>, in a manner similar to BitTorrent.</p>
+<p>This walkthrough covers the following topics:</p>
+<ol>
+<li>Basic Operations (<code>get</code>, <code>put</code>, and <code>batch</code>)</li>
+<li>Iteration (<code>createReadStream</code>)</li>
+<li>Diffing (<code>createDiffStream</code>)</li>
+<li>Sub-Databases (<code>sub</code>)</li>
+<li>Using Hyperbee with LevelDB</li>
+</ol>
+<h2>Walkthrough</h2>
+<p>If you want to follow along with the code, setup the walkthrough repo:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/hypercore-protocol/walkthroughs.git<br><span class="token builtin class-name">cd</span> walkthroughs/hyperbee<br><span class="token function">npm</span> <span class="token function">install</span></code></pre>
+<h2>Step 1: Basic Operations</h2>
+<h3>Constructing a Hyperbee</h3>
+<p>A Hyperbee is constructed with either a single Hypercore, or a single RemoteHypercore (if you're using Hyperspace).</p>
+<p>To create a Hyperbee using a standalone Hypercore:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// A Hyperbee is stored as an embedded index within a single Hypercore.</span><br><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span>ram<span class="token punctuation">)</span><br><span class="token keyword">const</span> Hyperbee <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperbee'</span><span class="token punctuation">)</span><br><br><span class="token comment">// It accepts LevelDB-style key/value encoding options.</span><br><span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hyperbee</span><span class="token punctuation">(</span>core<span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  keyEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>As with Level, Hyperbee accepts <code>keyEncoding</code> and <code>valueEncoding</code> in its constructors. Both default to <code>binary</code>.</p>
+<p>Creating a Hyperbee with Hyperspace is pretty much the same. In this example, we'll use the Hyperspace &quot;simulator&quot; to avoid saving any state to your computer's disk:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> Hyperbee <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperbee'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> createHyperspaceSimulator <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperspace/simulator'</span><span class="token punctuation">)</span><br><br><span class="token comment">// A Hyperbee can also be constructed with a RemoteHypercore instance.</span><br><span class="token keyword">const</span> <span class="token punctuation">{</span> client<span class="token punctuation">,</span> cleanup <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createHyperspaceSimulator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> store <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token string">'hyperbee-exercise'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> core <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'hyperbee-1'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hyperbee</span><span class="token punctuation">(</span>core<span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  keyEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h3>Getting, Inserting, and Deleting KV-Pairs</h3>
+<p>Keys and values can be inserted with the <code>put</code> method:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">)</span></code></pre>
+<p>If you're doing a bulk insertion of many KV-pairs, you can use the <code>batch</code> method to atomically commit many entries:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> b <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">batch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token keyword">await</span> b<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'f'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> b<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'g'</span><span class="token punctuation">,</span> <span class="token string">'h'</span><span class="token punctuation">)</span><br><br><span class="token comment">// When a batch is flushed, it's atomically committed to the Hyperbee.</span><br><span class="token keyword">await</span> b<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>To read out a single kv-pair, you can use the <code>get</code> method:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// An object of the form { key, value }</span></code></pre>
+<p><code>get</code> will either return an object of the form <code>{ key, value }</code>, or <code>null</code>.</p>
+<p>To delete a kv-pair, use the <code>del</code> method:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span></code></pre>
+<p>Run this step using standalone modules (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/1a-basics.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node 1a-basics.js</code></pre>
+<p>Run this step using Hyperspace (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/1b-hyperspace.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node 1b-hyperspace.js</code></pre>
+<h2>Step 2: Iterating Over Sorted Streams</h2>
+<p>Hyperbee provides several methods that return sorted streams over ranges of kv-pairs. This step will cover standard range iteration, which uses the <code>createReadStream</code> method.</p>
+<div class="info-aside" markdown="1">
+<p>Note: Hyperbee's <code>createReadStream</code> is identical to Level's <code>createReadStream</code> method.</p>
+</div>
+<p>Here's how to create a simple sorted stream that yields all kv-pairs in the database:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token keyword">of</span> db<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>For more specific ranges, you can use one or more of the following options:</p>
+<ul>
+<li><code>gt</code>: Yield all pairs with key greater than this value</li>
+<li><code>gte</code>: Yield all pairs with key greater than or equal to this value</li>
+<li><code>lt</code>: Yield all pairs with key less than this value</li>
+<li><code>lte</code>: Yield all pairs with key less than or equal to this value</li>
+<li><code>reverse</code>: Yield results in reverse order</li>
+<li><code>limit</code>: Only yield this many results</li>
+</ul>
+<p>Let's create a database with many kv-pairs of the form 'a' -&gt; 'a', 'b' -&gt; 'b', etc:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> keys <span class="token operator">=</span> <span class="token string">'abcdefghijklmnopqrstuvwxyz'</span><br><span class="token keyword">const</span> b <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">batch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> char <span class="token keyword">of</span> keys<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">await</span> b<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>char<span class="token punctuation">,</span> char<span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><span class="token keyword">await</span> b<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>Now we can see how different <code>createReadStream</code> options affect the pairs that are returned:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First 10 pairs</td>
+<td><code>{limit: 10}</code></td>
+</tr>
+<tr>
+<td>Last 10 pairs, reversed</td>
+<td><code>{limit: 10, reverse: true}</code></td>
+</tr>
+<tr>
+<td>Between 'a' and 'd', non-inclusive</td>
+<td><code>{gt: 'a', lt: 'd'}</code></td>
+</tr>
+<tr>
+<td>Between 'a' and 'd', inclusive</td>
+<td><code>{gte: 'a', lte: 'd'}</code></td>
+</tr>
+<tr>
+<td>Between 'e' and 'f', inclusive, reversed</td>
+<td><code>{gte: 'e', 'lte: 'f', reversed: true}</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Sparse Downloading</h3>
+<p>Importantly, the number of blocks that a reader needs to download to complete a range query is entirely dependent on how specific that query is.</p>
+<p>A <code>createReadStream</code> with no options will do a full range scan, and thus download every block.</p>
+<p>A more narrowly-specified range query will only need to download a few blocks from the network.</p>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/2-iterators.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">2</span>-iterators.js</code></pre>
+<h2>Step 3: Snapshots and Diffing</h2>
+<p>By virtue of being built on a Hypercore, an append-only data structure, Hyperbees maintain their complete version history. You can &quot;check out&quot; a read-only snapshot of any historical version using the <code>checkout</code> method.</p>
+<p>A snapshot is just a read-only Hyperbee, and provides the same methods, like <code>createReadStream</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hyperbee</span><span class="token punctuation">(</span><span class="token function">hypercore</span><span class="token punctuation">(</span>ram<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> keyEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> oldVersion <span class="token operator">=</span> db<span class="token punctuation">.</span>version <span class="token comment">// Let's mark the version before the last insertion</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">,</span> <span class="token string">'f'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><br><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token keyword">of</span> db<span class="token punctuation">.</span><span class="token function">checkout</span><span class="token punctuation">(</span>oldVersion<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// Entries 'a' and 'c' will be returned</span><br><span class="token punctuation">}</span></code></pre>
+<p>Hyperbee can also efficiently determine which kv-pairs have been added, removed, or modified (a diff) between two versions. Since large numbers of entries might have changed, the diffing functionality is exposed as a stream, just like <code>createReadStream</code>.</p>
+<p>A diff stream yields entries of the form <code>{ left, right }</code>, where <code>right</code> is the earlier value and <code>left</code> is the later value for a given key.</p>
+<p><code>createDiffStream</code> supports the same options as <code>createReadStream</code>, minus <code>reverse</code>. Using the database constructed above:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> left<span class="token punctuation">,</span> right <span class="token punctuation">}</span> <span class="token keyword">of</span> db<span class="token punctuation">.</span><span class="token function">createDiffStream</span><span class="token punctuation">(</span>oldVersion<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// { left: { key: 'e', value: 'f' }, right: null }  // 'e' -> 'f' was added</span><br>  <span class="token comment">// { left: null, right: { key: 'c', value: 'd' }    // 'c' -> 'd' was deleted</span><br><span class="token punctuation">}</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/3-diffs.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">3</span>-diffs.js</code></pre>
+<h2>Step 4: Sub-Databases</h2>
+<p>Oftentimes when working with a Hyperbee, it's useful to create independent &quot;sub-databases&quot; within a parent database.</p>
+<p>As an example, you might be storing two indexes inside of one database, one that indexes records by name, and the other by age. You can manually append prefixes to each index record you insert (e.g. <code>by-name!alice</code>, <code>by-age!73</code>), but this quickly grows tedious.</p>
+<p>The <code>sub</code> method simplifies this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hyperbee</span><span class="token punctuation">(</span><span class="token function">hypercore</span><span class="token punctuation">(</span>ram<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  keyEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// A sub-database will append a prefix to every key it inserts.</span><br><span class="token comment">// This prefix ensure that the sub acts as a separate "namespace" inside the parent db.</span><br><span class="token keyword">const</span> sub1 <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token string">'sub1'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> sub2 <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token string">'sub2'</span><span class="token punctuation">)</span><br><br><span class="token keyword">await</span> sub1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> sub2<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">)</span><br><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token keyword">of</span> sub1<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// 'a' -> 'b'</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token keyword">of</span> sub2<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// 'c' -> 'd'</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// You can see the sub prefixes by iterating over the parent database.</span><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token keyword">of</span> db<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token comment">// 'sub1\0a' -> 'b'</span><br>  <span class="token comment">// 'sub2\0c' -> 'd'</span><br><span class="token punctuation">}</span></code></pre>
+<p>Hyperbee defaults to using the null character (<code>\0</code>) to separate keys.
+We recommend sticking with the default for consistency.
+(The null may not render in the console, so the code above may have keys that look like <code>&quot;sub1a&quot;</code> and <code>&quot;sub2c&quot;</code>.)</p>
+<div class="info-aside" markdown="1">
+<h4><img src="../../../images/icons8/info-24.png"> Key Encodings</h4>
+<p>If you plan on using numeric keys, you'll want to first encode those keys such that they sort lexicographically. To do this, you can use the <a class="external" title="lexicographic-integer" href="https://www.npmjs.com/package/lexicographic-integer"><code>lexicographic-integer</code></a> module.</p>
+<p>Exercise 13 of the <a class="external" title="P2P Indexing and Search" href="https://github.com/hypercore-protocol/p2p-indexing-and-search/blob/main/problems/13.md">P2P Indexing and Search</a> workshop covers this in more detail.</p>
+</div>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/4-sub.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">4</span>-sub.js</code></pre>
+<h2>Step 5: Hyperbee Implements Leveldown</h2>
+<p><em>Note: Using Hyperbee as a leveldown is still pretty experimental! If you go down this road, be prepared to file a bug report or two.</em></p>
+<p>Hyperbee has all the features necessary to be a <a class="external" title="leveldown backend" href="https://www.npmjs.com/package/abstract-leveldown">leveldown backend</a>, meaning it can be used as the data store for <a class="external" title="tons of modules" href="https://github.com/Level/awesome">tons of modules</a> in the Level ecosystem.</p>
+<p>A small wrapper module, <a class="external" title="hyperbeedown" href="https://www.npmjs.com/package/hyperbeedown"><code>hyperbeedown</code></a>, implements the leveldown plumbing.</p>
+<p>It's pretty straightforward to use Hyperbee inside modules that work with Level. Here's a code snippet that uses Hyperbee as the backing store for a <a class="external" title="PouchDB" href="https://pouchdb.com/">PouchDB</a> instance:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> tree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hyperbee</span><span class="token punctuation">(</span><span class="token function">hypercore</span><span class="token punctuation">(</span>ram<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  keyEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PouchDB</span><span class="token punctuation">(</span><span class="token string">'my-database'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  <span class="token function-variable function">db</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">new</span> <span class="token class-name">HyperbeeDown</span><span class="token punctuation">(</span>tree<span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span> _id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> hello<span class="token operator">:</span> <span class="token string">'world'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> doc <span class="token operator">=</span> <span class="token keyword">await</span> db<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperbee/5-leveldown.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">5</span>-leveldown.js</code></pre>
+<style>
+  h4 img {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+</style>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

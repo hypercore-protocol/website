@@ -1,0 +1,301 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started With Standalone Modules | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="A guide to using Hypercore Protocol&#39;s modules without the Hyperspace daemon.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Getting Started With Standalone Modules | Hypercore Protocol">
+    <meta name="og:description" content="A guide to using Hypercore Protocol&#39;s modules without the Hyperspace daemon.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/getting-started/standalone-modules/" title="Using Standalone Modules">Using Standalone Modules</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="child-current" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/hyperspace/" title="Using Hyperspace">Using Hyperspace</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../../guides/getting-started/standalone-modules/" title="Using Standalone Modules">Using Standalone Modules</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      <h1><img src="../../../images/icons8/module-50.png"> Getting Started With Standalone Modules</h1>
+<p>Standalone modules give you the ability to tweak and customize, gradually honing in on the right set of components and configurations for your use-case.
+Using them directly is slightly more advanced, but it may fit your needs more closely depending on what you're building.</p>
+<p>If you're new to Hypercore, we recommend <a href="../hyperspace/">Getting Started with Hyperspace</a> instead.</p>
+<h2>Reasons you might use standalone modules</h2>
+<p>Here are a few reasons why you might want to use individual modules instead of the Hyperspace daemon:</p>
+<ul>
+<li>You're building a self-contained tool that doesn't need to share data or coordinate networking with other Hypercore Protocol tools on the device.</li>
+<li>You need advanced control over the storage or networking.</li>
+</ul>
+<h2>Introduction</h2>
+<p>There are three main modules that Hyperspace typically handles, and these are the modules we're going to introduce you to.
+They are:</p>
+<ul>
+<li><a href="../../modules/corestore/">Corestore</a>, a disk-storage manager for Hypercores,</li>
+<li><a href="../../modules/hyperswarm/">Hyperswarm</a>, a DHT for arranging connections, and</li>
+<li><a href="../../modules/hypercore/">Hypercore</a>, an append-only log and the foundation of Hypercore Protocol's data structures.</li>
+</ul>
+<p>No matter how you're using Hypercore Protocol, you'll probably also want to use the <a href="../../modules/hyperdrive/">Hyperdrive</a> and <a href="../../modules/hyperbee/">Hyperbee</a> modules as well — a files archive and k/v database, respectively.</p>
+<p>We'll start with Hypercore and the other data structures.</p>
+<hr>
+<h2>Using Hypercore, Hyperdrive, and Hyperbee</h2>
+<p>Hypercore and Hyperdrive use a standard pattern for instantiating the objects:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span>storage<span class="token punctuation">[</span><span class="token punctuation">,</span> key<span class="token punctuation">]</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>storage<span class="token punctuation">[</span><span class="token punctuation">,</span> key<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>There are three distinct usages for these constructors.
+Let's go through each.</p>
+<h3>Usage 1: Create/load default</h3>
+<p>The first usage is passing a storage location with no key:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span><span class="token string">'./my-hypercore'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./my-hyperdrive'</span><span class="token punctuation">)</span></code></pre>
+<p>This approach will load a &quot;default&quot; core or drive from the storage location.
+If no default core or drive exists yet, one will be created.</p>
+<h3>Usage 2: Create new</h3>
+<p>The second usage is passing a storage location with a <code>null</code> key:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span><span class="token string">'./my-hypercore'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./my-hyperdrive'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span></code></pre>
+<p>This approach will always create a new core or drive.</p>
+<h3>Usage 3: Load existing</h3>
+<p>The third usage is passing a storage location with a key specified:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span><span class="token string">'./my-hypercore'</span><span class="token punctuation">,</span> keyBuf<span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./my-hyperdrive'</span><span class="token punctuation">,</span> keyBuf<span class="token punctuation">)</span></code></pre>
+<p>This approach will always load an existing core or drive.
+If no data exists locally, the structure will be loaded in an &quot;empty state&quot; which can be populated by pulling data from the network.</p>
+<h3>Loading Hyperbees</h3>
+<p>Hyperbees are constructed differently than Hypercores and Hyperdrives.
+Rather than specifying some storage and/or key, you provide a Hypercore:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span><span class="token string">'./my-hyperbee'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> bee <span class="token operator">=</span> <span class="token function">hyperbee</span><span class="token punctuation">(</span>core<span class="token punctuation">)</span></code></pre>
+<p>This is because, unlike Hyperdrive, Hyperbees only use one Hypercore to record their data.
+As a result, there's no reason for the Hyperbee object to know about the storage mechanism — all it needs is its Hypercore!</p>
+<h3>Related walkthroughs</h3>
+<p>If you want to learn more about each of these modules, see their walkthroughs:</p>
+<ul>
+<li><a href="../../walkthroughs/creating-and-sharing-hypercores/"><strong>Hypercore</strong>: Creating and Sharing Hypercores</a></li>
+<li><a href="../../walkthroughs/sharing-files-with-hyperdrive/"><strong>Hyperdrive</strong>: Sharing Files with Hyperdrive</a></li>
+<li><a href="../../walkthroughs/p2p-indexing-with-hyperbee/"><strong>Hyperbee</strong>: P2P Indexing with Hyperbee</a></li>
+</ul>
+<hr>
+<h2>Using Corestore</h2>
+<p>If you're working with a single hypercore, managing storage and networking is as simple as specifying a directory and piping a replication stream.
+However, more advanced data structures like Hyperdrive need to manage collections of Hypercores.</p>
+<p><a href="../../modules/corestore/">Corestore</a> is an abstraction that makes it easier to handle these collections.
+Corestore simplifies storage, key management, and (as we'll see in a bit) networking.</p>
+<p>Setting up a corestore is similar to setting up any hyper* structure.
+You just pass the storage path:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">corestore</span><span class="token punctuation">(</span><span class="token string">'./my-storage'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>From here, you have a similar set of usage patterns for getting and creating hyper* structures.</p>
+<p>Creating or loading the default:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span></code></pre>
+<p>Creating a new structure:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span></code></pre>
+<p>Loading an existing structure:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> core <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> key<span class="token operator">:</span> keyBuf <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>store<span class="token punctuation">,</span> keyBuf<span class="token punctuation">)</span></code></pre>
+<p>Notice that for Hyperdrives, you pass the corestore into the storage parameter.</p>
+<hr>
+<h2>Using Hyperswarm</h2>
+<p><a href="../../modules/hyperswarm/">Hyperswarm</a> is a DHT (<a href="https://en.wikipedia.org/wiki/Distributed_hash_table" class="external" title="Distributed Hash Table">Distributed Hash Table</a>) for discovering and connecting to other peers, primarily for Hypercore replication.</p>
+<p>Here's how you can use it to replicate a single Hypercore:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> pump <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'pump'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> hypercore <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hypercore'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> hyperswarm <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperswarm'</span><span class="token punctuation">)</span><br><br><span class="token comment">// Setup the hypercore as usual.</span><br><span class="token keyword">const</span> core <span class="token operator">=</span> <span class="token function">hypercore</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create a new swarm instance.</span><br><span class="token keyword">const</span> swarm <span class="token operator">=</span> <span class="token function">hyperswarm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Replicate whenever a new connection is created.</span><br>swarm<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">connection<span class="token punctuation">,</span> info</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">pump</span><span class="token punctuation">(</span><br>    connection<span class="token punctuation">,</span><br>    core<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>initiator<span class="token operator">:</span> info<span class="token punctuation">.</span>client<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    connection<br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Start swarming the hypercore.</span><br>swarm<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  announce<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><br>  lookup<span class="token operator">:</span> <span class="token boolean">true</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>If you're replicating a single Hypercore and don't want to bother with this boilerplate, you can use the <a href="https://github.com/hyperswarm/replicator" title="Hyperswarm Replicator Module" class="external">hyperswarm/replicator</a> module to make life easier.</p>
+<h3>Corestore Networker</h3>
+<p>Using Hyperswarm directly involves some nuances and can be particularly complex when dealing with multiple Hypercores (or multi-core structures like Hyperdrive).</p>
+<p>Therefore, we recommend using the <a href="https://github.com/hypercore-protocol/corestore-networker" class="external" title="Corestore Networker">Corestore Networker</a> module along with Corestore to make life easier.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> Networker <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@corestore/networker'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> Corestore <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'corestore'</span><span class="token punctuation">)</span><br><br><span class="token comment">// Setup the corestore and hypercore as usual.</span><br><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Corestore</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> core <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create the networker.</span><br><span class="token keyword">const</span> networker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Networker</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><br><br><span class="token comment">// Start announcing or lookup up a discovery key on the DHT.</span><br><span class="token keyword">await</span> networker<span class="token punctuation">.</span><span class="token function">configure</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">,</span> <span class="token punctuation">{</span> announce<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> lookup<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Stop announcing or looking up a discovery key.</span><br>networker<span class="token punctuation">.</span><span class="token function">configure</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">,</span> <span class="token punctuation">{</span> announce<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> lookup<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Shut down the swarm (and unnanounce all keys)</span><br><span class="token keyword">await</span> networker<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>The networker also includes events and information about the network state:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Is the networker "swarming" the given core?</span><br>networker<span class="token punctuation">.</span><span class="token function">joined</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">)</span> <span class="token comment">// => true/false</span><br><br><span class="token comment">// Has the networker attempted to connect to all known peers of the core?</span><br>networker<span class="token punctuation">.</span><span class="token function">flushed</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">)</span> <span class="token comment">// => true/false</span><br><br><span class="token comment">// Peer events and information.</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>networker<span class="token punctuation">.</span>peers<span class="token punctuation">)</span> <span class="token comment">// Outputs an array of peer objects.</span><br>networker<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'peer-add'</span><span class="token punctuation">,</span> <span class="token parameter">peer</span> <span class="token operator">=></span> <span class="token comment">/*...*/</span><span class="token punctuation">)</span><br>networker<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'peer-add'</span><span class="token punctuation">,</span> <span class="token parameter">peer</span> <span class="token operator">=></span> <span class="token comment">/*...*/</span><span class="token punctuation">)</span></code></pre>
+<p>Not only is the Corestore Networker much easier to use, it will &quot;multiplex&quot; replication of cores whenever possible, making it a more efficient approach than manually using Hyperswarm.</p>
+<hr>
+<h2>Next steps</h2>
+<p>You're ready to build applications using standalone modules.
+The API pages can help you learn about the individual components, while the walkthroughs will help guide you through common tasks.</p>
+<div class="linklists two">
+  <div class="linklist">
+    <h4>APIs</h4>
+    <a href="../../modules/corestore/">Corestore</a>
+    <a href="../../modules/hyperswarm/">Hyperswarm</a>
+    <a href="../../modules/hypercore/">Hypercore</a>
+    <a href="../../modules/hyperdrive/">Hyperdrive</a>
+    <a href="../../modules/hyperbee/">Hyperbee</a>
+  </div>
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../walkthroughs/creating-and-sharing-hypercores/">Creating and Sharing Hypercores</a>
+    <a href="../../walkthroughs/sharing-files-with-hyperdrive/">Sharing Files with Hyperdrive</a>
+    <a href="../../walkthroughs/p2p-indexing-with-hyperbee/">P2P Indexing with Hyperbee</a>
+  </div>
+</div>
+<style>
+  hr {
+    border-top: 1px dashed #000;
+  }
+  h1 img {
+    width: 40px;
+    position: relative;
+    top: 6px;
+  }
+
+  h4 img {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+</style>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

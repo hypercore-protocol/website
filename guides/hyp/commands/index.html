@@ -1,0 +1,355 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hyp CLI Commands Reference | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Hyp CLI Commands Reference | Hypercore Protocol">
+    <meta name="og:description" content="The Hyp command-line provides a convenient set of tools for accessing the Hypercore network.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyp/commands/" title="Commands">Commands</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="child-current" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/hyp/sharing-folders/" title="Sharing Folders">Sharing Folders</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/seeding-data/" title="Seeding Data">Seeding Data</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/beaming-files/" title="Beaming Files">Beaming Files</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../../guides/hyp/commands/" title="Commands">Commands</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/hyp/commands/info/" title="hyp info">hyp info</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/seed/" title="hyp seed">hyp seed</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/unseed/" title="hyp unseed">hyp unseed</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/create/" title="hyp create">hyp create</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/beam/" title="hyp beam">hyp beam</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/daemon-status/" title="hyp daemon status">hyp daemon status</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/daemon-stop/" title="hyp daemon stop">hyp daemon stop</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-ls/" title="hyp drive ls">hyp drive ls</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-mkdir/" title="hyp drive mkdir">hyp drive mkdir</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-rmdir/" title="hyp drive rmdir">hyp drive rmdir</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-cat/" title="hyp drive cat">hyp drive cat</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-put/" title="hyp drive put">hyp drive put</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-rm/" title="hyp drive rm">hyp drive rm</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-diff/" title="hyp drive diff">hyp drive diff</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-sync/" title="hyp drive sync">hyp drive sync</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/drive-http/" title="hyp drive http">hyp drive http</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/bee-ls/" title="hyp bee ls">hyp bee ls</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/bee-get/" title="hyp bee get">hyp bee get</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/bee-put/" title="hyp bee put">hyp bee put</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/commands/bee-del/" title="hyp bee del">hyp bee del</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      
+<h1>Hyp CLI Commands</h1>
+
+<p>Complete commands reference.</p>
+
+
+
+<div class="linklists">
+  <div class="linklist">
+    <h4>General Commands</h4>
+    <a href="../../../guides/hyp/commands/info/" title="<code>hyp info</code>"><code>hyp info</code></a>
+    <a href="../../../guides/hyp/commands/seed/" title="<code>hyp seed</code>"><code>hyp seed</code></a>
+    <a href="../../../guides/hyp/commands/unseed/" title="<code>hyp unseed</code>"><code>hyp unseed</code></a>
+    <a href="../../../guides/hyp/commands/create/" title="<code>hyp create</code>"><code>hyp create</code></a>
+    <a href="../../../guides/hyp/commands/beam/" title="<code>hyp beam</code>"><code>hyp beam</code></a>
+    <a href="../../../guides/hyp/commands/daemon-status/" title="<code>hyp daemon status</code>"><code>hyp daemon status</code></a>
+    <a href="../../../guides/hyp/commands/daemon-stop/" title="<code>hyp daemon stop</code>"><code>hyp daemon stop</code></a>
+  </div>
+  <div class="linklist">
+    <h4>Hyperdrive Commands</h4>
+    <a href="../../../guides/hyp/commands/drive-ls/" title="<code>hyp drive ls</code>"><code>hyp drive ls</code></a>
+    <a href="../../../guides/hyp/commands/drive-mkdir/" title="<code>hyp drive mkdir</code>"><code>hyp drive mkdir</code></a>
+    <a href="../../../guides/hyp/commands/drive-rmdir/" title="<code>hyp drive rmdir</code>"><code>hyp drive rmdir</code></a>
+    <a href="../../../guides/hyp/commands/drive-cat/" title="<code>hyp drive cat</code>"><code>hyp drive cat</code></a>
+    <a href="../../../guides/hyp/commands/drive-put/" title="<code>hyp drive put</code>"><code>hyp drive put</code></a>
+    <a href="../../../guides/hyp/commands/drive-rm/" title="<code>hyp drive rm</code>"><code>hyp drive rm</code></a>
+    <a href="../../../guides/hyp/commands/drive-diff/" title="<code>hyp drive diff</code>"><code>hyp drive diff</code></a>
+    <a href="../../../guides/hyp/commands/drive-sync/" title="<code>hyp drive sync</code>"><code>hyp drive sync</code></a>
+    <a href="../../../guides/hyp/commands/drive-http/" title="<code>hyp drive http</code>"><code>hyp drive http</code></a>
+  </div>
+  <div class="linklist">
+    <h4>Hyperbee Commands</h4>
+    <a href="../../../guides/hyp/commands/bee-ls/" title="<code>hyp bee ls</code>"><code>hyp bee ls</code></a>
+    <a href="../../../guides/hyp/commands/bee-get/" title="<code>hyp bee get</code>"><code>hyp bee get</code></a>
+    <a href="../../../guides/hyp/commands/bee-put/" title="<code>hyp bee put</code>"><code>hyp bee put</code></a>
+    <a href="../../../guides/hyp/commands/bee-del/" title="<code>hyp bee del</code>"><code>hyp bee del</code></a>
+  </div>
+</div>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

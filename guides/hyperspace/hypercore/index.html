@@ -1,0 +1,205 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RemoteHypercore | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="API overview for the Hyperspace Hypercore API.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="RemoteHypercore | Hypercore Protocol">
+    <meta name="og:description" content="API overview for the Hyperspace Hypercore API.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/hyperspace/hypercore/" title="RemoteHypercore">RemoteHypercore</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="child-current" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/hyperspace/corestore/" title="RemoteCorestore">RemoteCorestore</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/networker/" title="RemoteNetworker">RemoteNetworker</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../../guides/hyperspace/hypercore/" title="RemoteHypercore">RemoteHypercore</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      <h1>RemoteHypercore</h1>
+<table class="module-table">
+  <tr>
+    <td class="row-name">API&nbsp;Docs</td>
+    <td><a href="https://github.com/hypercore-protocol/hyperspace-client#remote-hypercore" class="external">https://github.com/hypercore-protocol/hyperspace-client#remote-hypercore</a></td>
+  </tr>
+</table>
+<p>The API for Hyperspace daemon hypercores.
+Mirrors the <a href="../../modules/hypercore/">hypercore</a> module.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> Client<span class="token operator">:</span> HyperspaceClient <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@hyperspace'</span><span class="token punctuation">)</span><br><br><span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// connect to the Hyperspace server</span><br><br><span class="token comment">// use corestore to instantiate a RemoteHypercore</span><br><span class="token keyword">const</span> core <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><br>client<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>core<span class="token punctuation">)</span> <span class="token comment">// also put the core on the network</span><br><br><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// wait for some keys to be populated</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token comment">// the core's public key</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">)</span> <span class="token comment">// the core's discovery key</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>writable<span class="token punctuation">)</span> <span class="token comment">// do we possess the private key?</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>peers<span class="token punctuation">)</span> <span class="token comment">// currently connected peers</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// do we have block 0?</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// get block 0</span><br><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">download</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment">// download the first 5 blocks</span><br><span class="token keyword">await</span> core<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// append a new block</span><br><br>core<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'peer-add'</span><span class="token punctuation">,</span> <span class="token parameter">peer</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'new peer'</span><span class="token punctuation">,</span> peer<span class="token punctuation">)</span><span class="token punctuation">)</span><br>core<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'peer-remove'</span><span class="token punctuation">,</span> <span class="token parameter">peer</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'peer disconnected'</span><span class="token punctuation">,</span> peer<span class="token punctuation">)</span><span class="token punctuation">)</span><br>core<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'append'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'new block added'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>core<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'download'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">seq<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>byteLength<span class="token punctuation">,</span> <span class="token string">'bytes downloaded'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>core<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'upload'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">seq<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>byteLength<span class="token punctuation">,</span> <span class="token string">'bytes uploaded'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../getting-started/hyperspace/">Getting Started with Hyperspace</a>
+    <a href="../../walkthroughs/creating-and-sharing-hypercores/">Creating and Sharing Hypercores</a>
+  </div>
+</div>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

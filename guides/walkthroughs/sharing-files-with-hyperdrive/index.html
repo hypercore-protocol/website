@@ -1,0 +1,275 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sharing Files with Hyperdrive | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="Walk through the basics of using Hyperdrive.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Sharing Files with Hyperdrive | Hypercore Protocol">
+    <meta name="og:description" content="Walk through the basics of using Hyperdrive.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/walkthroughs/sharing-files-with-hyperdrive/" title="Hyperdrive">Hyperdrive</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="child-current" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    <ul>
+      
+    <li>
+      <a class="" href="../../../guides/walkthroughs/creating-and-sharing-hypercores/" title="Hypercore">Hypercore</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="current" href="../../../guides/walkthroughs/sharing-files-with-hyperdrive/" title="Hyperdrive">Hyperdrive</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/p2p-indexing-with-hyperbee/" title="Hyperbee">Hyperbee</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      <h1>Sharing Files with Hyperdrive</h1>
+<p>This walkthrough will guide you through using Hyperdrive either as a standalone module or using Hyperspace.
+We recommend that you first read the Getting Started guides for the approach you intend to take.</p>
+<ul>
+<li><a href="../../getting-started/hyperspace/">Getting Started with Hyperspace</a></li>
+<li><a href="../../getting-started/standalone-modules/">Getting Started with Standalone Modules</a></li>
+</ul>
+<p>You might also want to read the <a href="../creating-and-sharing-hypercores/">Hypercore walkthrough</a>, as Hyperdrive is built on top of Hypercores.
+In fact, it uses two: one for storing the file metadata and another for storing the file content.</p>
+<h2>Introduction</h2>
+<p>Hyperdrives are file archives which mimic the posix interface.
+The include a number of useful features:</p>
+<ul>
+<li><strong>Sparse Downloading</strong>: By default, readers only download the portions of files they need, on demand. You can stream media from friends without jumping through hoops! Seeking is snappy and there's no buffering.</li>
+<li><strong>Fast Lookups</strong>: File metadata is stored in a distributed trie structure, meaning files can be located with minimal network lookups.</li>
+<li><strong>Version Controlled</strong>: Files are versioned by default, making it easy to see historical changes and prevent data loss.</li>
+<li><strong>Version Tagging</strong>: You can assign string names to Hyperdrive versions and store these within the drive, making it straightforward to switch between semantically-meaningful versions.</li>
+</ul>
+<p>As with Hypercores, a Hyperdrive can only have a <strong>single writer on a single machine</strong>; the creator of the Hyperdrive is the only person who can modify to it, because they're the only one with the private key. That said, the writer can replicate to <strong>many readers</strong>, in a manner similar to BitTorrent.</p>
+<p>In this walkthrough, we'll create hyperdrives using standalone modules and Hyperspace (step 1).
+We'll then demonstrate the basic APIs (step 2) and then learn about versioning (step 3).</p>
+<h2>Walkthrough</h2>
+<p>If you want to follow along with the code, setup the walkthrough repo:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/hypercore-protocol/walkthroughs.git<br><span class="token builtin class-name">cd</span> walkthroughs/hyperdrive<br><span class="token function">npm</span> <span class="token function">install</span></code></pre>
+<h2>Step 1a: Using standalone modules</h2>
+<p>To create or load a hyperdrive as a standalone module, you follow this simple pattern:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> hyperdrive <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperdrive'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./storage-path'</span><span class="token punctuation">)</span> <span class="token comment">// get or create drive at given path</span></code></pre>
+<p>If a drive exists at the path you provide, it will be loaded.
+If no drive exists, one will be created.</p>
+<p>You can load a specific drive within your storage by supplying a key.
+This will only load the drive, so if no data exists locally yet then it will instantiate as an empty read-only drive waiting to pull data from the network:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./storage-path'</span><span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// load</span></code></pre>
+<p>You can also force creation of a new drive by passing <code>null</code> for the key:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span><span class="token string">'./storage-path'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment">// create new</span></code></pre>
+<p>You can read details such as the key or writability of a drive after 'ready' has been emitted:</p>
+<pre class="language-js"><code class="language-js">drive<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err<br><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token comment">// the drive's public key, used to identify it</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">)</span> <span class="token comment">// the drive's discovery key for the DHT</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>writable<span class="token punctuation">)</span> <span class="token comment">// do we possess the private key of this drive?</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>version<span class="token punctuation">)</span> <span class="token comment">// what is the version-number of this drive?</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>peers<span class="token punctuation">)</span> <span class="token comment">// list of the peers currently replicating this drive</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// if you prefer promises you can use:</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>If you want to load a drive in-memory, you can use the <a class="external" title="random-access-memory" href="https://github.com/random-access-storage/random-access-memory">random-access-memory</a> (RAM) interface.
+The walkthrough code uses RAM to avoid writing to your device.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> ram <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'random-access-memory'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive1 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>ram<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment">// create</span><br><span class="token keyword">const</span> drive2 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>ram<span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// load</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperdrive/step-1a.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node step-1a.js</code></pre>
+<h2>Step 1b: Using Hyperspace</h2>
+<p>Creating and loading hyperdrives using Hyperspace is not much different from using standalone modules.
+We'll assume you've created a Hyperspace <code>client</code> interface (see <a href="../../getting-started/hyperspace/">Getting Started with Hyperspace</a>).</p>
+<p>Rather than passing a path into <code>hyperdrive()</code>, you pass a &quot;corestore&quot; instance.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> drive1 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment">// create</span><br><span class="token keyword">const</span> drive2 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// load</span></code></pre>
+<p>The rest works the same as before.</p>
+<p>If you want to load a drive in-memory and use hyperspace, you can use the hyperspace &quot;simulator.&quot;
+The walkthrough code uses the simulator to avoid writing to your device.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> createHyperspaceSimulator <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperspace/simulator'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> <span class="token punctuation">{</span> client<span class="token punctuation">,</span> cleanup <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">createHyperspaceSimulator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token keyword">const</span> drive1 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment">// create</span><br><span class="token keyword">const</span> drive2 <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// load</span><br><br><span class="token keyword">await</span> <span class="token function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// shut down the simulator</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperdrive/step-1b.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node step-1b.js</code></pre>
+<h2>Step 2: Reading and writing files</h2>
+<p>Many of the APIs for reading and writing files mimic the NodeJS &quot;fs&quot; API.
+This should hopefully make this code look familiar.
+Hyperdrive's default interface is callback based, but a promises API exists under <code>.promises</code> so we'll use that.</p>
+<p>Here are a number of common methods:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">,</span> <span class="token string">'World'</span><span class="token punctuation">)</span><br><br><span class="token keyword">const</span> st <span class="token operator">=</span> <span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">stat</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">)</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// => false</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// => true</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token comment">// => 5</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span>blocks<span class="token punctuation">)</span> <span class="token comment">// 1 (the number of blocks in the content hypercore)</span><br><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span> <span class="token comment">// => 'World'</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span> <span class="token comment">// => ['hello.txt']</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>recursive<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> includeStats<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token comment">// => [{name: 'hello.txt', stat: Stat(...)}]</span><br><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token string">'/dir'</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">rmdir</span><span class="token punctuation">(</span><span class="token string">'/dir'</span><span class="token punctuation">)</span><br><br><span class="token comment">// copy a file using read/write streams</span><br>drive<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'/copy.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token string">'/copy.txt'</span><span class="token punctuation">)</span> <span class="token comment">// delete the copy</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperdrive/step-2.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node step-2.js</code></pre>
+<div class="info-aside" markdown="1">
+<h4><img src="../../../images/icons8/info-24.png"> Downloading files</h4>
+<p>Files will be downloaded and cached automatically when they're read via <code>readFile</code> or <code>createReadStream</code>.
+If you want to pre-download a set of files, you can use the <code>download</code> function.</p>
+<p>For instance, this will download all of the files in a subdirectory:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">download</span><span class="token punctuation">(</span><span class="token string">'/subdir'</span><span class="token punctuation">)</span></code></pre>
+</div>
+<h2>Step 3: Versioning and version tags</h2>
+<p>All drives have a <code>.version</code> number which increments each time a change is made.
+You can &quot;checkout&quot; previous versions of a drive to read the state at that time, if it's available.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// see the files after the first write</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span><span class="token function">checkout</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span></code></pre>
+<p>You can diff between two versions to quickly see what has been modified:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// create an example drive</span><br><span class="token keyword">const</span> ram <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'random-access-memory'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>ram<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><br><br><span class="token comment">// write a file and capture a checkout at this time</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> frozen <span class="token operator">=</span> drive<span class="token punctuation">.</span><span class="token function">checkout</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>version<span class="token punctuation">)</span><br><br><span class="token comment">// now delete the file</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">unlink</span><span class="token punctuation">(</span><span class="token string">'/hello.txt'</span><span class="token punctuation">)</span><br><br><span class="token comment">// output the difference</span><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">let</span> change <span class="token keyword">of</span> drive<span class="token punctuation">.</span><span class="token function">createDiffStream</span><span class="token punctuation">(</span>frozen<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>change<span class="token punctuation">)</span> <span class="token comment">// => { type: 'del', name: 'hello.txt', previous: { seq: 1 } }</span><br><span class="token punctuation">}</span></code></pre>
+<p>The <code>.version</code> value is just a &quot;sequence number&quot; and not very helpful to look at, so hyperdrive has &quot;version tags&quot; which allow you to label specific versions under human-readable strings.
+Here's how they work:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tag the current version as "tag1"</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">createTag</span><span class="token punctuation">(</span><span class="token string">'tag1'</span><span class="token punctuation">,</span> drive<span class="token punctuation">.</span>version<span class="token punctuation">)</span><br><br><span class="token comment">// write a new file</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'/new.txt'</span><span class="token punctuation">,</span> <span class="token string">'This is new'</span><span class="token punctuation">)</span><br><br><span class="token comment">// fetch the tagged version's seq number</span><br><span class="token keyword">const</span> tag1Version <span class="token operator">=</span> <span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">getTaggedVersion</span><span class="token punctuation">(</span><span class="token string">'tag1'</span><span class="token punctuation">)</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>tag1Version<span class="token punctuation">)</span> <span class="token comment">// => 3</span><br><br><span class="token comment">// output the diff</span><br><span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">let</span> change <span class="token keyword">of</span> drive<span class="token punctuation">.</span><span class="token function">createDiffStream</span><span class="token punctuation">(</span>tag1Version<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>change<span class="token punctuation">)</span> <span class="token comment">/* => {<br>    type: 'put',<br>    name: 'new.txt',<br>    seq: 4,<br>    value: Stat { ... }<br>  }*/</span><br><span class="token punctuation">}</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperdrive/step-3.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node step-3.js</code></pre>
+<h2>Next steps</h2>
+<p>Learn more at the <a href="../../modules/hyperdrive/">Hyperdrive module page</a>.</p>
+<style>
+  h4 img {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+</style>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>

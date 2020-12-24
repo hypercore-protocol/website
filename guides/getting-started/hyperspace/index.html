@@ -1,0 +1,304 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started With Hyperspace | Hypercore Protocol</title>
+
+    <!-- SEO -->
+    <meta name="Description" content="Hyperspace is a server that bundles together many of Hypercore&#39;s modules, handling many low-level details for you.">
+    <meta name="keywords" content="decentralization,hypercore,peer-to-peer,p2p,hyperdrive">
+
+    <!-- Social -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@HypercoreProto">
+    <meta name="twitter:creator" content="@HypercoreProto">
+    <meta name="og:title" content="Getting Started With Hyperspace | Hypercore Protocol">
+    <meta name="og:description" content="Hyperspace is a server that bundles together many of Hypercore&#39;s modules, handling many low-level details for you.">
+    <meta name="twitter:image" content="https://hypercore-protocol.org/images/hypercore-protocol.png">
+
+    
+      
+        <link rel="stylesheet" type="text/css" href="../../../css/layouts/guides.css">
+      
+    
+    <link rel="stylesheet" type="text/css" href="../../../fonts/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="wide">
+    <header class="desktop">
+      <div class="nav-left">
+        <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+        <a class="current" href="../../../guides" title="Guides">Guides</a>
+        <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+        <a class="" href="../../../install" title="Install">Install</a>
+        <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://chat.hypercore-protocol.org" title="Hypercore Discord Server"><img class="icon" src="../../../images/discord-icon.webp"></a>
+        <a href="https://twitter.com/hypercoreproto" title="Hypercore Twitter"><img class="icon" src="../../../images/twitter-icon.png"></a>
+        <a href="https://github.com/hypercore-protocol" title="Hypercore GitHub Org"><img class="icon" src="../../../images/github-icon.png"></a>
+      </div>
+    </header>
+    <header class="mobile">
+      <a href="../../../" title="Home"><img class="logo" src="../../../images/hypercore-protocol.png"></a>
+      <a id="mobile-menu-btn" href="#" title="Nav"><img class="menu" src="../../../images/icons8/menu-26.png"></a>
+    </header>
+    <div id="mobile-menu">
+      <a class="current" href="../../../" title="Home">Home</a>
+      <a class="current" href="../../../guides" title="Guides">Guides</a>
+      <a class="" href="../../../protocol" title="Protocol">Protocol</a>
+      <a class="" href="../../../install" title="Install">Install</a>
+      <a class="" href="../../../awesome-hacks" title="Awesome Hacks">Awesome Hacks</a>
+    </div>
+
+    
+
+
+<main>
+  <div class="guides-breadcrumbs">
+    
+    <a href="../../../guides/" title="Guides">Guides</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+  <span>&rsaquo;</span>
+    <a href="../../../guides/getting-started/hyperspace/" title="Using Hyperspace">Using Hyperspace</a>
+  
+  </div>
+  <div class="guides-layout">
+    <nav>
+      
+    <ul>
+      
+    <li>
+      <a class="child-current" href="../../../guides/getting-started/" title="Getting Started">Getting Started</a>
+      
+    <ul>
+      
+    <li>
+      <a class="current" href="../../../guides/getting-started/hyperspace/" title="Using Hyperspace">Using Hyperspace</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/getting-started/standalone-modules/" title="Using Standalone Modules">Using Standalone Modules</a>
+      
+    </li>
+  
+    </ul>
+  
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyp/" title="Hyp CLI">Hyp CLI</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/hyperspace/" title="Hyperspace API">Hyperspace API</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/modules/" title="Modules">Modules</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/walkthroughs/" title="Walkthroughs">Walkthroughs</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/workshops/" title="Workshops">Workshops</a>
+      
+    </li>
+  
+
+    <li>
+      <a class="" href="../../../guides/faq/" title="FAQ">FAQ</a>
+      
+    </li>
+  
+    </ul>
+  
+    </nav>
+    <div class="guide-content">
+      <h1><img src="../../../images/icons8/program-50.png"> Getting Started With Hyperspace</h1>
+<p>Hyperspace is a server that bundles together many of our core modules, handling many low-level details for you. It's intended to be a configuration-less, opinionated take on the Hypercore Protocol stack, with a handful of extra features to make things easy to use.</p>
+<h2>Installation</h2>
+<p>There are three ways to get started with Hyperspace:</p>
+<ol>
+<li><strong><a href="../../hyp/">Hyp CLI</a></strong>: The <code>hyp</code> CLI tool will internally spawn and communicate with a Hyperspace instance.</li>
+<li><strong>Standalone</strong>: <code>npm i hyperspace -g</code> gives you a <code>hyperspace</code> command that can be used to start a server.</li>
+<li><strong>Programmatically</strong>: The <code>hyperspace</code> module exports a <code>Server</code> class.</li>
+</ol>
+<p>If you've <a href="../../../install/">installed the hyp cli</a> you can just run:</p>
+<pre class="language-bash"><code class="language-bash">hyp daemon start</code></pre>
+<p>It will manage the daemon for you, and provides a couple helpful commands (<a href="../../hyp/commands/daemon-status">daemon status</a>, <a href="../../hyp/commands/daemon-stop">daemon stop</a>).
+If you've installed the hyperspace module globally, you can run it directly:</p>
+<pre class="language-bash"><code class="language-bash">hyperspace</code></pre>
+<p>This will run for as long you keep the process active.</p>
+<h3>Programmatically Running Hyperspace</h3>
+<p>While we recommend using the Hyp CLI in most cases, you can create the daemon programmatically.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> Server<span class="token operator">:</span> HyperspaceServer <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperspace'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> server<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>This will spawn the daemon in the current process.</p>
+<p>If you need to create separate Hyperspace instances than the default, you can set the <strong>storage</strong> and <strong>host</strong> params.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceServer</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  storage<span class="token operator">:</span> <span class="token string">'./my-hyperspace-storage'</span><span class="token punctuation">,</span><br>  host<span class="token operator">:</span> <span class="token string">'my-hyperspace'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Data will be stored wherever <strong>storage</strong> specifies.
+The <strong>host</strong> param determines how to identify the daemon server when connecting.</p>
+<div class="info-aside" markdown="1">
+<h4><img src="../../../images/icons8/info-24.png"> Hyperspace &quot;Host&quot; Parameter</h4>
+<p>By default, Hyperspace serves its RPC interface over a UNIX domain socket on Linux/OSX and a named pipe on Windows. You can configure the name of the domain socket with the <code>host</code> option, or with the <code>HYPERSPACE_SOCKET</code> environment variable.</p>
+</div>
+<h2>Connecting to the Daemon</h2>
+<p>However you've chosen to run Hyperspace, you can connect to it using the <a href="../../hyp/">hyp CLI</a>.
+Run this command to make sure the daemon is in good state:</p>
+<pre class="language-bash"><code class="language-bash">hyp daemon status</code></pre>
+<p>If you're running Hyperspace under a custom <strong>host</strong> parameter, specify it in the <code>HYPERSPACE_SOCKET</code> env var:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">HYPERSPACE_SOCKET</span><span class="token operator">=</span>my-hyperspace hyp daemon status</code></pre>
+<h3>Programmatically Connecting to the Daemon</h3>
+<p>Your apps can connect to the daemon using the client API.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> Client<span class="token operator">:</span> HyperspaceClient <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperspace'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>If you have a custom <strong>host</strong> parameter, pass it as an option:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  host<span class="token operator">:</span> <span class="token string">'my-hyperspace'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h3>Building Applications</h3>
+<p>Now that you have a client API connection, you can begin building with its APIs.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> Client<span class="token operator">:</span> HyperspaceClient <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperspace'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> store <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// create a new hypercore</span><br><span class="token keyword">const</span> core1 <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span> valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> core1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// append 2 blocks</span><br><br><span class="token comment">// seed the hypercore</span><br><span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>core1<span class="token punctuation">)</span></code></pre>
+<p>The Hyperspace client API includes 3 main interfaces:</p>
+<ul>
+<li><a href="../../hyperspace/hypercore/">RemoteHypercore</a> — An append-only log.</li>
+<li><a href="../../hyperspace/corestore/">RemoteCorestore</a> — A disk-storage manager for Hypercores.</li>
+<li><a href="../../hyperspace/networker/">RemoteNetworker</a> — A networking manager.</li>
+</ul>
+<p>You can use <a href="../../modules/hyperdrive/">hyperdrive</a> and <a href="../../modules/hyperbee/">hyperbee</a> on top of these APIs.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> hyperdrive <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperdrive'</span><span class="token punctuation">)</span><br><br><span class="token comment">// load and read the hyperdrive identified by `driveKey`</span><br><span class="token keyword">const</span> drive <span class="token operator">=</span> <span class="token function">hyperdrive</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> driveKey<span class="token punctuation">)</span><br><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>drive<span class="token punctuation">.</span>metadata<span class="token punctuation">)</span> <span class="token comment">// fetch from the network</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">await</span> drive<span class="token punctuation">.</span>promises<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> hyperbee <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'hyperbee'</span><span class="token punctuation">)</span><br><br><span class="token comment">// load and read the hyperbee identified by `beeKey`</span><br><span class="token keyword">const</span> bee <span class="token operator">=</span> <span class="token function">hyperbee</span><span class="token punctuation">(</span>client<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>beeKey<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  keyEncoding<span class="token operator">:</span> <span class="token string">'binary'</span><span class="token punctuation">,</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'json'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>bee<span class="token punctuation">.</span>feed<span class="token punctuation">)</span> <span class="token comment">// fetch from the network</span><br><span class="token keyword">await</span> bee<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">await</span> bee<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'some-key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h2>Walkthrough</h2>
+<p>Let's do a quick walkthrough to illustrate using Hyperspace a little more.
+If you want to follow along with the code, setup the walkthrough repo:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/hypercore-protocol/walkthroughs.git<br><span class="token builtin class-name">cd</span> walkthroughs/hyperspace<br><span class="token function">npm</span> <span class="token function">install</span></code></pre>
+<p>This walkthrough has a single dependency, <code>hyperspace</code> (not including <code>chalk</code>, for making CLI output pretty), which exports both the client and the server.</p>
+<h3>Step 1: Starting Two Hyperspace Servers</h3>
+<p>Let's create two Hyperspace servers, one simulating our local instance, and one simulating a remote peer:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Create one server to simulate your local Hyperspace instance.</span><br><span class="token keyword">const</span> localServer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceServer</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  storage<span class="token operator">:</span> <span class="token string">'./storage/hyperspace-storage-1'</span><span class="token punctuation">,</span><br>  host<span class="token operator">:</span> <span class="token string">'hyperspace-demo-1'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token comment">// Create a second server to simulate a remote peer.</span><br><span class="token keyword">const</span> remoteServer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceServer</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  storage<span class="token operator">:</span> <span class="token string">'./storage/hyperspace-storage-2'</span><span class="token punctuation">,</span><br>  host<span class="token operator">:</span> <span class="token string">'hyperspace-demo-2'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> localServer<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token keyword">await</span> remoteServer<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>A Hyperspace server emits a handful of events. These are useful for debugging, so let log a few of these to see when clients to the daemon connect and disconnect:</p>
+<pre class="language-js"><code class="language-js">localServer<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'client-open'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// Our program has connected to the daemon</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">green</span><span class="token punctuation">(</span><span class="token string">'(local) A HyperspaceClient has connected'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br>localServer<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'client-close'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token comment">// Our program has disconnected from the daemon</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">green</span><span class="token punctuation">(</span><span class="token string">'(local) A HyperspaceClient has disconnected'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperspace/1-start-servers.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">1</span>-start-servers.js</code></pre>
+<p>Now that both daemons are running, let's simulate a Hypercore replication in Step 2.</p>
+<h3>Step 2: Replicate RemoteHypercores</h3>
+<p>We'll create two Hyperspace clients, one for each server we started in Step 1:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Create a client that's connected to the "local" peer.</span><br><span class="token keyword">const</span> localClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  host<span class="token operator">:</span> <span class="token string">'hyperspace-demo-1'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create a client that's connected to the "remote" peer.</span><br><span class="token keyword">const</span> remoteClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  host<span class="token operator">:</span> <span class="token string">'hyperspace-demo-2'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Now on the &quot;local&quot; peer, let's create a new <a href="../../hyperspace/hypercore/">RemoteHypercore</a> and append a few blocks. Since RemoteHypercore mirrors the Hypercore API, they can be used interchangably.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Create a new RemoteCorestore.</span><br><span class="token keyword">const</span> localStore <span class="token operator">=</span> localClient<span class="token punctuation">.</span><span class="token function">corestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create a fresh Remotehypercore.</span><br><span class="token keyword">const</span> localCore <span class="token operator">=</span> localStore<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Append two blocks to the RemoteHypercore.</span><br><span class="token keyword">await</span> localCore<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>To create a RemoteHypercore, we first need to create a <a href="../../hyperspace/corestore/">RemoteCorestore</a> instance. A Corestore can be viewed as a Hypercore factory — it provides a <code>get</code> method for creating or instantiating Hypercores.</p>
+<p>Now we want to make this new Hypercore available to the Hyperswarm network. We'll use the <code>replicate</code> function:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Start seeding the Hypercore on the Hyperswarm network.</span><br>localClient<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>localCore<span class="token punctuation">)</span></code></pre>
+<p>We'll also log whenever the Hypercore connects to new peers:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Log when the core has any new peers.</span><br>localCore<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'peer-add'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">blue</span><span class="token punctuation">(</span><span class="token string">'(local) Replicating with a new peer.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<div class="info-aside" markdown="1">
+<h4><img src="../../../images/icons8/info-24.png"> Hyperspace Networking</h4>
+<p>Hyperswarm provides two configuration options for interacting with its DHT, <strong><code>announce</code></strong> and <strong><code>lookup</code></strong>.</p>
+<p>When you announce a discovery key, you advertise to the DHT that you're in possession of the corresponding Hypercore.
+A lookup, on the other hand, will not insert new entries into the DHT; it will only query the DHT to discover other peers announcing that discovery key.</p>
+<p>The Hyperspace client's <code>replicate</code> function is effectively sugaring around</p>
+<pre class="language-js"><code class="language-js">client<span class="token punctuation">.</span>network<span class="token punctuation">.</span><span class="token function">configure</span><span class="token punctuation">(</span>core<span class="token punctuation">.</span>discoveryKey<span class="token punctuation">,</span> <span class="token punctuation">{</span> announce<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> lookup<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+</div>
+<p>Our RemoteHypercore now contains two blocks and is being announced on the Hyperswarm DHT. It's time to create a RemoteHypercore on the second Hyperspace instance, which is simulating a remote peer.</p>
+<p>To do this, we'll duplicate the exact same steps as above, with one difference: we'll instantiate the second RemoteHypercore with the first core's key:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Create a fresh Remotehypercore.</span><br><span class="token comment">// Here we'll get a core using the shared key from above.</span><br><span class="token keyword">const</span> clone <span class="token operator">=</span> remoteStore<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  key<span class="token operator">:</span> localCore<span class="token punctuation">.</span>key<span class="token punctuation">,</span><br>  valueEncoding<span class="token operator">:</span> <span class="token string">'utf-8'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>After an identical <code>replicate</code> step on the <code>remoteClient</code>, the two Hypercores will be connected:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Start seeding the clone (this will connect to the first Hyperspace instance)</span><br>remoteClient<span class="token punctuation">.</span><span class="token function">replicate</span><span class="token punctuation">(</span>clone<span class="token punctuation">)</span></code></pre>
+<p>And finally the remote peer can read out the first two blocks:</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">green</span><span class="token punctuation">(</span><span class="token string">'First two blocks of the clone:'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><br>  <span class="token keyword">await</span> clone<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>  <span class="token keyword">await</span> clone<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><br><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperspace/2-replicate-hypercores.js" class="external" title="full code">full code</a>):</p>
+<pre class="language-bash"><code class="language-bash">node <span class="token number">2</span>-replicate-hypercores.js</code></pre>
+<h2>Next steps</h2>
+<p>You're ready to build applications using Hyperspace.
+The API pages can help you learn about the individual components, while the walkthroughs will help guide you through common tasks.</p>
+<div class="linklists two">
+  <div class="linklist">
+    <h4>APIs</h4>
+    <a href="../../hyperspace/">Hyperspace Client API</a>
+    <a href="../../hyperspace/corestore/">RemoteCorestore</a>
+    <a href="../../hyperspace/networker/">RemoteNetworker</a>
+    <a href="../../hyperspace/hypercore/">RemoteHypercore</a>
+    <a href="../../modules/hyperdrive/">Hyperdrive</a>
+    <a href="../../modules/hyperbee/">Hyperbee</a>
+  </div>
+  <div class="linklist">
+    <h4>Walkthroughs</h4>
+    <a href="../../walkthroughs/sharing-files-with-hyperdrive/">Sharing Files with Hyperdrive</a>
+    <a href="../../walkthroughs/p2p-indexing-with-hyperbee/">P2P Indexing with Hyperbee</a>
+  </div>
+</div>
+<style>
+  h1 img {
+    width: 40px;
+    position: relative;
+    top: 6px;
+  }
+
+  h4 img {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+</style>
+    </div>
+  </div>
+</main>
+
+    <footer>
+      <div class="patreon-cta">
+        <div class="patreon-cta-inner">
+          <img src="../../../images/icons8/heart-24-inverted.png">
+          Hypercore Protocol is open-source!
+          <a href="https://www.patreon.com/paul_maf_and_andrew" title="Patreon" target="_blank">Support us on Patreon</a>.
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-linklists">
+          <div>
+            <h5>Site</h5>
+            <div><a href="../../../" title="Home">Home</a></div>
+            <div><a href="../../../guides/" title="Guides">Guides</a></div>
+            <div><a href="../../../protocol/" title="Protocol">Protocol</a></div>
+            <div><a href="../../../install/" title="Install">Install</a></div>
+          </div>
+          <div>
+            <h5>Repos</h5>
+            <div><a href="https://github.com/hypercore-protocol/hyperspace" title="Hyperspace">Hyperspace</a></div>
+            <div><a href="https://github.com/hypercore-protocol/cli" title="Hyp CLI">Hyp CLI</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hypercore" title="Hypercore">Hypercore</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperdrive" title="Hyperdrive">Hyperdrive</a></div>
+            <div><a href="https://github.com/hypercore-protocol/hyperbee" title="Hyperbee">Hyperbee</a></div>
+            <div><a href="https://github.com/hyperswarm/" title="Hyperswarm">Hyperswarm</a></div>
+          </div>
+          <div>
+            <h5>Links</h5>
+            <div><a href="https://blog.hypercore-protocol.org" title="Blog">Blog</a></div>
+            <div><a href="https://github.com/hypercore-protocol" title="GitHub">GitHub</a></div>
+            <div><a href="https://twitter.com/hypercoreproto" title="Twitter">Twitter</a></div>
+            <div><a href="https://chat.hypercore-protocol.org" title="Discord Chat">Discord Chat</a></div>
+          </div>
+        </div>
+        <div class="copyrights">
+          Icons by <a href="https://icons8.com" title="Icons8">Icons8</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../../js/mobile-nav.js"></script>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>
+  </body>
+</html>
