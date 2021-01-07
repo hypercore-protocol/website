@@ -38,8 +38,8 @@ We'll start with Hypercore and the other data structures.
 Hypercore and Hyperdrive use a standard pattern for instantiating the objects:
 
 ```js
-const core = hypercore(storage[, key])
-const drive = hyperdrive(storage[, key])
+const core = new Hypercore(storage[, key])
+const drive = new Hyperdrive(storage[, key])
 ```
 
 There are three distinct usages for these constructors.
@@ -50,8 +50,8 @@ Let's go through each.
 The first usage is passing a storage location with no key:
 
 ```js
-const core = hypercore('./my-hypercore')
-const drive = hyperdrive('./my-hyperdrive')
+const core = new Hypercore('./my-hypercore')
+const drive = new Hyperdrive('./my-hyperdrive')
 ```
 
 This approach will load a "default" core or drive from the storage location.
@@ -62,8 +62,8 @@ If no default core or drive exists yet, one will be created.
 The second usage is passing a storage location with a `null` key:
 
 ```js
-const core = hypercore('./my-hypercore', null)
-const drive = hyperdrive('./my-hyperdrive', null)
+const core = new Hypercore('./my-hypercore', null)
+const drive = new Hyperdrive('./my-hyperdrive', null)
 ```
 
 This approach will always create a new core or drive.
@@ -73,8 +73,8 @@ This approach will always create a new core or drive.
 The third usage is passing a storage location with a key specified:
 
 ```js
-const core = hypercore('./my-hypercore', keyBuf)
-const drive = hyperdrive('./my-hyperdrive', keyBuf)
+const core = new Hypercore('./my-hypercore', keyBuf)
+const drive = new Hyperdrive('./my-hyperdrive', keyBuf)
 ```
 
 This approach will always load an existing core or drive.
@@ -86,8 +86,8 @@ Hyperbees are constructed differently than Hypercores and Hyperdrives.
 Rather than specifying some storage and/or key, you provide a Hypercore:
 
 ```js
-const core = hypercore('./my-hyperbee')
-const bee = hyperbee(core)
+const core = new Hypercore('./my-hyperbee')
+const bee = new Hyperbee(core)
 ```
 
 This is because, unlike Hyperdrive, Hyperbees only use one Hypercore to record their data.
@@ -115,7 +115,7 @@ Setting up a corestore is similar to setting up any hyper* structure.
 You just pass the storage path:
 
 ```js
-const store = corestore('./my-storage')
+const store = new Corestore('./my-storage')
 await store.ready()
 ```
 
@@ -125,21 +125,21 @@ Creating or loading the default:
 
 ```js
 const core = store.default()
-const drive = hyperdrive(store)
+const drive = new Hyperdrive(store)
 ```
 
 Creating a new structure:
 
 ```js
 const core = store.get()
-const drive = hyperdrive(store, null)
+const drive = new Hyperdrive(store, null)
 ```
 
 Loading an existing structure:
 
 ```js
 const core = store.get({ key: keyBuf })
-const drive = hyperdrive(store, keyBuf)
+const drive = new Hyperdrive(store, keyBuf)
 ```
 
 Notice that for Hyperdrives, you pass the corestore into the storage parameter.
@@ -158,7 +158,7 @@ const hypercore = require('hypercore')
 const hyperswarm = require('hyperswarm')
 
 // Setup the hypercore as usual.
-const core = hypercore(/* ... */)
+const core = new Hypercore(/* ... */)
 await core.ready()
 
 // Create a new swarm instance.

@@ -59,7 +59,7 @@ If you pass in a String, Hypercore will use on-disk storage by default, and will
 
 Let's create a new core with UTF-8 encoded blocks, stored in the `./main` directory:
 ```js
-const core = toPromises(hypercore('./main', {
+const core = toPromises(new Hypercore('./main', {
   valueEncoding: 'utf-8' // The blocks will be UTF-8 strings.
 }))
 ```
@@ -84,7 +84,7 @@ Now that our main core has two blocks in it, let's create a clone and start repl
 
 Let's simulate a remote peer by creating a read-only clone of the Hypercore from the previous step. 
 ```js
-const clone = toPromises(hypercore('./clone', core.key, {
+const clone = toPromises(new Hypercore('./clone', core.key, {
   valueEncoding: 'utf-8',
   sparse: true, // When replicating, don't eagerly download all blocks.
 }))

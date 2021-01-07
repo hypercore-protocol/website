@@ -124,7 +124,7 @@ You can use [hyperdrive](../../modules/hyperdrive/) and [hyperbee](../../modules
 const hyperdrive = require('hyperdrive')
 
 // load and read the hyperdrive identified by `driveKey`
-const drive = hyperdrive(client.corestore(), driveKey)
+const drive = new Hyperdrive(client.corestore(), driveKey)
 await drive.promises.ready()
 await client.replicate(drive.metadata) // fetch from the network
 console.log(await drive.promises.readdir('/'))
@@ -134,7 +134,7 @@ console.log(await drive.promises.readdir('/'))
 const hyperbee = require('hyperbee')
 
 // load and read the hyperbee identified by `beeKey`
-const bee = hyperbee(client.corestore().get(beeKey), {
+const bee = new Hyperbee(client.corestore().get(beeKey), {
   keyEncoding: 'binary',
   valueEncoding: 'json'
 })

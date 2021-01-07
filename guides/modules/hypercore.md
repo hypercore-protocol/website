@@ -32,7 +32,7 @@ The centerpiece of our ecosystem is Hypercore, a secure append-only log data str
 
 ```js
 var hypercore = require('hypercore')
-var feed = hypercore('./my-first-dataset', {valueEncoding: 'utf-8'})
+var feed = new Hypercore('./my-first-dataset', {valueEncoding: 'utf-8'})
 
 feed.append('hello')
 feed.append('world', function (err) {

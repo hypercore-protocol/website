@@ -33,12 +33,12 @@ css: css/pages/index.css
           Peer-to-peer file archives with a POSIX-like API.
         </p>
       </div>
-      <%- syntaxHighlight('javascript', `const drive = hyperdrive(hyp.corestore()).promises
+      <%- syntaxHighlight('javascript', `const drive = new Hyperdrive(hyp.corestore())
 
-await drive.writeFile('/hello.txt', 'world')
-await drive.readdir('/') // => ['hello.txt']
+await drive.promises.writeFile('/hello.txt', 'world')
+await drive.promises.readdir('/') // => ['hello.txt']
 
-hyp.replicate(drive) // seed on the network`) %>
+hyp.replicate(drive.metadata) // seed on the network`) %>
     </div>
   </section>
 
@@ -50,7 +50,7 @@ hyp.replicate(drive) // seed on the network`) %>
           Peer-to-peer key/value database built on distributed B-Trees.
         </p>
       </div>
-      <%- syntaxHighlight('javascript', `const db = hyperbee(hyp.corestore().get())
+      <%- syntaxHighlight('javascript', `const db = new Hyperbee(hyp.corestore().get())
 
 await db.put('key', 'value')
 await db.get('key') // { key: 'key', value: 'value' }

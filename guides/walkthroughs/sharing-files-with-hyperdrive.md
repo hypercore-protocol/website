@@ -45,8 +45,8 @@ npm install
 To create or load a hyperdrive as a standalone module, you follow this simple pattern:
 
 ```js
-const hyperdrive = require('hyperdrive')
-const drive = hyperdrive('./storage-path') // get or create drive at given path
+const Hyperdrive = require('hyperdrive')
+const drive = new Hyperdrive('./storage-path') // get or create drive at given path
 ```
 
 If a drive exists at the path you provide, it will be loaded.
@@ -56,13 +56,13 @@ You can load a specific drive within your storage by supplying a key.
 This will only load the drive, so if no data exists locally yet then it will instantiate as an empty read-only drive waiting to pull data from the network:
 
 ```js
-const drive = hyperdrive('./storage-path', Buffer.from(key, 'hex')) // load
+const drive = new Hyperdrive('./storage-path', Buffer.from(key, 'hex')) // load
 ```
 
 You can also force creation of a new drive by passing `null` for the key:
 
 ```js
-const drive = hyperdrive('./storage-path', null) // create new
+const drive = new Hyperdrive('./storage-path', null) // create new
 ```
 
 You can read details such as the key or writability of a drive after 'ready' has been emitted:
@@ -87,8 +87,8 @@ The walkthrough code uses RAM to avoid writing to your device.
 
 ```js
 const ram = require('random-access-memory')
-const drive1 = hyperdrive(ram, null) // create
-const drive2 = hyperdrive(ram, Buffer.from(key, 'hex')) // load
+const drive1 = new Hyperdrive(ram, null) // create
+const drive2 = new Hyperdrive(ram, Buffer.from(key, 'hex')) // load
 ```
 
 Run this step (<a href="https://github.com/hypercore-protocol/walkthroughs/blob/main/hyperdrive/step-1a.js" class="external" title="full code">full code</a>):
@@ -105,8 +105,8 @@ We'll assume you've created a Hyperspace `client` interface (see [Getting Starte
 Rather than passing a path into `hyperdrive()`, you pass a "corestore" instance.
 
 ```js
-const drive1 = hyperdrive(client.corestore(), null) // create
-const drive2 = hyperdrive(client.corestore(), Buffer.from(key, 'hex')) // load
+const drive1 = new Hyperdrive(client.corestore(), null) // create
+const drive2 = new Hyperdrive(client.corestore(), Buffer.from(key, 'hex')) // load
 ```
 
 The rest works the same as before.
@@ -118,8 +118,8 @@ The walkthrough code uses the simulator to avoid writing to your device.
 const createHyperspaceSimulator = require('hyperspace/simulator')
 const { client, cleanup } = await createHyperspaceSimulator()
 
-const drive1 = hyperdrive(client.corestore(), null) // create
-const drive2 = hyperdrive(client.corestore(), Buffer.from(key, 'hex')) // load
+const drive1 = new Hyperdrive(client.corestore(), null) // create
+const drive2 = new Hyperdrive(client.corestore(), Buffer.from(key, 'hex')) // load
 
 await cleanup() // shut down the simulator
 ```
@@ -198,7 +198,7 @@ You can diff between two versions to quickly see what has been modified:
 ```js
 // create an example drive
 const ram = require('random-access-memory')
-const drive = hyperdrive(ram, null)
+const drive = new Hyperdrive(ram, null)
 
 // write a file and capture a checkout at this time
 await drive.promises.writeFile('/hello.txt', 'world')

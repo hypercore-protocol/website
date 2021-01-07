@@ -22,8 +22,8 @@ description: API overview for the Hyperdrive module.
 Hyperdrive is a secure, real-time distributed file system designed for easy P2P file sharing.
 
 ```js
-var hyperdrive = require('hyperdrive')
-var drive = hyperdrive('./my-first-hyperdrive') // content will be stored in this folder
+var Hyperdrive = require('hyperdrive')
+var drive = new Hyperdrive('./my-first-hyperdrive') // content will be stored in this folder
 
 await drive.promises.writeFile('/hello.txt', 'world')
 
