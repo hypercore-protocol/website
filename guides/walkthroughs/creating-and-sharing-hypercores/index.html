@@ -199,7 +199,7 @@ Since this clone is going to be downloading data from the original core, we've s
 The first argument (<code>true</code> or <code>false</code>) indicates which peer initiated the replication process.
 Both replication streams are &quot;live&quot;, meaning they'll continue replicating indefinitely.</p>
 <div class="info-aside" markdown="1">
-<p>In this example, we're directly piping the two replication streams together, but in real-world scenarios you'll typically pipe into network streams (such as TCP or UTP peer connections) which we'll explore in the Hyperswarm walkthrough.</p>
+<p>In this example, we're directly piping the two replication streams together, but in real-world scenarios you'll typically pipe into network streams (such as TCP or UTP peer connections).</p>
 </div>
 <p>Now that the clone has a connected peer, we can start requesting blocks. These blocks will be lazily downloaded, because the clone was constructed in sparse mode:</p>
 <pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First clone block:'</span><span class="token punctuation">,</span> <span class="token keyword">await</span> clone<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 'hello'</span><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second clone block:'</span><span class="token punctuation">,</span> <span class="token keyword">await</span> clone<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 'world'</span></code></pre>
@@ -216,8 +216,6 @@ Both replication streams are &quot;live&quot;, meaning they'll continue replicat
 <h4><img src="../../../images/icons8/info-24.png"> Updating</h4>
 <p>When in sparse mode, you'll often want certain properties, like the core's length, to stay as up-to-date as possible. The <code>update</code> method will fetch small proofs from connected peers in order to update the core's metadata to a more recent version.</p>
 </div>
-<h2>Next Steps</h2>
-<p>In the <a href="/hyperswarm">Hyperswarm Walkthrough</a>, we'll see how to replicate Hypercores to remote peers over a P2P network.</p>
 <style>
   h4 img {
     position: relative;
