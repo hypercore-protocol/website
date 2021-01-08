@@ -121,7 +121,7 @@ Both replication streams are "live", meaning they'll continue replicating indefi
 
 <div class="info-aside" markdown="1">
 
-In this example, we're directly piping the two replication streams together, but in real-world scenarios you'll typically pipe into network streams (such as TCP or UTP peer connections) which we'll explore in the Hyperswarm walkthrough.
+In this example, we're directly piping the two replication streams together, but in real-world scenarios you'll typically pipe into network streams (such as TCP or UTP peer connections).
 
 </div>
 
@@ -164,10 +164,6 @@ The `sparse` flag turns on "sparse mode", which instructs a Hypercore to disable
 When in sparse mode, you'll often want certain properties, like the core's length, to stay as up-to-date as possible. The `update` method will fetch small proofs from connected peers in order to update the core's metadata to a more recent version. 
 
 </div>
-
-## Next Steps
-
-In the [Hyperswarm Walkthrough](/hyperswarm), we'll see how to replicate Hypercores to remote peers over a P2P network.
 
 <style>
   h4 img {
