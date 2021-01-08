@@ -1,0 +1,67 @@
+---
+layout: layouts/guides
+title: Example code | Hypercore Protocol
+description: Examples to help you get started with Hypercore Protocol.
+---
+
+<h1>Example Code</h1>
+
+Here are some examples to get you started with building on Hypercore Protocol.
+
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Examples</h4>
+    <a href="<%= rootPath %>guides/examples/hyperdrive-app/">Example Hyperdrive App</a>
+    <a href="<%= rootPath %>guides/examples/hyperbee-app/">Example Hyperbee App</a>
+  </div>
+</div>
+
+<h2>Common Boilerplate</h2>
+
+The examples use this common boilerplate to set up the Hyperspace Daemon connection:
+
+<%- syntaxHighlight('javascript', `import {
+  Client as HyperspaceClient,
+  Server as HyperspaceServer
+} from 'hyperspace'
+
+async function main () {
+  // Setup the Hyperspace Daemon connection
+  // =
+  const {client, cleanup} = await setupHyperspace()
+  console.log('Hyperspace daemon connected, status:')
+  console.log(await client.status())
+
+  // APPLICATION GOES HERE
+
+  await cleanup()
+}
+
+async function setupHyperspace () {
+  let client
+  let server
+  
+  try {
+    client = new HyperspaceClient()
+    await client.ready()
+  } catch (e) {
+    // no daemon, start it in-process
+    server = new HyperspaceServer()
+    client = new HyperspaceClient()
+    await server.ready()
+    await client.ready()
+  }
+  
+  return {
+    client,
+    async cleanup () {
+      await client.close()
+      if (server) {
+        console.log('Shutting down Hyperspace, this may take a few seconds...')
+        await server.stop()
+      }
+    }
+  }
+}
+
+main()`) %>

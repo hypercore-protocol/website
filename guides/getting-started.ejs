@@ -27,6 +27,14 @@ description: A guide to building with Hypercore.
   </a>
 </div>
 
+<div class="linklists two">
+  <div class="linklist">
+    <h4>Example Code</h4>
+    <a href="<%= rootPath %>guides/examples/hyperdrive-app/">Example Hyperdrive App</a>
+    <a href="<%= rootPath %>guides/examples/hyperbee-app/">Example Hyperbee App</a>
+  </div>
+</div>
+
 <p>
   <strong>Hyperspace</strong> is a batteries-included daemon that bundles together many of our core modules, handling many low-level details for you.
   99% of the time, it's what you'll want to use.
@@ -36,6 +44,7 @@ description: A guide to building with Hypercore.
   <strong>Standalone modules</strong> afford you the ability to tweak and customize, gradually honing in on the right set of components and configurations for your use-case.
   This is slightly more advanced, but may fit your needs more closely depending on what you're building.
 </p>
+
 
 <h2>Architectural Overview</h2>
 
@@ -79,5 +88,8 @@ description: A guide to building with Hypercore.
     width: 40px;
     position: relative;
     top: 6px;
+  }
+  .linklist h4 {
+    margin-top: 0;
   }
 </style>

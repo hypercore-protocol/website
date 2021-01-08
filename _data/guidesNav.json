@@ -30,6 +30,10 @@
     ["guides/hyp/commands/bee-del/", "hyp bee del"]
     ]]
   ]],
+  ["guides/examples/", "Example Code", [
+    ["guides/examples/hyperdrive-app/", "Hyperdrive App"],
+    ["guides/examples/hyperbee-app/", "Hyperbee App"]
+  ]],
   ["guides/hyperspace/", "Hyperspace API", [
     ["guides/hyperspace/corestore/", "RemoteCorestore"],
     ["guides/hyperspace/networker/", "RemoteNetworker"],
