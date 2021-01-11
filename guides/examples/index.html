@@ -180,8 +180,8 @@ The examples use this common boilerplate to set up the Hyperspace Daemon connect
   <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// no daemon, start it in-process</span>
     server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">await</span> server<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HyperspaceClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
   
