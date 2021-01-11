@@ -71,8 +71,8 @@ async function setupHyperspace () {
   } catch (e) {
     // no daemon, start it in-process
     server = new HyperspaceServer()
-    client = new HyperspaceClient()
     await server.ready()
+    client = new HyperspaceClient()
     await client.ready()
   }
   
