@@ -103,7 +103,7 @@ main()
   <div class="linklist">
     <h4>Walkthroughs</h4>
     <a href="../../getting-started/hyperspace/">Getting Started with Hyperspace</a>
-    <a href="../../walkthroughs/hyperbee/">P2P Indexing with Hyperbee</a>
+    <a href="../../walkthroughs/p2p-indexing-with-hyperbee/">P2P Indexing with Hyperbee</a>
   </div>
   <div class="linklist">
     <h4>Individual APIs</h4>
