@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 229">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 229">
   <style>
     .logo { 
       fill: black;
@@ -24,5 +24,5 @@
       <use href="#hypercube" x="43.30127" y="0"/>
     </g >
   </defs>
-  <use class="logo" href="#hypercore-protocol-logo" x="0" y="2"/>
+  <use class="logo" href="#hypercore-protocol-logo" x="2" y="2"/>
 </svg>
