@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 229">
+  <style>
+    .logo { 
+      fill: black;
+      stroke: white;
+    }
+    @media (prefers-color-scheme: dark) {
+      .logo { 
+        fill: white;
+        stroke: black;
+      }
+    }
+  </style>
+  <defs>
+    <rect id="isodiamond" stroke-width="2" stroke-linejoin="miter" stroke-miterlimit="1" width="43.30127" height="50" transform="skewY(30)"></rect>
+    <g id="hypercube" transform="translate(0 25)">
+      <use href="#isodiamond"/>
+      <use href="#isodiamond" transform="rotate(300)"/>
+      <use href="#isodiamond" transform="translate(86.60134 0) rotate(60)"/>
+    </g>
+    <g id="hypercore-protocol-logo">
+      <use href="#hypercube" x="0" y="125"/>
+      <use href="#hypercube" x="86.6025" y="75"/>
+      <use href="#hypercube" x="43.30127" y="0"/>
+    </g >
+  </defs>
+  <use class="logo" href="#hypercore-protocol-logo" x="0" y="2"/>
+</svg>
