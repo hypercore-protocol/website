@@ -171,7 +171,7 @@ Now we can see how different `createReadStream` options affect the pairs that ar
 | Last 10 pairs, reversed                  | `{limit: 10, reverse: true}`            |
 | Between 'a' and 'd', non-inclusive       | `{gt: 'a', lt: 'd'}`                    |
 | Between 'a' and 'd', inclusive           | `{gte: 'a', lte: 'd'}`                  |  
-| Between 'e' and 'f', inclusive, reversed | `{gte: 'e', 'lte: 'f', reversed: true}` |
+| Between 'e' and 'f', inclusive, reversed | `{gte: 'e', 'lte: 'f', reverse: true}` |
 
 ### Sparse Downloading
 
