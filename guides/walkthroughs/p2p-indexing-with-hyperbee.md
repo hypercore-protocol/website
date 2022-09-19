@@ -108,7 +108,7 @@ await b.flush()
 
 To read out a single kv-pair, you can use the `get` method:
 ```js
-const node = await db.get('a')) // An object of the form { key, value }
+const node = await db.get('a') // An object of the form { key, value }
 ```
 `get` will either return an object of the form `{ key, value }`, or `null`.
 
